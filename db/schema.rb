@@ -10,9 +10,86 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_182750) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "name"
+    t.string "specialty"
+    t.string "address"
+    t.string "phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
+  create_table "event_invited_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_invited_users_on_event_id"
+    t.index ["user_id"], name: "index_event_invited_users_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "type"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "title"
+    t.text "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_mentioned_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_mentioned_users_on_post_id"
+    t.index ["user_id"], name: "index_post_mentioned_users_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "preescriptions", force: :cascade do |t|
+    t.string "dosage"
+    t.string "frequency"
+    t.string "status"
+    t.date "end_time"
+    t.integer "tablets"
+    t.bigint "doctor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_preescriptions_on_doctor_id"
+  end
+
+  create_table "task_assigned_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_task_assigned_users_on_task_id"
+    t.index ["user_id"], name: "index_task_assigned_users_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "status"
+    t.string "title"
+    t.datetime "due_date"
+    t.string "type"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "patient_first"
@@ -32,11 +109,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_182750) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "team_id"
+    t.string "role"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "doctors", "users"
+  add_foreign_key "event_invited_users", "events"
+  add_foreign_key "event_invited_users", "users"
+  add_foreign_key "post_mentioned_users", "posts"
+  add_foreign_key "post_mentioned_users", "users"
+  add_foreign_key "preescriptions", "doctors"
+  add_foreign_key "task_assigned_users", "tasks"
+  add_foreign_key "task_assigned_users", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
 end
