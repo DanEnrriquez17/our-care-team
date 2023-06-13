@@ -35,13 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "type"
+    t.string "event_type"
     t.datetime "start"
     t.datetime "end"
     t.string "title"
     t.text "location"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "post_mentioned_users", force: :cascade do |t|
@@ -56,11 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "preescriptions", force: :cascade do |t|
+  create_table "prescriptions", force: :cascade do |t|
     t.string "dosage"
     t.string "frequency"
     t.string "status"
@@ -69,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
     t.bigint "doctor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_preescriptions_on_doctor_id"
+    t.index ["doctor_id"], name: "index_prescriptions_on_doctor_id"
   end
 
   create_table "task_assigned_users", force: :cascade do |t|
@@ -87,8 +91,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
     t.datetime "due_date"
     t.string "type"
     t.text "description"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -121,11 +127,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_221422) do
   add_foreign_key "doctors", "users"
   add_foreign_key "event_invited_users", "events"
   add_foreign_key "event_invited_users", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "post_mentioned_users", "posts"
   add_foreign_key "post_mentioned_users", "users"
-  add_foreign_key "preescriptions", "doctors"
+  add_foreign_key "posts", "users"
+  add_foreign_key "prescriptions", "doctors"
   add_foreign_key "task_assigned_users", "tasks"
   add_foreign_key "task_assigned_users", "users"
+  add_foreign_key "tasks", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
 end
