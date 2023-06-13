@@ -10,10 +10,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.all(params[:task])
+    @task = Task.new(params_task)
     @task.user = current_user
     if @task.save
-      redirect_to @task
+      redirect_to tasks_path(@task)
     else
       render :new
     end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   private
 
   def params_task
-    params.require(:task).permit(:title, :description, :status, :due_date, :type, :user_id)
+    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id)
   end
 
   def set_task

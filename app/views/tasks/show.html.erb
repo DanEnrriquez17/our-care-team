@@ -1,2 +1,46 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Details</title>
+</head>
+<body>
+  <header>
+    <h1>Task Details</h1>
+  </header>
+
+  <section>
+    <p>
+      <strong>Title:</strong>
+      <%= @task.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @task.description %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @task.status %>
+    </p>
+
+    <p>
+      <strong>Due Date:</strong>
+      <%= @task.due_date %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @task.task_type %>
+    </p>
+
+    <!-- Add more fields as needed -->
+
+  </section>
+
+  <footer>
+    <%= link_to 'Edit', edit_task_path(@task) %> |
+    <%= link_to 'Back', tasks_path %>
+  </footer>
+</body>
+</html>

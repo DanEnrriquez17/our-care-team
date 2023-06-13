@@ -19,3 +19,16 @@ User.create(email: "test5@gmail.com", role: "Family", first_name: "Marth", last_
 User.create(email: "test6@gmail.com", role: "Caretaker", first_name: "Ana", last_name: "Lopez", phone_number: "212-555-1244", password: "password", team: team)
 User.create(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", last_name: "Goodwin", phone_number: "212-555-1244", password: "password", team: team)
 
+user = User.first
+
+# Create tasks
+3.times do |i|
+  Task.create!(
+    title: "Task #{i + 1}",
+    description: "This is task #{i + 1}",
+    status: "pending", # we need to set these status options
+    due_date: Date.today + (i + 1).days,
+    task_type: "Appointment", # we need to set these options
+    user_id: user.id
+  )
+end

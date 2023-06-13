@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks_assigned_users
   devise_for :users
   root to: "pages#home"
   resources :tasks

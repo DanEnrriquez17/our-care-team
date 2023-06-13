@@ -1,2 +1,57 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Task</title>
+</head>
+<body>
+  <header>
+    <h1>New Task</h1>
+  </header>
+
+  <section>
+    <%= form_for @task do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div>
+      <%= f.label :status %>
+      <%= f.select :status, Task::STATUSES %>
+      </div>
+
+      <div>
+        <%= f.label :due_date %>
+        <%= f.date_field :due_date %>
+      </div>
+
+      <div>
+        <%= f.label :task_type %>
+        <%= f.select :task_type, Task::TASK_TYPES %>
+      </div>
+
+      <div>
+      <div>
+        <%= f.label :user_id, "Assignee" %>
+        <%= f.collection_select :user_id, User.all, :id, :first_name %>
+        <!-- Add more fields as needed -->
+      </div>
+      </div>
+      <!-- Add more fields as needed -->
+
+      <div>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </section>
+
+  <footer>
+    <%= link_to 'Back', tasks_path %>
+  </footer>
+</body>
+</html>
