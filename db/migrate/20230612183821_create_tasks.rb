@@ -1,3 +1,4 @@
+
 class CreateTasks < ActiveRecord::Migration[7.0]
   def change
     create_table :tasks do |t|
@@ -6,6 +7,7 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.datetime :due_date
       t.string :type
       t.text :description
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
