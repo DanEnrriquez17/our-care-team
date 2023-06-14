@@ -2,18 +2,20 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all
-  end
-
-  def new
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
   end
+
+  # def new
+  #   @post = Post.new
+  # end
 
   def create
-    @post = Post.new
+    @post = Post.new(params_post)
     @post.user = current_user
+    create_post_mentioned_users(@post)
     @post.save!
-    redirect_to @post
+    redirect_to posts_path
   end
 
   def edit
@@ -38,7 +40,14 @@ class PostsController < ApplicationController
   private
 
   def params_post
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, photos: [])
+  end
+
+  def create_post_mentioned_users(post)
+    post.content.scan(/#\w+/).each do |mentioned_user|
+      user = User.find_by(first_name: mentioned_user[1..-1])
+      PostMentionedUser.create!(user: user, post: post)
+    end
   end
 
   def set_post

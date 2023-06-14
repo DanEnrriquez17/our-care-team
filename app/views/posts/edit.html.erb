@@ -1,2 +1,9 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="p-auto bg bg-light d-flex flex-column align-items-center justify-content-center">
+  <h1>Modify Post</h1>
+
+  <%= render "post_form", post: @post %>
+
+  <br>
+
+  <%= link_to "Back to home", posts_path, class: "btn btn-dark"%>
+</div>
