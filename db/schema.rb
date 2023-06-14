@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_201353) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_181407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,13 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_201353) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.string "name"
     t.string "specialty"
     t.string "address"
     t.string "phone_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
