@@ -47,3 +47,6 @@ Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_numbe
 Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: 888-555-2323, user_id: 1, first_name: "Linda", last_name: "Smith")
 Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: 888-729-5656, user_id: 1, first_name: "John", last_name: "Karl")
 
+
+# <Prescription:0x00007fb3c9dd8220 id: nil, dosage: nil, frequency: nil, status: nil, end_time: nil, tablets: nil, doctor_id: nil, created_at: nil, updated_at: nil>
+Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)

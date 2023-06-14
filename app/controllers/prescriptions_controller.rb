@@ -19,9 +19,11 @@ class PrescriptionsController < ApplicationController
       redirect_to prescription_path(@prescription)
     else
       redirect_to new_prescription_path(@prescription)
+    end
   end
 
   def edit
+    @prescription = Prescription.find(params[:id])
   end
 
   def update
