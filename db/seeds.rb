@@ -32,3 +32,12 @@ user = User.first
     user_id: user.id
   )
 end
+#DAN POSTS SEEDS
+Post.create(title: "First Post user: 2", content: "This is the first post for the user no.2", user_id: "2")
+Post.create(title: "Second Post user: 2", content: "This is the second post for the user no.2", user_id: "2")
+Post.create(title: "First Post user: 3", content: "This is the first post for the user no.3", user_id: "3")
+Post.create(title: "Second Post user: 3", content: "This is the second post for the user no.3", user_id: "3")
+Post.create(title: "First Post user: 4", content: "This is the first post for the user no.4", user_id: "4")
+Post.create(title: "Second Post user: 4", content: "This is the second post for the user no.4", user_id: "4")
+Post.create(title: "First Post user: 5", content: "This is the first post for the user no.5", user_id: "5")
+Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
