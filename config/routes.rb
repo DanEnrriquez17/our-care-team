@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :post_mentioned_users
   end
   resources :events
-  
+
   resources :doctors do
     resources :prescriptions
   end
