@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_mentioned_users
   end
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :events
 end
