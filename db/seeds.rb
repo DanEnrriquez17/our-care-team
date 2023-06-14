@@ -19,3 +19,12 @@ User.create(email: "test5@gmail.com", role: "Family", first_name: "Marth", last_
 User.create(email: "test6@gmail.com", role: "Caretaker", first_name: "Ana", last_name: "Lopez", phone_number: "212-555-1244", password: "password", team: team)
 User.create(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", last_name: "Goodwin", phone_number: "212-555-1244", password: "password", team: team)
 
+#DAN POSTS SEEDS
+Post.create(title: "First Post user: 2", content: "This is the first post for the user no.2", user_id: "2")
+Post.create(title: "Second Post user: 2", content: "This is the second post for the user no.2", user_id: "2")
+Post.create(title: "First Post user: 3", content: "This is the first post for the user no.3", user_id: "3")
+Post.create(title: "Second Post user: 3", content: "This is the second post for the user no.3", user_id: "3")
+Post.create(title: "First Post user: 4", content: "This is the first post for the user no.4", user_id: "4")
+Post.create(title: "Second Post user: 4", content: "This is the second post for the user no.4", user_id: "4")
+Post.create(title: "First Post user: 5", content: "This is the first post for the user no.5", user_id: "5")
+Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
