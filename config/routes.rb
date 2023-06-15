@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   #CREATED BY LOWELL
   resources :events
   resources :doctors do
-    resources :prescriptions, except: [:index]
+    resources :prescriptions, except: [:index, :new, :create, :edit, :update]
   end
-  get "prescriptions", to: "prescriptions#index", as: "prescriptions"
-  get "prescriptions/new", to: "prescriptions#new", as: "new_prescription"
+  resources :prescriptions, only: [:index, :new, :create, :edit, :update]
   #CREATED BY ISAAC
     # Tasks routes/tasks_assigned_users nested routes
   resources :tasks do
