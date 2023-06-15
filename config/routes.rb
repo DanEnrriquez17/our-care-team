@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #CREATED BY DEVISE
   devise_for :users
   root to: "pages#home"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   #CREATED BY DAN
   resources :posts do
     resources :post_mentioned_users
@@ -15,6 +16,12 @@ Rails.application.routes.draw do
   get "prescriptions", to: "prescriptions#index", as: "prescriptions"
   get "prescriptions/new", to: "prescriptions#new", as: "new_prescription"
   #CREATED BY ISAAC
-  resources :tasks
-  resources :tasks_assigned_users
+    # Tasks routes/tasks_assigned_users nested routes
+  resources :tasks do
+    member do
+      patch :complete
+    end
+    resources :tasks_assigned_users, shallow: true
+  end
+
 end

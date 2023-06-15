@@ -1,0 +1,38 @@
+.container {
+  background-color: red;
+}
+
+.main-container {
+  background-color: rgb(229, 229, 230);
+  border-radius: 10px;
+  padding: 20px 10px;
+}
+
+.nav-container {
+  background-color: green;
+  margin-bottom: 5px;
+  height: 3.25rem;
+}
+
+.test-h1 {
+  text-align: center;;
+}
+
+.task-box {
+  background-color: rgb(212, 71, 71);
+  border-radius: 10px;
+  padding: 20px 10px;
+  margin-bottom: 10px;
+  height: 3.20rem;
+}
+
+$grid-gutter-width: 1.5rem !default;
+
+.tbody {
+  border-radius: 5px;
+}
+
+.task-row {
+  background-color: #1b73cb; /* This is a light gray color, change it to whatever you want */
+  margin-bottom: 4rem;
+}

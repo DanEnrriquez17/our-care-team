@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
 
   def index
     @tasks = Task.all
@@ -7,15 +7,17 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @users = User.all # This will fetch all users
   end
 
   def create
-    @task = Task.new(params_task)
+    @task = Task.new(task_params)
     @task.user = current_user
-    if @task.save
+    if @task.save!
       redirect_to tasks_path(@task)
     else
       render :new
+
     end
   end
 
@@ -25,8 +27,13 @@ class TasksController < ApplicationController
   def show
   end
 
+  def complete
+    @task.update(status: 'Completed')
+    redirect_to tasks_path
+  end
+
   def update
-    if @task.update(params_task)
+    if @task.update!(task_params)
       redirect_to tasks_path(@task)
     else
       redirect_to edit_task_path(@task), status: :unprocessable_entity
@@ -40,8 +47,8 @@ class TasksController < ApplicationController
 
   private
 
-  def params_task
-    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id)
+  def task_params
+    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id, assigned_user_ids: [])
   end
 
   def set_task
