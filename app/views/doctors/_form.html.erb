@@ -1,0 +1,32 @@
+<div>
+<%= form_for @doctor do |f| %>
+  <div>
+  <%= f.label "First Name" %>
+  <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+  <%= f.label "Last Name" %>
+  <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+  <%= f.label :specialty %>
+  <%= f.text_field :specialty %>
+  </div>
+
+  <div>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  </div>
+
+  <div>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
+</div>

@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :users
   #CREATED BY LOWELL
   resources :events
+  resources :doctors do
+    resources :prescriptions, except: [:index]
+  end
+  get "prescriptions", to: "prescriptions#index", as: "prescriptions"
+  get "prescriptions/new", to: "prescriptions#new", as: "new_prescription"
   #CREATED BY ISAAC
   resources :tasks
   resources :tasks_assigned_users

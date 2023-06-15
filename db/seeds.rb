@@ -41,3 +41,12 @@ Post.create(title: "First Post user: 4", content: "This is the first post for th
 Post.create(title: "Second Post user: 4", content: "This is the second post for the user no.4", user_id: "4")
 Post.create(title: "First Post user: 5", content: "This is the first post for the user no.5", user_id: "5")
 Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
+
+
+Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_number: 888-888-1212, user_id: 1, first_name: "Bill", last_name: "Jones")
+Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: 888-555-2323, user_id: 1, first_name: "Linda", last_name: "Smith")
+Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: 888-729-5656, user_id: 1, first_name: "John", last_name: "Karl")
+
+
+# <Prescription:0x00007fb3c9dd8220 id: nil, dosage: nil, frequency: nil, status: nil, end_time: nil, tablets: nil, doctor_id: nil, created_at: nil, updated_at: nil>
+Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)

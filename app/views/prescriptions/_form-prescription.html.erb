@@ -1,0 +1,43 @@
+Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)
+<div>
+<%= form_for @prescription do |f| %>
+  <div>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.label "Dosage" %>
+  <%= f.text_field :dosage %>
+  </div>
+
+  <div>
+  <%= f.label :frequency %>
+  <%= f.text_field :frequency %>
+  </div>
+
+  <div>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  </div>
+
+  <div>
+  <%= f.label :"date stopped taking" %>
+  <%= f.text_field :end_time %>
+  </div>
+
+  <div>
+  <%= f.label :"Pills Per Bottle" %>
+  <%= f.number_field :tablets %>
+  </div>
+
+  <div>
+  <%= f.label "Prescribing Doctor" %>
+  <%= f.select :doctor_id %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
+</div>

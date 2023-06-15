@@ -1,0 +1,5 @@
+<h1>Dr. <%= @doctor.first_name %> <%= @doctor.last_name %></h1>
+<p>specialty <%= @doctor.specialty %></p>
+<p>address <%= @doctor.address %></p>
+<p>Phone Number <%= @doctor.phone_number %></p>
+<%= link_to "update information", edit_doctor_path(@doctor) %>
