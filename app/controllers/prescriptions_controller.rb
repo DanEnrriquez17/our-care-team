@@ -9,24 +9,29 @@ class PrescriptionsController < ApplicationController
 
   def new
     @prescription = Prescription.new
+    @doctors = Doctor.all
   end
 
   def create
     @prescription = Prescription.new(prescription_params)
-    @doctor = Doctor.find(params[:doctor_id])
-    @prescription.doctor = @doctor
+    @doctor = Doctor.find(prescription_params[:doctor_id])
     if @prescription.save!
-      redirect_to prescription_path(@prescription)
+      redirect_to doctor_prescription_path(@doctor, @prescription)
     else
-      redirect_to new_prescription_path(@prescription)
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
     @prescription = Prescription.find(params[:id])
+    @doctors = Doctor.all
   end
 
   def update
+    @prescription = Prescription.find(params[:id])
+    @prescription.update(prescription_params)
+    # no need for update view
+    redirect_to doctor_prescription_path(@prescription)
   end
 
   def destroy
@@ -35,6 +40,6 @@ class PrescriptionsController < ApplicationController
   private
 
   def prescription_params
-    params.require(:prescription).permit(:id, :specialty, :address, :phone_number, :first_name, :last_name)
+    params.require(:prescription).permit(:id, :name, :dosage, :frequency, :status, :end_time, :tablets, :doctor_id)
   end
 end
