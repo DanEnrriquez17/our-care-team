@@ -1,28 +1,28 @@
 <div>
     <div class="p-auto bg bg-light d-flex flex-column align-items-center justify-content-center">
       <h3>Create Post</h3>
-      <%= render "post_form", post: @post %>
+      <%= render "post_form" %>
     </div>
 </div>
 
 <div>
-  <% @posts.each do |post| %>
-    <div class="post d-flex justify-content-between align-items-center">
-      <div>
-        <ul>
-            <li><%= post.owner[:first_name] %> posted:</li>
-            <li><%= post.title %></li>
-            <li><%= post.content %></li>
-            <li>Tagged users:
-              <% post.post_mentioned_users.each do |post_mentioned_user| %>
-                <%= full_name(post_mentioned_user.user) %>,
-              <% end %>
-            </li>
-        </ul>
+    <% @posts.each do |post| %>
+      <div class="post d-flex justify-content-between align-items-center">
+        <div>
+          <ul>
+              <li><%= post.owner[:first_name] %> posted:</li>
+              <li><%= post.title %></li>
+              <li><%= post.content %></li>
+              <li>Tagged users:
+                <% post.post_mentioned_users.each do |post_mentioned_user| %>
+                  <%= full_name(post_mentioned_user.user) %>,
+                <% end %>
+              </li>
+          </ul>
+        </div>
+        <div>
+          <%= link_to "<i class='fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, post_path(post)%>
+        </div>
       </div>
-      <div>
-        <%= link_to "<i class='fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, post_path(post)%>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>

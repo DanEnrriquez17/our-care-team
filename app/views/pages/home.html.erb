@@ -1,2 +1,79 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="main-body">
+  <div class="d-navbar">
+    <ul>
+      <li><%= link_to "<i class='fa-solid fa-house fa-xl' style='color: #ffffff;'></i>".html_safe, root_path %></li>
+      <li><%= link_to "<i class='fa-solid fa-message fa-xl' style='color: #ffffff;'></i>".html_safe, posts_path %></li>
+      <li> <%= link_to "<i class='fa-solid fa-list-check fa-xl' style='color: #ffffff;'></i>".html_safe, tasks_path %></li>
+      <li><%= link_to "<i class='fa-solid fa-calendar-days fa-xl' style='color: #ffffff;'></i>".html_safe, events_path %></li>
+      <li><%= link_to "<i class='fa-solid fa-user-doctor fa-xl' style='color: #ffffff;'></i>".html_safe, "#" %></li>
+      <li><%= link_to "<i class='fa-solid fa-file fa-xl' style='color: #ffffff;'></i>".html_safe, "#" %></li>
+    </ul>
+  </div>
+  <div class="container d-con">
+    <div class="row d-row">
+      <div class="col d-col">
+        <div class="info-user">
+          <h2>Hello! <%= current_user.first_name %> welcome to your Care Team!</h2>
+          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"ava-img"%>
+        </div>
+      </div>
+      <div class="col d-col">
+        <div class="tasks cont-dash">
+          <div class="task-title">
+            <h2>Tasks</h2>
+            <%= link_to "<i class='fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_task_path %>
+          </div>
+          <% task = Task.all.first(5) %>
+          <% task.each do |task| %>
+            <tr>
+              <td><%= task.owner.first_name %></td>
+              <td><%= task.title %></td>
+              <td><%= task.description %></td>
+              <td><%= task.status %></td>
+              <td><%= task.due_date %></td>
+              <td><%= task.task_type %></td>
+              <td><%= link_to 'Show', task %></td>
+              <td><%= link_to 'Edit', edit_task_path(task) %></td>
+              <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row d-row">
+      <div class="col d-col">
+        <div class="posts cont-dash">
+          <div class="task-title">
+            <h2>Posts</h2>
+            <%= link_to "<i class='fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_post_path %>
+          </div>
+          <% post_feed = Post.all.first(5) %>
+          <% post_feed.each do |post| %>
+            <div class="main-post d-flex justify-content-between align-items-center">
+              <ul>
+                <li><%= post.owner[:first_name] %> posted:</li>
+                <li><%= post.title %></li>
+                <li><%= post.content %></li>
+                <li>Tagged users:
+                  <% post.post_mentioned_users.each do |post_mentioned_user| %>
+                    <%= full_name(post_mentioned_user.user) %>,
+                  <% end %>
+                </li>
+              </ul>
+            <div>
+            <%= link_to "<i class='fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, post_path(post)%>
+          <% end %>
+        </div>
+      </div>
+      <div class="col d-col">
+        <div class="events cont-dash">
+          <div class="task-title">
+            <h2>Events</h2>
+            <%= link_to "<i class='fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_event_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

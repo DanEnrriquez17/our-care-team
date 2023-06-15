@@ -61,7 +61,28 @@
         </table>
       </section>
 
+<<<<<<< HEAD
       <footer>
+=======
+      <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= task.owner.first_name %></td>
+              <td><%= task.title %></td>
+              <td><%= task.description %></td>
+              <td><%= task.status %></td>
+              <td><%= task.due_date %></td>
+              <td><%= task.task_type %></td>
+              <!-- Add more fields as needed -->
+              <td><%= link_to 'Show', task %></td>
+              <td><%= link_to 'Edit', edit_task_path(task) %></td>
+              <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </section>
+>>>>>>> master
 
       </footer>
   </div>
