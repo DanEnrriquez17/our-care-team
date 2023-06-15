@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :tasks_assigned_users
   devise_for :users
   root to: "pages#home"
-  resources :tasks
+  # Tasks routes/tasks_assigned_users nested routes
+  resources :tasks do
+    member do
+      patch :complete
+    end
+    resources :tasks_assigned_users, shallow: true
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :posts do
     resources :post_mentioned_users

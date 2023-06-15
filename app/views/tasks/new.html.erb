@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>New Task</title>
-</head>
-<body>
+
+
   <header>
     <h1>New Task</h1>
   </header>
@@ -36,9 +32,10 @@
       </div>
 
       <div>
-      <div>
-        <%= f.label :user_id, "Assignee" %>
-        <%= f.collection_select :user_id, User.all, :id, :first_name %>
+        <%= f.label :assigned_users %>
+        <%= f.collection_select :assigned_user_ids, User.all, :id, :first_name, {}, { multiple: true } %>
+      </div>
+
         <!-- Add more fields as needed -->
       </div>
       </div>
@@ -53,5 +50,3 @@
   <footer>
     <%= link_to 'Back', tasks_path %>
   </footer>
-</body>
-</html>

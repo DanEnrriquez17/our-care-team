@@ -6,17 +6,19 @@ class TasksAssignedUsersController < ApplicationController
   end
 
   def new
-    @task_assigned_user = TaskAssignedUser.new
+    @task = Task.find(params[:task_id])
+    @task_assigned_user = @task.tasks_assigned_users.new
   end
 
-  def create
-    @task_assigned_user = TaskAssignedUser.new(task_assigned_user_params)
-    if @task_assigned_user.save
-      redirect_to @task_assigned_user
-    else
-      render :new
-    end
+def create
+  @task = Task.find(params[:task_id])
+  @task_assigned_user = @task.tasks_assigned_users.new(task_assigned_user_params)
+  if @task_assigned_user.save
+    redirect_to @task_assigned_user
+  else
+    render :new
   end
+end
 
   def edit
   end
@@ -40,7 +42,7 @@ class TasksAssignedUsersController < ApplicationController
   private
 
   def task_assigned_user_params
-    params.require(:task_assigned_user).permit(:id_users, :id_tasks)
+    params.require(:task_assigned_user).permit(:id_user, :id_task)
   end
 
   def set_task_assigned_user
