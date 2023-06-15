@@ -1,5 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "index_post_page";
-@import "index_task_page";
+
+// CREATED BY DAN
+  // HOME PAGE
 @import "home_index_page";
+  // POSTS PAGES
+@import "index_post_page";
+@import "show_post_page";
+
+// CREATED BY ISAAC
+@import "index_task_page";
+
+
+// CREATED BY LOWELL

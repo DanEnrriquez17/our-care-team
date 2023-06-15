@@ -1,23 +1,44 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-<h2><%= @post.title %></h2>
-<p><%= @post.content %></p>
-<p><%= @post.owner[:first_name] %> <%= @post.owner[:last_name] %></p>
-<div>
-  <% @post.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+<div class="container post-cont d-block">
+  <h2><strong><%= @post.owner[:first_name] %> <%= @post.owner[:last_name]%></strong> posted:</h2>
+  <div class="d-flex justify-content-around align-items-center post-body">
+    <div class="dark-backg">
+      <h2><strong>Title:</strong></h2>
+      <h2 class="post-title"><%= @post.title %></h2>
+    </div>
+    <div class="dark-backg">
+      <h3><strong>Content:</strong></h3>
+      <p><%= @post.content %></p>
+    </div>
+    <div class="dark-backg">
+      <h3><strong>Documents attached:</strong></h3>
+      <% @post.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-items-center links">
+    <%= link_to "Go back to posts", posts_path, class:"link"%>
+    <% if @post.owner == current_user %>
+      <%= link_to "Modify the post", edit_post_path, class:"link"%>
+      <%= link_to "Erase the post", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"link"%>
+    <% end %>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center dark-backg">
+    <%= simple_form_for [@post, PostMentionedUser.new] do |f| %>
+      <div class="d-flex justify-content-start align-items-center tag">
+        <%= f.input :user_id, collection: User.all.map { |user| [full_name(user), user.id] }, label: "Tag someone" %>
+        <%= f.submit "Add user", class: "button" %>
+      </div>
+    <% end %>
+
+    <div class="d-flex align-items-center">
+      <p>Mentioned users: </p>
+      <p>
+        <% @post.post_mentioned_users.each do |post_mentioned_user| %>
+          <%= full_name(post_mentioned_user.user) %>,
+        <% end %>
+      </p>
+    </div>
+  </div>
 </div>
-<p><%= link_to "Go back home", posts_path %></p>
-<p><%= link_to "Modify the post", edit_post_path %></p>
-<p><%= link_to "Erase the post", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-
-
-<% @post.post_mentioned_users.each do |post_mentioned_user| %>
-  <%= full_name(post_mentioned_user.user) %>
-<% end %>
-
-<%= simple_form_for [@post, PostMentionedUser.new] do |f| %>
-  <%= f.input :user_id, collection: User.all.map { |user| [full_name(user), user.id] } %>
-  <%= f.submit "Add user" %>
-<% end %>
