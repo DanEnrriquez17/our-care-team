@@ -1,0 +1,35 @@
+<div>
+<%= form_for @event do |f| %>
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </div>
+
+  <div>
+  <%= f.label :event_type %>
+  <%= f.select :event_type, Event::EVENTTYPES %>
+  </div>
+
+
+
+  <div>
+  <%= f.label :start %>
+  <%= f.datetime_field :start %>
+  </div>
+  
+
+  <div>
+  <%= f.label :end %>
+  <%= f.datetime_field :end %>
+  </div>
+
+  <div>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,7 +1,16 @@
-<% if @events %>
-  <h1>Event#index</h1>
-  <p>Find me in app/views/event/index.html.erb</p>
-  <%= @events %>
-<% else %>
-  <h2>No events created</h2>
-<% end %>
+<div>
+<h1>Calendar</h2>
+
+  <div id="calendar" class="simple-calendar">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date %>
+
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event.title, edit_event_path(event) %>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+
+</div>

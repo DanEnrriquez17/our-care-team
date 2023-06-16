@@ -1,2 +1,6 @@
-<h1>Event#edit</h1>
-<p>Find me in app/views/event/edit.html.erb</p>
+<div>
+<h1>Edit <%= @event.title %></h1>
+<%= render "event-form", event: @event %>
+<h3><%= link_to "Delete Event", event_path(@event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" } %>
+</h3>
+</div>
