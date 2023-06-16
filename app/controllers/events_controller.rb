@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
-  # before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:destroy]
 
   def index
-    @events = Event.all
+      # Scope your query to the dates being shown:
+      start_date = params.fetch(:start_date, Date.today).to_date
+      @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def show
-    @event = Event.find[event_params]
+    @event = Event.find(params[:id])
+    # only call strong params when creating and updating
   end
 
   def new
@@ -16,10 +19,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-      if @event.save
+      if @event.save!
         redirect_to event_path(@event)
       else
-        redirect_to new_event_path(@event), status: :unprocessable_entity
+        render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,20 +31,24 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.destroy
-    redirect_to index_path, alert: "your event was deleted"
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    # No need for app/views/doctors/update.html.erb
+    redirect_to events_path
   end
 
   def destroy
+    @event.destroy
+    redirect_to events_path, alert: "your event was deleted"
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:event_type, :start, :end, :title, :location, :user_id)
+    params.require(:event).permit(:id, :event_type, :start, :end, :title, :location, :user_id)
   end
 
-  # def set_event
-  #   @event = Event.find(params[:id])
-  # end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 end
