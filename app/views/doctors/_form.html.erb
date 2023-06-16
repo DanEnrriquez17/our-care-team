@@ -1,32 +1,29 @@
-<div>
-<%= form_for @doctor do |f| %>
+<%= simple_form_for(@doctor) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div>
-  <%= f.label "First Name" %>
-  <%= f.text_field :first_name %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :first_name %>
+    </div>
 
-  <div>
-  <%= f.label "Last Name" %>
-  <%= f.text_field :last_name %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :last_name %>
+    </div>
 
-  <div>
-  <%= f.label :specialty %>
-  <%= f.text_field :specialty %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :specialty %>
+    </div>
 
-  <div>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :address %>
+    </div>
 
-  <div>
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :phone_number %>
+    </div>
 
-  <div>
-  <%= f.submit %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
   </div>
 <% end %>
-</div>

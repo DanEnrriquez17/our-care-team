@@ -8,15 +8,17 @@
 }
 
 .ava-img{
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 .info-user{
   display: flex;
   background-color: #5cb1ef;
   border-radius: 10px;
-  height: auto;
+  height: 30vh;
+  padding: 20px;
 }
 .task-title{
   display: flex;
@@ -36,16 +38,20 @@
   margin: 5px;
 }
 .posts{
-  height: 80vh;
+  height: 63vh;
   overflow: scroll;
 }
-
+.tasks{
+  height: 30vh;
+  overflow: scroll;
+}
 .main-post{
   background-color: white;
   margin: 5px;
   border-radius: 10px;
   ul {
     list-style: none;
+    font-size: 12px;
   }
   .arrow{
     margin: 15px;
