@@ -15,4 +15,17 @@ module ApplicationHelper
       "OTHER_ICON_emnk13.svg"
     end
   end
+
+def status_class(status)
+  case status
+  when 'Pending'
+    'status-pending'
+  when 'Completed'
+    'status-completed'
+  when 'Past Due'
+    'status-past-due'
+  else
+    'status-default'
+  end
+end
 end

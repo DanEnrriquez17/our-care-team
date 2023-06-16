@@ -1,13 +1,15 @@
 <div>
+<div class="d-inline">
 <h1>Calendar</h2>
-
+<%= render "modal", event: @event %>
+</div>
   <div id="calendar" class="simple-calendar">
   <%= month_calendar(events: @events) do |date, events| %>
     <%= date %>
 
     <% events.each do |event| %>
       <div>
-        <%= link_to event.title, edit_event_path(event) %>
+        <%= render "edit_event_modal", event: event %>
       </div>
     <% end %>
   <% end %>

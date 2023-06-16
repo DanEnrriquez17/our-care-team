@@ -18,6 +18,9 @@
   border-radius: 5px;
 }
 
+.mb-2 {
+  margin-left: 1rem;
+}
 .task-row {
   background-color: #1b73cb; /* This is a light gray color, change it to whatever you want */
   margin-bottom: 4rem;
@@ -47,15 +50,7 @@
   padding-left: 5px;
 }
 
-.task-bar-text {
-  font-family: "poppins";
-}
-
-.task-bar-assigned {
-  font-family: "poppins";
-}
-
-.task-bar-overview {
+.task-bar-text .task-bar-assigned .task-bar-overview {
   font-family: "poppins";
 }
 
@@ -80,22 +75,28 @@ h1 {
 .task-box-one {
   background: linear-gradient(to right, #ffc388 0%, #ff9517 100%);
   border-radius: 20px;
-  height: 8.2rem;
-  margin-left: 65px;
+  height: 115px;
+  width: 260px;
+  margin-left: 27px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .task-box-two {
   background: linear-gradient(to right, #b792fc 0%, #9f55ff 100%);
   border-radius: 20px;
-  height: 8.2rem;
-  margin-left: 65px;
+  height: 115px;
+  width: 260px;
+  margin-left: 27px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .task-box-three {
   background: linear-gradient(to right, #72b4ce 0%, #1e9cd7 100%);
   border-radius: 20px;
-  height: 8.2rem;
-  margin-left: 65px;
+  height: 115px;
+  width: 260px;
+  margin-left: 27px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .test-h1 {
@@ -118,4 +119,29 @@ h1 {
   overflow: scroll;
   height: 40vh;
   background-color: #f0f0f0;
+}
+
+.status-pending {
+  color: rgb(217, 32, 226);
+  font-weight: bold;
+}
+
+.status-completed {
+  color: rgb(27, 202, 27);
+  font-weight: bold;
+}
+
+.status-past-due {
+  color: red;
+  font-weight: bold;
+}
+
+.status-default {
+  color: black;
+  font-weight: bold;
+}
+
+.big-icon {
+  font-size: 24px;
+  margin-top: 14px;
 }
