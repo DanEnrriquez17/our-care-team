@@ -1,0 +1,47 @@
+<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= event.id %>">
+  <%= event.title %>
+</button>
+
+<div class="modal fade" id="exampleModal<%= event.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModal<%= event.id %>Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModal<%= event.id %>Label">Edit Event</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_for event do |f| %>
+        <div class="modal-body">
+          <div>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+          </div>
+
+          <div>
+          <%= f.label :event_type %>
+          <%= f.select :event_type, Event::EVENTTYPES %>
+          </div>
+
+          <div>
+          <%= f.label :start %>
+          <%= f.datetime_field :start %>
+          </div>
+
+          <div>
+          <%= f.label :end %>
+          <%= f.datetime_field :end %>
+          </div>
+
+          <div>
+          <%= f.label :location %>
+          <%= f.text_field :location %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= link_to "Delete Event", event_path(event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" } %>
+          <%= f.submit "Save changes", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
