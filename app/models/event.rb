@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :event_invited_users
   has_many :invited_users, through: :event_invited_users, source: :user # this is the user's invited events
+  has_many :medical_appointments
+  has_many :doctors, through: :medical_appointments
   validates :event_type, inclusion: { in: EVENTTYPES }
   validates :start, :end, presence: true
 
