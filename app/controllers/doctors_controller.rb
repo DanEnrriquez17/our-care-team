@@ -1,15 +1,15 @@
 class DoctorsController < ApplicationController
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.all.order(created_at: :desc)
+    @doctor = Doctor.new
   end
 
   def show
     @doctor = Doctor.find(params[:id])
   end
 
-  def new
-    @doctor = Doctor.new
-  end
+  # def new
+  # end
 
   def create
     @doctor = Doctor.new(doctor_params)

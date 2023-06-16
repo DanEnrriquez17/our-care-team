@@ -2,7 +2,7 @@
     <div class="row d-row">
       <div class="col d-col">
         <div class="info-user">
-            <h2>Hello! <%= current_user.first_name %> welcome to your Care Team!</h2>
+          <h2>Hello! <%= current_user.first_name %> welcome to your Care Team!</h2>
           <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"ava-img"%>
         </div>
       </div>
@@ -12,7 +12,7 @@
             <h2>Tasks</h2>
             <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_task_path %>
           </div>
-          <% task = Task.all.first(5) %>
+          <% task = Task.all %>
           <% task.each do |task| %>
             <div class="container">
               <tr>
