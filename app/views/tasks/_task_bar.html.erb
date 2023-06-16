@@ -9,16 +9,21 @@
        </p>
     </div>
   </div>
-  <div class="col-3 task-column">
+  <div class="col-2 task-column">
    <p class = "task-bar-assigned" style="line-height:1.4"><strong>Assigned Members</strong><br>
        <%= task.assigned_users.map(&:first_name).join(', ') %>
   </div>
   <div class="col-2 task-column">
    <p class = "task-bar-assigned" style="line-height:1.4"><strong>Created At</strong><br>
-    <%= task.created_at.strftime("%m/%d/%Y") %>
+     <%= task.created_at.strftime("%m/%d/%Y %H:%M") %>
   </div>
   <div class="col-2 task-column">
    <p class = "task-bar-assigned" style="line-height:1.4"><strong>Status</strong><br>
-    <%= task.status %>
+     <span class="<%= status_class(task.status) %>"><%= task.status %></span>
+  </div>
+  <div class="col-1 task-column">
+  <%= link_to task_path(task) do %>
+    <i class="fa-solid fa-arrow-right big-icon"></i>
+  <% end %>
   </div>
 </div>

@@ -1,21 +1,21 @@
 <div class="container main-container">
-      <div class= "row m-3 task-overview">
+      <div class= "row task-overview">
        <div class="col-md-3 d-flex task-box-one">
         <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> New Tasks<br>assigned</p>
+          <p class="test-h1" style="line-height:1.2"> My<br>tasks</p>
         </div>
         <div class="col-md-3 d-flex task-box-two">
          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks in<br>progress.</p>
+          <p class="test-h1" style="line-height:1.2"> Tasks<br>pending</p>
         </div>
         <div class="col-md-3 d-flex task-box-three">
          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks<br>completed</p>
+          <p class="test-h1" style="line-height:1.2"> Tasks<br>complete</p>
         </div>
     </div>
-      <div class="row m-3" >
+      <div class="row" >
         <div class="col-md-9">
-          <h1 class="mb-4">Tasks</h1>
+          <h1 class="mb-2">Tasks</h1>
         </div>
         <div class= "col-md-3 add-task-button">
         <%= link_to 'Create Task', new_task_path, class: 'btn btn-primary' %>

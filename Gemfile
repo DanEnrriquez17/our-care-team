@@ -32,7 +32,7 @@ gem 'faker'
 
 # gem for building out events calendar
 gem "simple_calendar", "~> 2.4"
-
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
