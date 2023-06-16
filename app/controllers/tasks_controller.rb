@@ -2,7 +2,21 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
 
   def index
-    @tasks = Task.order(created_at: :desc)
+    if params[:filter]
+      if params[:filter] == 'user'
+        @tasks = current_user.assigned_tasks
+      else
+        @tasks = Task.where(status: params[:filter])
+      end
+    else
+      @tasks = Task.all
+    end
+    @tasks = @tasks.order(:due_date)
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'tasks/tasks', locals: { tasks: @tasks }, formats: [:html] }
+    end
   end
 
   def new

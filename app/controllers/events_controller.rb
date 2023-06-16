@@ -5,7 +5,8 @@ class EventsController < ApplicationController
       # Scope your query to the dates being shown:
       start_date = params.fetch(:start_date, Date.today).to_date
       @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-  end
+      @event = Event.new
+    end
 
   def show
     @event = Event.find(params[:id])
@@ -20,7 +21,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
       if @event.save!
-        redirect_to event_path(@event)
+        redirect_to events_path, alert: "your event was created"
       else
         render :new, status: :unprocessable_entity
     end

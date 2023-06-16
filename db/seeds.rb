@@ -8,6 +8,8 @@
 
 # #<User id: nil, email: "", created_at: nil, updated_at: nil, team_id: nil, role: nil, first_name: nil, last_name: nil, phone_number: nil>
 #  #<Team:0x00007f940b1ecdb8 id: nil, patient_first: nil, patient_last: nil, created_at: nil, updated_at: nil, user_id: nil>
+
+#LOWELL USERS SEEDS
 admin = User.create(email: "test1@gmail.com", role: "Admin", first_name: "Lobo", last_name: "Alexander", phone_number: "212-555-1212", password: "password")
 team = Team.create(patient_first: "Richard", patient_last: "Alexander", user: admin)
 
@@ -21,7 +23,7 @@ User.create(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", las
 
 user = User.first
 
-# Create tasks
+#ISAACS TASK SEEDS
 3.times do |i|
   Task.create!(
     title: "Task #{i + 1}",
@@ -42,14 +44,14 @@ Post.create(title: "Second Post user: 4", content: "This is the second post for 
 Post.create(title: "First Post user: 5", content: "This is the first post for the user no.5", user_id: "5")
 Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
 
-
+#DAN DOCTOR SEEDS
 Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
 Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
 Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl")
 Doctor.create(specialty: "Dermatologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
 Doctor.create(specialty: "Oncologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
 
-
+#DAN PRESCRIPTION SEEDS
 Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)
 Prescription.create(name: "ibuprofen", dosage: "200mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 1)
 Prescription.create(name: "levothyroxine", dosage: "100mcg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor_id: 2)
@@ -60,3 +62,64 @@ Prescription.create(name: "omeprazole", dosage: "40mg", frequency: "1x per day",
 Prescription.create(name: "amoxicillin", dosage: "500mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 4)
 Prescription.create(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 5)
 Prescription.create(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5)
+
+#DAN EVENTS SEEDS
+Event.create(
+  title: "Doctor Appointment",
+  event_type: "Doctor Appointment",
+  start: "2023-06-16 12:00:00",
+  end: "2023-06-16 13:00:00",
+  location: "123 Main St",
+  notes: "Bring medical records.",
+  user_id: 1
+)
+Event.create(
+  title: "Physical Therapy Session",
+  event_type: "Physical Therapy",
+  start: "2023-06-16 15:30:00",
+  end: "2023-06-16 16:30:00",
+  user_id: 1,
+  location: "123 Main St",
+  notes: "Wear comfortable clothing."
+)
+Event.create(
+  title: "Guest Arrival",
+  event_type: "Guest in Town",
+  start: "2023-06-17 18:00:00",
+  end: "2023-06-17 22:00:00",
+  user_id: 1,
+  location: "123 Main St",
+  notes: "Pick up at airport."
+)
+Event.create(
+  title: "Important Meeting",
+  event_type: "Other",
+  start: "2023-06-18 10:00:00",
+  end: "2023-06-18 12:00:00",
+  user_id: 1,
+  location: "123 Main St",
+  notes: "Bring presentation materials."
+)
+Event.create(
+  title: "Dentist Appointment",
+  event_type: "Doctor Appointment",
+  start: "2023-06-19 14:00:00",
+  end: "2023-06-19 15:00:00",
+  user_id: 1,
+  location: "123 Main St",
+  notes: "Bring insurance card."
+)
+Event.create(
+  title: "Follow-up Doctor Appointment",
+  event_type: "Doctor Appointment",
+  start: "2023-06-20 09:30:00",
+  end: "2023-06-20 10:30:00",
+  user_id: 1,
+  location: "123 Main St",
+  notes: "Bring medical records."
+)
+
+#DAN MEDICAL APPOINTMENT SEEDS
+MedicalAppointment.create(doctor_id: 3, event_id: 1)
+MedicalAppointment.create(doctor_id: 4, event_id: 5)
+MedicalAppointment.create(doctor_id: 5, event_id: 6)

@@ -17,6 +17,9 @@
             <li>Specialty: <%= doctor.specialty %></li>
             <li>Address: <%= doctor.address %></li>
             <li>Phone Number: <%= doctor.phone_number %></li>
+            <% unless doctor.medical_appointments.last.nil?  %>
+              <li> Appointment: <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
+            <% end %>
           </ul>
         </div>
         <div class="dropdown">
