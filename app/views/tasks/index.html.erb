@@ -1,15 +1,15 @@
-<div class="container main-container">
+<div class="container main-container" data-controller="tasks">
       <div class= "row task-overview">
        <div class="col-md-3 d-flex task-box-one">
-        <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
+        <img data-action="click->tasks#myTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
           <p class="test-h1" style="line-height:1.2"> My<br>tasks</p>
         </div>
         <div class="col-md-3 d-flex task-box-two">
-         <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
+         <img data-action="click->tasks#pendingTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
           <p class="test-h1" style="line-height:1.2"> Tasks<br>pending</p>
         </div>
         <div class="col-md-3 d-flex task-box-three">
-         <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
+         <img data-action="click->tasks#completedTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
           <p class="test-h1" style="line-height:1.2"> Tasks<br>complete</p>
         </div>
     </div>
@@ -21,10 +21,8 @@
         <%= link_to 'Create Task', new_task_path, class: 'btn btn-primary' %>
         </div>
       </div>
-      <div class="all-tasks">
-      <% @tasks.each do |task| %>
-  <%= render 'task_bar', task: task %>
-<% end %>
-    </div>
+      <div class="all-tasks" data-tasks-target="tasks">
+        <%= render "tasks", tasks: @tasks %>
+      </div>
   </div>
 </div>
