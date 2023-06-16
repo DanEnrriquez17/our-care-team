@@ -2,6 +2,7 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all.order(created_at: :desc)
     @doctor = Doctor.new
+
   end
 
   def show
