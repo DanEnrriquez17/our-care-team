@@ -1,5 +1,5 @@
 .main-container {
-  background-color: rgb(229, 229, 230);
+  background-color: rgb(236, 236, 236);
   border-radius: 10px;
   padding: 20px 10px;
 }
@@ -7,22 +7,12 @@
 .nav-container {
   background-color: green;
   margin-bottom: 5px;
-  height: 3.25rem;
+  height: 6.25rem;
 }
 
 .test-h1 {
-  text-align: center;;
+  text-align: center;
 }
-
-.task-box {
-  background-color: rgb(212, 71, 71);
-  border-radius: 10px;
-  padding: 20px 10px;
-  margin-bottom: 10px;
-  height: 3.20rem;
-}
-
-$grid-gutter-width: 1.5rem !default;
 
 .tbody {
   border-radius: 5px;
@@ -31,4 +21,101 @@ $grid-gutter-width: 1.5rem !default;
 .task-row {
   background-color: #1b73cb; /* This is a light gray color, change it to whatever you want */
   margin-bottom: 4rem;
+}
+
+.task-bar {
+  background-color: #f0f0f0; /* This is a light gray color, change it to whatever you want */
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 87px;
+  margin: 2px;
+  padding: 3rem auto;
+}
+.task-photo-column {
+  height: 60px;
+  margin-top: 12px;
+}
+
+.task-column {
+  height: 60px;
+  padding-top: 17px;
+}
+
+.icon {
+  height: 100%;
+  width: auto;
+  padding-left: 5px;
+}
+
+.task-bar-text {
+  font-family: "poppins";
+}
+
+.task-bar-assigned {
+  font-family: "poppins";
+}
+
+.task-bar-overview {
+  font-family: "poppins";
+}
+
+.btn-primary {
+  background-color: #1b8cfd;
+  border-color: #1b8cfd;
+  border-radius: 15px;
+  margin-left: 143px;
+}
+
+.add-task-button {
+  padding-top: 24px;
+  padding-right: 0;
+}
+
+h1 {
+  font-family: "poppins";
+  padding-top: 20px;
+  color: #a9a9a9;
+}
+
+.task-box-one {
+  background: linear-gradient(to right, #ffc388 0%, #ff9517 100%);
+  border-radius: 20px;
+  height: 8.2rem;
+  margin-left: 65px;
+}
+
+.task-box-two {
+  background: linear-gradient(to right, #b792fc 0%, #9f55ff 100%);
+  border-radius: 20px;
+  height: 8.2rem;
+  margin-left: 65px;
+}
+
+.task-box-three {
+  background: linear-gradient(to right, #72b4ce 0%, #1e9cd7 100%);
+  border-radius: 20px;
+  height: 8.2rem;
+  margin-left: 65px;
+}
+
+.test-h1 {
+  font-family: "poppins";
+  font-size: 30px;
+  padding-top: 20px;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.task-icon {
+  height: 91px;
+  width: auto;
+  padding-left: 15px;
+  padding-top: 30px;
+}
+
+.all-tasks {
+  overflow: scroll;
+  height: 40vh;
+  background-color: #f0f0f0;
 }

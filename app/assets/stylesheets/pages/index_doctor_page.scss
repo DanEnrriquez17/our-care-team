@@ -1,0 +1,39 @@
+.doctor{
+  background-color: #eaeaea;
+  margin: 20px 10px;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  li{
+    list-style: none;
+    color: #898989;
+  }
+  .link_see_post{
+    margin-right: 20px;
+  }
+}
+.doctor-container{
+  height: 100vh;
+  width: 66vw;
+  overflow: scroll;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.title{
+  text-align: center;
+  text-decoration: underline;
+}
+.doc-form{
+  width: 50vh;
+  height: 50vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-right: 15px;
+}
+.doc-container{
+  margin: 10px 0px;
+  display: flex;
+  padding: 0px 5px;
+  background-color: white;
+}
+.doc-name{
+  text-align: center;
+}

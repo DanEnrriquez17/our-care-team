@@ -43,10 +43,20 @@ Post.create(title: "First Post user: 5", content: "This is the first post for th
 Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
 
 
-Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_number: 888-888-1212, user_id: 1, first_name: "Bill", last_name: "Jones")
-Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: 888-555-2323, user_id: 1, first_name: "Linda", last_name: "Smith")
-Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: 888-729-5656, user_id: 1, first_name: "John", last_name: "Karl")
+Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
+Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
+Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl")
+Doctor.create(specialty: "Dermatologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
+Doctor.create(specialty: "Oncologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
 
 
-# <Prescription:0x00007fb3c9dd8220 id: nil, dosage: nil, frequency: nil, status: nil, end_time: nil, tablets: nil, doctor_id: nil, created_at: nil, updated_at: nil>
 Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)
+Prescription.create(name: "ibuprofen", dosage: "200mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 1)
+Prescription.create(name: "levothyroxine", dosage: "100mcg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor_id: 2)
+Prescription.create(name: "metformin", dosage: "500mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 2)
+Prescription.create(name: "lisinopril", dosage: "10mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 3)
+Prescription.create(name: "simvastatin", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor_id: 3)
+Prescription.create(name: "omeprazole", dosage: "40mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 4)
+Prescription.create(name: "amoxicillin", dosage: "500mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 4)
+Prescription.create(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 5)
+Prescription.create(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5)

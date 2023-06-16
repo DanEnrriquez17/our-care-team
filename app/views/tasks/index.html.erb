@@ -1,89 +1,30 @@
 <div class="container main-container">
-    <div class="nav-container mt-5">
-      <div class= "row d-flex justify-content-between">
-       <div class="col-md-3 task-box">
-          <p class="test-h1"> TEST</p>
+      <div class= "row m-3 task-overview">
+       <div class="col-md-3 d-flex task-box-one">
+        <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
+          <p class="test-h1" style="line-height:1.2"> New Tasks<br>assigned</p>
         </div>
-        <div class="col-md-3 task-box">
-          <p class="test-h1"> TEST</p>
+        <div class="col-md-3 d-flex task-box-two">
+         <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
+          <p class="test-h1" style="line-height:1.2"> Tasks in<br>progress.</p>
         </div>
-        <div class="col-md-3 task-box">
-          <p class="test-h1"> TEST</p>
+        <div class="col-md-3 d-flex task-box-three">
+         <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
+          <p class="test-h1" style="line-height:1.2"> Tasks<br>completed</p>
         </div>
-      </div>
     </div>
-    <div class="mt-5">
-      <div class="row" >
-        <div class="col-md-11">
+      <div class="row m-3" >
+        <div class="col-md-9">
           <h1 class="mb-4">Tasks</h1>
         </div>
-        <div class= "col-md-1">
-        <%= link_to 'New Task', new_task_path, class: 'btn btn-primary' %>
+        <div class= "col-md-3 add-task-button">
+        <%= link_to 'Create Task', new_task_path, class: 'btn btn-primary' %>
         </div>
       </div>
-      <section>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Task Creator</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Assignee</th>
-              <th>Status</th>
-              <th>Due Date</th>
-              <th>Type</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @tasks.each do |task| %>
-              <tr>
-                <td class="task-row"><%= task.owner.first_name %></td>
-                <td><%= task.title %></td>
-                <td><%= task.description %></td>
-                <td><%= task.assigned_users.map(&:first_name).join(', ') %></td>
-                <td><%= task.status %></td>
-                <td><%= task.due_date ? task.due_date.strftime("%m/%d/%Y") : 'No due date set' %></td>
-                <td><%= task.task_type %></td>
-                <td><%= link_to 'Show', task, class: 'btn btn-info' %></td>
-                <td><%= link_to 'Edit', edit_task_path(task), class: 'btn btn-primary' %></td>
-                <td>
-                  <% if task.status == 'Completed' %>
-                    <span class="badge badge-success">Completed</span>
-                  <% else %>
-                    <%= button_to 'Complete', complete_task_path(task), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-success' %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </section>
-
-<<<<<<< HEAD
-      <footer>
-=======
-      <tbody>
-          <% @tasks.each do |task| %>
-            <tr>
-              <td><%= task.owner.first_name %></td>
-              <td><%= task.title %></td>
-              <td><%= task.description %></td>
-              <td><%= task.status %></td>
-              <td><%= task.due_date %></td>
-              <td><%= task.task_type %></td>
-              <!-- Add more fields as needed -->
-              <td><%= link_to 'Show', task %></td>
-              <td><%= link_to 'Edit', edit_task_path(task) %></td>
-              <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-      </tbody>
-    </table>
-  </section>
->>>>>>> master
-
-      </footer>
+      <div class="all-tasks">
+      <% @tasks.each do |task| %>
+  <%= render 'task_bar', task: task %>
+<% end %>
+    </div>
   </div>
 </div>
