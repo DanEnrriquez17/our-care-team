@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   getCoordinates() {
-    console.log("getCoordinates method was called");
+    console.log("getCoordinates() was called");
     console.log(token);
 
     fetch(
