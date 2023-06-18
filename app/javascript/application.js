@@ -3,8 +3,6 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import "bootstrap";
 
-import "dotenv/config";
-
 //= require rails-ujs
 //= require jquery3
 //= require jquery_ujs

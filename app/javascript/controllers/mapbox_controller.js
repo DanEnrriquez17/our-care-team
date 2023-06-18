@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
-const token = MAPBOX_TOKEN;
+const token =
+  "pk.eyJ1IjoiY3ViaWNsZTE1NTEiLCJhIjoiY2xpM2Zia2kyMHAyMDNkcnI1a2RlZjZ1ZyJ9.GTT8nu6D9ZwPqp-iXTGmqw";
 
 // Connects to data-controller="mapbox"
 export default class extends Controller {
@@ -13,7 +14,6 @@ export default class extends Controller {
 
   getCoordinates() {
     console.log("getCoordinates() was called");
-    console.log(token);
 
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.innerHTML}.json?access_token=${token}`
