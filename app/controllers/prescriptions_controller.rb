@@ -1,6 +1,13 @@
 class PrescriptionsController < ApplicationController
   def index
     @prescriptions = Prescription.all
+    # @prescriptions_json_array = @prescriptions.each do |prescription|
+    #   prescription.to_json
+    # end
+  end
+
+  def prescription_json
+    render json: Prescription.all.map { |p| { name: p.name, status: p.status, dosage: p.dosage, frequency: p.frequency, doctor: "Dr. #{p.doctor.first_name} #{p.doctor.last_name}" } }
   end
 
   def show

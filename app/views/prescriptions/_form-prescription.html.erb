@@ -1,44 +1,35 @@
-
 <div>
-<%= form_for @prescription do |f| %>
-  <div>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %>
-  </div>
-
-  <div>
-  <%= f.label "Dosage" %>
-  <%= f.text_field :dosage %>
-  </div>
-
-  <div>
-  <%= f.label :frequency %>
-  <%= f.text_field :frequency %>
-  </div>
-
-  <div>
-  <%= f.label :status %>
-  <%= f.select :status, Prescription::STATUS %>
-  </div>
-
-  <div>
-  <%= f.label :"date stopped taking" %>
-  <%= f.date_field :end_time %>
-  </div>
-
-  <div>
-  <%= f.label :"Pills Per Bottle" %>
-  <%= f.number_field :tablets %>
-  </div>
-
-  
-  <div>
-    <%= f.label "Prescribing Doctor" %>
-    <%= f.collection_select :doctor_id, @doctors, :id, :full_name, {} %>
-  </div>
-
-  <div>
-  <%= f.submit %>
-  </div>
-<% end %>
+  <%= form_for @prescription do |f| %>
+    <div>
+      <%= f.label "Name" %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label "Dosage" %>
+      <%= f.text_field :dosage %>
+    </div>
+    <div>
+      <%= f.label :frequency %>
+      <%= f.text_field :frequency %>
+    </div>
+    <div>
+      <%= f.label :status %>
+      <%= f.select :status, Prescription::STATUS %>
+    </div>
+    <div>
+      <%= f.label :"date stopped taking" %>
+      <%= f.date_field :end_time %>
+    </div>
+    <div>
+      <%= f.label :"Pills Per Bottle" %>
+      <%= f.number_field :tablets %>
+    </div>
+    <div>
+      <%= f.label "Prescribing Doctor" %>
+      <%= f.collection_select :doctor_id, @doctors, :id, :full_name, {} %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
 </div>
