@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
+import { Modal } from "bootstrap"; // Import bootstrap's Modal component
 
-// Connects to data-controller="tasks"
 export default class extends Controller {
   static targets = ["tasks"];
 
@@ -8,48 +8,25 @@ export default class extends Controller {
     console.log("hola Isaac");
   }
 
-  myTasks(e) {
-    fetch("/tasks?filter=user", {
-      headers: {
-        Accept: "text/plain",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
-          .content,
-      },
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        this.tasksTarget.innerHTML = data;
-      });
-  }
+  // Rest of your functions (myTasks, pendingTasks, completedTasks)
 
-  pendingTasks(e) {
-    fetch("/tasks?filter=Pending", {
-      headers: {
-        Accept: "text/plain",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
-          .content,
-      },
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        this.tasksTarget.innerHTML = data;
-      });
-  }
+  loadForm(event) {
+    event.preventDefault();
 
-  completedTasks(e) {
-    fetch("/tasks?filter=Completed", {
+    fetch(event.target.href, {
       headers: {
-        Accept: "text/plain",
+        Accept: "text/html",
         "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
           .content,
       },
     })
       .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        this.tasksTarget.innerHTML = data;
+      .then((html) => {
+        document.querySelector("#task-form-container").innerHTML = html;
+
+        // Initialize and show the bootstrap modal
+        var myModal = new Modal(document.getElementById("staticBackdrop"), {});
+        myModal.show();
       });
   }
 }

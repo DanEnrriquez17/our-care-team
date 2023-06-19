@@ -10,20 +10,21 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-.d-navbar{
-  margin: 10px 15px;
+.d-navbar {
+  margin: 10px 25px;
   height: 95vh;
-  width: 60px;
-  background-color: #3f75ef;
+  width: 90px;
+  background-color: #dadada;
+  border-color: #ffffff;
   border-radius: 10px;
-  ul{
+  ul {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100vh;
-    padding-left: 12px;
+    padding-left: 27px;
   }
-  ul li{
+  ul li {
     list-style: none;
   }
 }
