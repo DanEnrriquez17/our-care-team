@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :users
   #CREATED BY LOWELL
+  get '/patients/json', to: 'prescriptions#prescription_json'
   resources :events
   resources :doctors do
     resources :prescriptions, except: [:index, :new, :create, :edit, :update]
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [:index, :new, :create, :edit, :update]
   #CREATED BY ISAAC
     # Tasks routes/tasks_assigned_users nested routes
-  resources :tasks do
+  resources :tasks, except: [:new] do
     member do
       patch :complete
     end

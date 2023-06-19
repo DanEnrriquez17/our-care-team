@@ -1,28 +1,137 @@
-<div class="container main-container" data-controller="tasks">
-      <div class= "row task-overview">
-       <div class="col-md-3 d-flex task-box-one">
-        <img data-action="click->tasks#myTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> My<br>tasks</p>
+<div class="task-container" data-controller="tasks">
+  <div class="row top-row">
+    <div class="col-md-8 d-flex item-one">
+      <div class="col-md-10">
+        <h1 class="mb-2 ml-2">Task Manager</h1>
+      </div>
+      <div class="col-md-2 add-task-button">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Create Task
+        </button>
+      </div>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- This is the div where the form will be loaded -->
+            <div id="task-form-container" class="modal-body">
+              <%= render "tasks/task_form", task: @task %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
         </div>
-        <div class="col-md-3 d-flex task-box-two">
-         <img data-action="click->tasks#pendingTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks<br>pending</p>
-        </div>
-        <div class="col-md-3 d-flex task-box-three">
-         <img data-action="click->tasks#completedTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks<br>complete</p>
-        </div>
+      </div>
     </div>
-      <div class="row" >
-        <div class="col-md-9">
-          <h1 class="mb-2">Tasks</h1>
+    <div class="col-md-3 item-three">Notifications</div>
+  </div>
+  <div class="row second-row">
+    <div class="col-md-8 d-flex item-two">
+      <div class="col-md-3 d-flex flex-column task-box-one">
+        <div class="row task-line">
+          <div class="col-4">
+            <img data-action="click->tasks#myTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class="task-icon" alt="Image">
+          </div>
+          <div class="col-8">
+            <p class="test-h1" style="line-height:1.2">My<br>
+              tasks</p>
+          </div>
         </div>
-        <div class= "col-md-3 add-task-button">
-        <%= link_to 'Create Task', new_task_path, class: 'btn btn-primary' %>
+        <div class="row task-count-row">
+          <div class="col-2 d-flex task-second">
+            <p class="task-count"><%= current_user.assigned_tasks.count %></p>
+          </div>
+          <div class="col-10 d-flex task-second">
+            <p class="task-status-label">assigned to you</p>
+          </div>
         </div>
       </div>
-      <div class="all-tasks" data-tasks-target="tasks">
-        <%= render "tasks", tasks: @tasks %>
+      <div class="col-md-3 d-flex flex-column task-box-two">
+        <div class="row task-line">
+          <div class="col-4">
+            <img data-action="click->tasks#pendingTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class="task-icon" alt="Image">
+          </div>
+          <div class="col-8">
+            <p class="test-h1" style="line-height:1.2">Tasks<br>
+              pending</p>
+          </div>
+        </div>
+        <div class="row task-count-row">
+          <div class="col-2 d-flex task-second">
+            <!-- Update this to reflect the actual count -->
+            <p class="task-count"><%= @tasks.where(status: 'Pending').count %></p>
+          </div>
+          <div class="col-10 d-flex task-second">
+            <p class="task-status-label">tasks pending</p>
+          </div>
+        </div>
       </div>
+      <div class="col-md-3 d-flex flex-column task-box-three">
+        <div class="row task-line">
+          <div class="col-4">
+            <img data-action="click->tasks#completedTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class="task-icon" alt="Image">
+          </div>
+          <div class="col-8">
+            <p class="test-h1" style="line-height:1.2">Tasks<br>
+              complete</p>
+          </div>
+        </div>
+        <div class="row task-count-row">
+          <div class="col-2 d-flex task-second">
+            <!-- Update this to reflect the actual count -->
+            <p class="task-count"><%= @tasks.where(status: 'Completed').count %></p>
+          </div>
+          <div class="col-10 d-flex task-second">
+            <p class="task-status-label">completed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 item-three">
+      <div class="row team-members">
+        Team Members
+      </div>
+      <div class="row avatar-row">
+        <div class="col-2 avatar-box">
+          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg" alt="avatar icon">
+        </div>
+        <div class="col-2 avatar-box">
+          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg" alt="avatar icon">
+        </div>
+        <div class="col-2 avatar-box">
+          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_seven_qxalmc.svg" alt="avatar icon">
+        </div>
+        <div class="col-2 avatar-box">
+          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg" alt="avatar icon">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row task-details-row">
+    <div class="col-md-8 d-flex task-attributes">
+      <div class="col-md-4 task-description">
+        <h1 class="task-details">Task Description</h1>
+      </div>
+      <div class="col-md-2">
+        <h1 class="task-details">Members</h1>
+      </div>
+      <div class="col-md-2">
+        <h1 class="task-details">Created</h1>
+      </div>
+      <div class="col-md-2">
+        <h1 class="task-details">Status</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row third-row">
+    <div class="col-md-8 all-tasks" data-tasks-target="tasks">
+      <%= render "tasks", tasks: @tasks %>
+    </div>
+    <div class="col-md-3 item-three">Recent</div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
+  layout false, only: :new, format: :js
+
 
   def index
     if params[:filter]
@@ -12,16 +14,12 @@ class TasksController < ApplicationController
       @tasks = Task.all
     end
     @tasks = @tasks.order(:due_date)
+    @task = Task.new
 
     respond_to do |format|
       format.html
       format.text { render partial: 'tasks/tasks', locals: { tasks: @tasks }, formats: [:html] }
     end
-  end
-
-  def new
-    @task = Task.new
-    @users = User.all # This will fetch all users
   end
 
   def create
