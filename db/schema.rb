@@ -69,7 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_164221) do
     t.datetime "end"
     t.string "title"
     t.text "location"
-    t.text "notes"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
