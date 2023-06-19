@@ -18,11 +18,11 @@
 .sidebar a{
   text-decoration-line: none;
 }
-p{
+.siderbar a p{
   opacity: 0;
   transition: 0.5s;
 }
-a:hover p{
+.sidebar a:hover p{
   opacity: 1;
   transition: 0.5s;
   color: white;
