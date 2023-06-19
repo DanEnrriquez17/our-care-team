@@ -10,7 +10,7 @@
         <div class="tasks cont-dash">
           <div class="task-title">
             <h2>Tasks</h2>
-            <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_task_path %>
+            <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, tasks_path %>
           </div>
           <% task = Task.all %>
           <% task.each do |task| %>
