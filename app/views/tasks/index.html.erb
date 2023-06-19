@@ -1,28 +1,37 @@
-<div class="container main-container" data-controller="tasks">
-      <div class= "row task-overview">
-       <div class="col-md-3 d-flex task-box-one">
-        <img data-action="click->tasks#myTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> My<br>tasks</p>
-        </div>
-        <div class="col-md-3 d-flex task-box-two">
-         <img data-action="click->tasks#pendingTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks<br>pending</p>
-        </div>
-        <div class="col-md-3 d-flex task-box-three">
-         <img data-action="click->tasks#completedTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
-          <p class="test-h1" style="line-height:1.2"> Tasks<br>complete</p>
-        </div>
-    </div>
-      <div class="row" >
-        <div class="col-md-9">
-          <h1 class="mb-2">Tasks</h1>
-        </div>
-        <div class= "col-md-3 add-task-button">
+<div class="task-container">
+  <div class="row top-row">
+    <div class="col-md-8 d-flex item-one">
+      <div class="col-md-7">
+        <h1 class="mb-2 ml-2">Task Manager</h1>
+      </div>
+     <div class="col-md-4 add-task-button">
         <%= link_to 'Create Task', new_task_path, class: 'btn btn-primary' %>
-        </div>
       </div>
-      <div class="all-tasks" data-tasks-target="tasks">
-        <%= render "tasks", tasks: @tasks %>
+    </div>
+    <div class="col-md-3 item-two">Item Two</div>
+  </div>
+   <div class="row second-row">
+    <div class="col-md-8 d-flex item-one">
+      <div class="col-md-3 d-flex task-box-one">
+        <img data-action="click->tasks#myTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686864531/New_Tasks_Icon_xmd6lv.svg" class ="task-icon" alt="Image">
+        <p class="test-h1" style="line-height:1.2"> My<br>tasks</p>
       </div>
+      <div class="col-md-3 d-flex task-box-two">
+        <img data-action="click->tasks#pendingTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_in_progress_ywyziz.svg" class ="task-icon" alt="Image">
+        <p class="test-h1" style="line-height:1.2"> Tasks<br>pending</p>
+      </div>
+      <div class="col-md-3 d-flex task-box-three">
+        <img data-action="click->tasks#completedTasks" src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1686865426/Tasks_completed_x2egs7.svg" class ="task-icon" alt="Image">
+        <p class="test-h1" style="line-height:1.2"> Tasks<br>complete</p>
+      </div>
+    </div>
+    <div class="col-md-3 item-two">Item Two</div>
+  </div>
+
+  <div class="row third-row">
+    <div class="col-md-8 all-tasks" data-tasks-target="tasks">
+      <%= render "tasks", tasks: @tasks %>
+    </div>
+    <div class="col-md-3 item-two">Item Two</div>
   </div>
 </div>
