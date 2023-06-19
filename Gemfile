@@ -30,6 +30,8 @@ gem "jbuilder"
 # generating seed data
 gem 'faker'
 
+gem "htmlbeautifier"
+
 # gem for building out events calendar
 gem "simple_calendar", "~> 2.4"
 gem 'jquery-rails'

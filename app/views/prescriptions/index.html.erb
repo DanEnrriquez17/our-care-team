@@ -1,4 +1,4 @@
-<h1>Current Prescriptions</h1>
-<% @prescriptions.each do |prescription| %>
-  <li><%= prescription.name %> </li>
-<% end %>
+<div data-controller="tabulator">
+  <h1>Current Prescriptions</h1>
+  <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
+</div>
