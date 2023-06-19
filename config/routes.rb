@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :users
   #CREATED BY LOWELL
+  get '/patients/json', to: 'prescriptions#prescription_json'
   resources :events
   resources :doctors do
     resources :prescriptions, except: [:index, :new, :create, :edit, :update]
