@@ -1,18 +1,16 @@
 <div>
-<div class="d-inline">
-<h1>Calendar</h2>
-<%= render "modal", event: @event %>
-</div>
-  <div id="calendar" class="simple-calendar">
-  <%= month_calendar(events: @events) do |date, events| %>
-    <%= date %>
-
-    <% events.each do |event| %>
-      <div>
-        <%= render "edit_event_modal", event: event %>
-      </div>
-    <% end %>
-  <% end %>
+  <div class="d-inline">
+    <h1>Calendar</h1>
+    <%= render "modal", event: @event %>
   </div>
-
+  <div id="calendar" class="simple-calendar">
+    <%= month_calendar(events: @events) do |date, events| %>
+      <%= date %>
+      <% events.each do |event| %>
+        <div>
+          <%= render "edit_event_modal", event: event %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

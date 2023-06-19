@@ -61,6 +61,16 @@
             <h2>Events</h2>
             <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_event_path %>
           </div>
+          <div id="calendar" class="simple-calendar calendar">
+            <%= month_calendar(events: @events) do |date, events| %>
+              <%= date %>
+              <% events.each do |event| %>
+                <div>
+                  <%= render "events/edit_event_modal", event: event %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

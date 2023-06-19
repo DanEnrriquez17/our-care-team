@@ -1,11 +1,46 @@
   <div class="d-navbar">
-    <ul>
-      <li><%= link_to "<i class='fa-solid fa-house fa-xl' style='color: #ffffff;'></i>".html_safe, root_path %></li>
-      <li><%= link_to "<i class='fa-solid fa-message fa-xl' style='color: #ffffff;'></i>".html_safe, posts_path %></li>
-      <li> <%= link_to "<i class='fa-solid fa-list-check fa-xl' style='color: #ffffff;'></i>".html_safe, tasks_path %></li>
-      <li><%= link_to "<i class='fa-solid fa-calendar-days fa-xl' style='color: #ffffff;'></i>".html_safe, events_path %></li>
-      <li><%= link_to "<i class='fa-solid fa-user-doctor fa-xl' style='color: #ffffff;'></i>".html_safe, doctors_path %></li>
-      <li><%= link_to "<i class='fa-solid fa-file fa-xl' style='color: #ffffff;'></i>".html_safe, "#" %></li>
-      <li><%= link_to "<i class='fa-solid fa-right-from-bracket fa-xl' style='color: #ffffff;'></i>".html_safe, destroy_user_session_path, data: {turbo_method: :delete} %></li>
+    <ul class="sidebar">
+      <li>
+        <%= link_to root_path do %>
+          <i class='fa-solid fa-house home fa-xl' style='color: #ffffff;'></i>
+          <p>Home</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to posts_path do %>
+          <i class='fa-solid fa-message fa-xl' style='color: #ffffff;'></i>
+          <p>Posts</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to tasks_path do %>
+          <i class='fa-solid fa-list-check fa-xl' style='color: #ffffff;'></i>
+          <p>Tasks</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to events_path do %>
+          <i class='fa-solid fa-calendar-days fa-xl' style='color: #ffffff;'></i>
+          <p>Events</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to doctors_path do %>
+          <i class='fa-solid fa-user-doctor fa-xl' style='color: #ffffff;'></i>
+          <p>Doctors</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to prescriptions_path do %>
+          <i class='fa-solid fa-file fa-xl' style='color: #ffffff;'></i>
+          <p>Files</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+          <i class='fa-solid fa-right-from-bracket fa-xl' style='color: #ffffff;'></i>
+          <p>Logout</p>
+        <% end %>
+      </li>
     </ul>
   </div>

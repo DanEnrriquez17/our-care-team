@@ -2,11 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:destroy]
 
   def index
-      # Scope your query to the dates being shown:
-      start_date = params.fetch(:start_date, Date.today).to_date
-      @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-      @event = Event.new
-    end
+    # Scope your query to the dates being shown:
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @event = Event.new
+  end
 
   def show
     @event = Event.find(params[:id])
@@ -20,10 +20,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-      if @event.save!
-        redirect_to events_path, alert: "your event was created"
-      else
-        render :new, status: :unprocessable_entity
+    if @event.save!
+      redirect_to events_path, alert: "your event was created"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
