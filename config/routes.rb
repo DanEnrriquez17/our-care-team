@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [:index, :new, :create, :edit, :update]
   #CREATED BY ISAAC
     # Tasks routes/tasks_assigned_users nested routes
-  resources :tasks do
+  resources :tasks, except: [:new] do
     member do
       patch :complete
     end
