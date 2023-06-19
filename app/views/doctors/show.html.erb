@@ -1,12 +1,14 @@
-<div class="doc-info">
+
+<div class="doc-info" data-controller="mapbox">
   <h1>Dr. <%= @doctor.first_name %> <%= @doctor.last_name %></h1>
   <h3>Specialty:</h3>
   <p><%= @doctor.specialty %></p>
-  <h3>Address:</h3>
-  <p><%= @doctor.address %></p>
+  <h3 id="key" data-mapbox-target="key" data-key="<%= @mapbox_token %>">Address:</h3>
+      <p data-mapbox-target="address"><%= @doctor.address %></p>
   <h3>Phone Number:</h3>
   <p><%= @doctor.phone_number %></p>
   <%= link_to "update information", edit_doctor_path(@doctor) %>
+  <div id="map" style="height: 250px; width: 250px" data-mapbox-target="map"></div>
 </div>
 <div class="doc-pres">
   <h3>Prescriptions:</h3>

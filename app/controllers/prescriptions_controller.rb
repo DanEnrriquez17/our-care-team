@@ -1,9 +1,6 @@
 class PrescriptionsController < ApplicationController
   def index
     @prescriptions = Prescription.all
-    # @prescriptions_json_array = @prescriptions.each do |prescription|
-    #   prescription.to_json
-    # end
   end
 
   def prescription_json
