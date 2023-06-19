@@ -1,22 +1,32 @@
 import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
-const token =
-  "pk.eyJ1IjoiY3ViaWNsZTE1NTEiLCJhIjoiY2xpM2Zia2kyMHAyMDNkcnI1a2RlZjZ1ZyJ9.GTT8nu6D9ZwPqp-iXTGmqw";
+// const token = "";
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const token = document.getElementById("mapbox").getAttribute("data-token");
+//   console.log(token);
+// });
+
+// const form = document.querySelector("#payment-form");
+// console.log(form.dataset); // {currency: "EUR"}
+// const currency = form.dataset.currency; // "EUR"
 
 // Connects to data-controller="mapbox"
 export default class extends Controller {
-  static targets = ["map", "address"];
+  static targets = ["map", "address", "key"];
 
   connect() {
     console.log("*** mapbox stimulus controller is now loaded ***");
     this.getCoordinates(this.addressTarget.innerHTML);
+    console.log(this.keyTarget.dataset.key);
+    console.log("console test after key");
   }
 
   getCoordinates() {
     console.log("getCoordinates() was called");
 
     fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.innerHTML}.json?access_token=${token}`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.innerHTML}.json?access_token=${this.keyTarget.dataset.key}`
     )
       .then(response => response.json())
       .then(data => {
@@ -27,8 +37,8 @@ export default class extends Controller {
   }
 
   renderMap(long, lat) {
-    console.log("renderMap called");
-    mapboxgl.accessToken = token;
+    console.log("renderMap() called");
+    mapboxgl.accessToken = this.keyTarget.dataset.key;
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/streets-v12",
