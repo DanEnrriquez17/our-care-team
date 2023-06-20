@@ -1,4 +1,6 @@
-<div data-controller="tabulator">
+<div data-controller="tabulator" class="tabulator-container">
   <h1>Current Prescriptions</h1>
-  <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
+  <div class="tabulator">
+    <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
+  </div>
 </div>

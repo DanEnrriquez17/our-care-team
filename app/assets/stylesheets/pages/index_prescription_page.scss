@@ -1,19 +1,23 @@
-.prescriptions{
+.prescriptions {
   background-color: #eaeaea;
   border-radius: 10px;
   height: 87vh;
   overflow: scroll;
-  ul li{
+  ul li {
     list-style: none;
   }
 }
-.prescription{
+.prescription {
   background-color: #3f75ef;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
   color: white;
 }
-.search{
+.search {
   width: 500px;
+}
+
+.tabulator {
+  height: 80vh;
 }
