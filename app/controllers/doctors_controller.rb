@@ -1,6 +1,10 @@
 class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all.order(created_at: :desc)
+    @addresses = @doctors.map do |doctor|
+      { address: doctor.address }
+    end
+    @mapbox_token = ENV["MAPBOX_TOKEN"]
     @doctor = Doctor.new
 
   end

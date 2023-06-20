@@ -23,7 +23,6 @@ export default class extends Controller {
         this.tasksTarget.innerHTML = html;
       });
   }
-
   pendingTasks(event) {
     event.preventDefault();
     fetch("/tasks?filter=Pending", {
@@ -38,7 +37,6 @@ export default class extends Controller {
         this.tasksTarget.innerHTML = html;
       });
   }
-
   completedTasks(event) {
     event.preventDefault();
     fetch("/tasks?filter=Completed", {
@@ -53,7 +51,6 @@ export default class extends Controller {
         this.tasksTarget.innerHTML = html;
       });
   }
-
   loadForm(event) {
     event.preventDefault();
 
