@@ -13,8 +13,9 @@ class TasksController < ApplicationController
     else
       @tasks = Task.all
     end
-    @tasks = @tasks.order(:due_date)
+    @tasks = @tasks.order(created_at: :desc)
     @task = Task.new
+    @task_notifications = current_user.task_assigned_users.order(created_at: :desc).limit(5)
 
     respond_to do |format|
       format.html
@@ -60,7 +61,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id, assigned_user_ids: [])
+    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id, assigned_user_ids:, photo: [])
   end
 
   def set_task

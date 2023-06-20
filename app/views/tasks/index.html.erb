@@ -5,7 +5,7 @@
         <h1 class="mb-2 ml-2">Task Manager</h1>
       </div>
       <div class="col-md-2 add-task-button">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-primary-task" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Create Task
         </button>
       </div>
@@ -13,22 +13,23 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+              <h5 class="modal-title" id="staticBackdropLabel"><span class="task-module-header-one">Create a</span> <span class="task-module-header">task</span></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- This is the div where the form will be loaded -->
-            <div id="task-form-container" class="modal-body">
-              <%= render "tasks/task_form", task: @task %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
-            </div>
+            <%= render "tasks/task_form", task: @task %>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 item-three">Notifications</div>
+    <div class="col-md-3 item-three">
+      <h3>Notifications</h3>
+      <ul>
+        <% @task_notifications.each do |n| %>
+          <li>Fuiste asignado en <%= n.task.title %> hace <%= n.time_ago %> minutos</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
   <div class="row second-row">
     <div class="col-md-8 d-flex item-two">

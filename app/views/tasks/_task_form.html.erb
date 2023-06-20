@@ -1,47 +1,27 @@
-<header>
-  <h1>New Task</h1>
-</header>
-
-<section>
-  <%= form_for @task do |f| %>
+<%= simple_form_for @task do |f| %>
+  <div id="task-form-container" class="modal-body">
     <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.input :title %>
     </div>
-
     <div>
-      <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= f.input :description, as: :text %>
     </div>
-
     <div>
-    <%= f.label :status %>
-    <%= f.select :status, Task::STATUSES %>
+      <%= f.input :status, collection: Task::STATUSES %>
     </div>
-
     <div>
-      <%= f.label :due_date %>
-      <%= f.date_field :due_date %>
+      <%= f.input :due_date, as: :date %>
     </div>
-
     <div>
-      <%= f.label :task_type %>
-      <%= f.select :task_type, Task::TASK_TYPES %>
+      <%= f.input :task_type, collection: Task::TASK_TYPES %>
     </div>
-
     <div>
-      <%= f.label :assigned_users %>
-      <%= f.collection_select :assigned_user_ids, User.all, :id, :first_name, {}, { multiple: true } %>
+      <%= f.association :assigned_users, as: :check_boxes, label_method: :first_name, value_method: :id, item_wrapper_class: 'checkbox-inline' %>
     </div>
-
     <!-- Add more fields as needed -->
-
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</section>
-
-  <footer>
-    <%= link_to 'Back', tasks_path %>
-  </footer>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary-task">Create</button>
+  </div>
+<% end %>
