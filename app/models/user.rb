@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy # this is the user's created posts
   has_many :post_mentioned_users, dependent: :destroy
   has_many :mentioned_posts, through: :post_mentioned_users, source: :post # this is the user's mentioned posts
+  has_many :notifications, dependent: :destroy # this is the user's notifications
 end

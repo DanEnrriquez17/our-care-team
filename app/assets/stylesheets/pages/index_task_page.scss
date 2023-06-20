@@ -6,6 +6,36 @@
   margin-top: 25px;
 }
 
+.modal-content {
+  border-radius: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.task-module-header {
+  color: #b792fc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.task-module-header-one {
+  color: #222222;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  border-radius: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+}
+
+.btn-primary-task {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 15px;
+}
+
 .item-one {
   height: 65px;
   padding: 1em;
@@ -133,6 +163,12 @@ h1 {
   height: 50px;
   width: 50px;
   padding-left: 2px;
+}
+
+.checkbox-inline {
+  display: inline-block;
+  margin-right: 10px;
+  /* Adjust as needed */
 }
 
 .team-members {

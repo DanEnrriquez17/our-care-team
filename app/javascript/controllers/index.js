@@ -12,8 +12,6 @@ application.register("tabulator", TabulatorController);
 
 import TasksController from "./tasks_controller";
 application.register("tasks", TasksController);
-import MapboxController from "./mapbox_controller"
-application.register("mapbox", MapboxController)
 
-import TasksController from "./tasks_controller"
-application.register("tasks", TasksController)
+import MapboxController from "./mapbox_controller";
+application.register("mapbox", MapboxController);
