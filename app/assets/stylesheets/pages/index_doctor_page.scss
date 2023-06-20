@@ -1,13 +1,42 @@
 .doc-container{
   width: 100vw;
 }
-.doctor{
+.doctor-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px black;
-  margin: 5px;
-  width: 400px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 5px 10px;
+  width: 220px;
+  height: 300px;
+  text-decoration: none;
+  color: #8d8d8d;
+  padding: 15px 0px;
+  background-color: white;
+}
+.doctor-card:hover{
+  width: 210px;
+  height: 350px;
+}
+.doc-name-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .doc-list-card ul li{
   list-style: none;
   font-size: 12px;
+}
+.doc-list-card ul{
+  padding-left: 20px;
+}
+.doc-img{
+  width: 80px;
+  height: 80px;
+  border-radius: 30%;
+}
+.doctor-label{
+  margin-left: 5px;
 }
