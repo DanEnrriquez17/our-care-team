@@ -45,11 +45,11 @@ Post.create(title: "First Post user: 5", content: "This is the first post for th
 Post.create(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
 
 #DAN DOCTOR SEEDS
-Doctor.create(specialty: "Cardiologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
-Doctor.create(specialty: "Neurologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
-Doctor.create(specialty: "General Practioner", address: "22 Lake St", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl")
-Doctor.create(specialty: "Dermatologist", address: "2323 1st Street", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
-Doctor.create(specialty: "Oncologist", address: "234 2nd Ave", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
+Doctor.create(specialty: "Cardiologist", address: "800 Meadows Rd, Boca Raton, FL 33486, Estados Unidos", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
+Doctor.create(specialty: "Neurologist", address: "5352 Linton Blvd, Delray Beach, FL 33484, Estados Unidos", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
+Doctor.create(specialty: "General Practioner", address: "21644 State Rd. 7, Boca Raton, FL 33428, Estados Unidos", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl")
+Doctor.create(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones")
+Doctor.create(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith")
 
 #DAN PRESCRIPTION SEEDS
 Prescription.create(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)

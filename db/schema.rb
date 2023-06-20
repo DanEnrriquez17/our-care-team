@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_205350) do
     t.datetime "end"
     t.string "title"
     t.text "location"
+    t.text "notes"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -129,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_205350) do
     t.string "status"
     t.string "title"
     t.datetime "due_date"
-    t.string "task_type" # This will fetch all usersER    FC`FRRECFRE`FREDRRRRRDDDECD\DDRRR C-
+    t.string "task_type"
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

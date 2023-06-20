@@ -1,41 +1,40 @@
 <div class="doc-container">
+    <!--
   <div class="doc-form">
     <div class="p-auto bg bg-light d-flex flex-column align-items-center justify-content-center">
       <h3>Create Doctor</h3>
       <%= render "form" %>
     </div>
   </div>
-  <div class="doctor-container">
+    -->
+  <div class="container" data-controller="multi-mapbox">
     <h2 class="title">Doctors</h2>
-    <% @doctors.each do |doctor| %>
-      <div class="doctor d-flex justify-content-around align-items-center">
-        <div>
-          <h3 class="doc-name"><%= doctor.full_name %></h3>
+    <div class="row">
+      <% @doctors.each do |doctor| %>
+        <div class="doctor col-9 d-flex justify-content-around align-items-center">
+          <div>
+            <h3 class="doc-name"><%= doctor.full_name %></h3>
+            <h5 class="doc-specialty"><%= doctor.specialty %></h5>
+          </div>
+          <div class="doc-list-card">
+            <ul>
+              <li>Hospital: <%= doctor.hospital %></li>
+              <li>Phone Number: <%= doctor.phone_number %></li>
+              <% unless doctor.medical_appointments.last.nil?  %>
+                <li> Appointment: <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div>
+            <%= link_to "<i class='fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, doctor_path(doctor)%>
+          </div>
         </div>
-        <div>
-          <ul>
-            <li>Specialty: <%= doctor.specialty %></li>
-            <li>Hospital: <%= doctor.hospital %></li>
-            <li>Phone Number: <%= doctor.phone_number %></li>
-            <% unless doctor.medical_appointments.last.nil?  %>
-              <li> Appointment: <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Prescriptions
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <% doctor.prescriptions.each do |prescription| %>
-              <li><%= prescription.name %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div>
-          <%= link_to "<i class='fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, doctor_path(doctor)%>
-        </div>
+      <% end %>
+    </div>
+    <div class="col-3">
+      <div id="map" style="height: 250px; width: 250px" data-multi-mapbox-address-value="<%= @addresses.to_json%>" data-multi-mapbox-target="map" data-multi-mapbox-api-key-value="<%= ENV['MAPBOX_TOKEN'] %>">
+
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
