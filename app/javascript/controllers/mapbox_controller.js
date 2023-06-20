@@ -1,17 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
 import mapboxgl from "mapbox-gl";
-// const token = "";
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const token = document.getElementById("mapbox").getAttribute("data-token");
-//   console.log(token);
-// });
-
-// const form = document.querySelector("#payment-form");
-// console.log(form.dataset); // {currency: "EUR"}
-// const currency = form.dataset.currency; // "EUR"
-
-// Connects to data-controller="mapbox"
 export default class extends Controller {
   static targets = ["map", "address", "key"];
 
