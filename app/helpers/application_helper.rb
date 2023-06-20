@@ -16,16 +16,15 @@ module ApplicationHelper
     end
   end
 
-def status_class(status)
-  case status
-  when 'Pending'
-    'status-pending'
-  when 'Completed'
-    'status-completed'
-  when 'Past Due'
-    'status-past-due'
-  else
-    'status-default'
+  def status_display(task)
+    if task.status == 'Completed'
+      ['Completed', 'status-completed']
+    elsif task.due_date < Date.today
+      ['Past Due', 'status-past-due']
+    elsif task.status == 'Pending'
+      ['Pending', 'status-pending']
+    else
+      [task.status, 'status-default']
+    end
   end
-end
 end

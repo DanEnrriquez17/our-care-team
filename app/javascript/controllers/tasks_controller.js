@@ -9,6 +9,50 @@ export default class extends Controller {
   }
 
   // Rest of your functions (myTasks, pendingTasks, completedTasks)
+  myTasks(event) {
+    event.preventDefault();
+    fetch("/tasks?filter=user", {
+      headers: {
+        Accept: "text/plain",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
+          .content,
+      },
+    })
+      .then((response) => response.text())
+      .then((html) => {
+        this.tasksTarget.innerHTML = html;
+      });
+  }
+
+  pendingTasks(event) {
+    event.preventDefault();
+    fetch("/tasks?filter=Pending", {
+      headers: {
+        Accept: "text/plain",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
+          .content,
+      },
+    })
+      .then((response) => response.text())
+      .then((html) => {
+        this.tasksTarget.innerHTML = html;
+      });
+  }
+
+  completedTasks(event) {
+    event.preventDefault();
+    fetch("/tasks?filter=Completed", {
+      headers: {
+        Accept: "text/plain",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]')
+          .content,
+      },
+    })
+      .then((response) => response.text())
+      .then((html) => {
+        this.tasksTarget.innerHTML = html;
+      });
+  }
 
   loadForm(event) {
     event.preventDefault();
