@@ -2,28 +2,29 @@
   <div class="col-1 task-photo-column">
     <%= image_tag("https://res.cloudinary.com/dqe5h0j32/image/upload/v1686867457/#{task_icon(task.task_type)}", class: "icon", alt: "Image") %>
   </div>
-  <div class="col-4 task-column"><%=  %>
+  <div class="col-4 task-column">
     <div class="row">
-       <p class = "task-bar-text" style="line-height:1.4"><strong><%= task.title %></strong><br>
-       <%= task.description %>
-       </p>
+      <p class = "task-bar-text" style="line-height:1.4"><strong><%= task.title %></strong><br>
+        <%= task.description.split(" ")[0...7].join(" ") + '...' %>
+      </p>
     </div>
   </div>
   <div class="col-2 task-column">
-   <p class = "task-bar-assigned" style="line-height:1.4">
-       <%= task.assigned_users.map(&:first_name).join(', ') %>
-  </div>
-  <div class="col-2 task-column">
-   <p class = "task-bar-assigned" style="line-height:1.4">
-     <%= task.created_at.strftime("%m/%d/%Y %H:%M") %>
-  </div>
-  <div class="col-2 task-column">
-   <p class = "task-bar-assigned" style="line-height:1.4">
-     <span class="<%= status_class(task.status) %>"><%= task.status %></span>
-  </div>
-  <div class="col-1 task-column">
-  <%= link_to task_path(task) do %>
-    <i class="fa-solid fa-arrow-right big-icon"></i>
-  <% end %>
-  </div>
-</div>
+    <p class = "task-bar-assigned" style="line-height:1.4">
+      <%= task.assigned_users.map(&:first_name).join(', ') %>
+    </div>
+    <div class="col-2 task-column">
+      <p class = "task-bar-assigned" style="line-height:1.4">
+        <%= task.created_at.strftime("%m/%d/%Y %H:%M") %>
+      </div>
+      <div class="col-2 task-column">
+        <p class = "task-bar-assigned" style="line-height:1.4">
+          <span class="<%= status_display(task)[1] %>"><%= status_display(task)[0] %></span>
+        </p>
+      </div>
+      <div class="col-1 task-column">
+        <%= link_to task_path(task) do %>
+          <i class="fa-solid fa-arrow-right big-icon"></i>
+        <% end %>
+      </div>
+    </div>
