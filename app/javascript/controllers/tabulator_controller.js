@@ -23,6 +23,7 @@ export default class extends Controller {
         { title: "Dosage", field: "dosage", hozAlign: "left" },
         { title: "Frequency", field: "frequency" },
         { title: "Prescribing Doctor", field: "doctor", hozAlign: "center" },
+        { title: "Purpose", field: "purpose", hozAlign: "left" },
       ],
     });
   }
