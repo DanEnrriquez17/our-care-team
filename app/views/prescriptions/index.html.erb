@@ -1,5 +1,8 @@
 <div data-controller="tabulator" class="tabulator-container">
-  <h1>Current Prescriptions</h1>
+  <div class="d-flex justify-content-between">
+    <h1>Current Prescriptions</h1>
+    <div><%= render "create_prescription_modal", prescription: @prescription %></div>
+  </div>
   <div class="tabulator">
     <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
   </div>
