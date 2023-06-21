@@ -1,9 +1,10 @@
-.d-navbar{
+.d-navbar {
   margin: 10px 15px;
   height: 95vh;
-  width: 7  0px;
+  width: 7 0px;
   background-color: #3f75ef;
   border-radius: 10px;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -11,22 +12,27 @@
     height: 100vh;
     padding-left: 16px;
   }
+
   ul li {
     list-style: none;
   }
 }
-.sidebar a{
+
+.sidebar a {
   text-decoration-line: none;
 }
-.sidebar a p{
+
+.sidebar a p {
   opacity: 0;
   transition: 0.5s;
 }
-.sidebar a:hover p{
+
+.sidebar a:hover p {
   opacity: 1;
   transition: 0.5s;
   color: white;
 }
+
 .sidebar li a:hover i {
   font-size: 30px
 }

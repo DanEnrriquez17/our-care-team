@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_210756) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_205350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,21 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_210756) do
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_medical_appointments_on_doctor_id"
     t.index ["event_id"], name: "index_medical_appointments_on_event_id"
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
-    t.bigint "event_id", null: false
-    t.bigint "post_id", null: false
-    t.string "message"
-    t.boolean "read"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_notifications_on_event_id"
-    t.index ["post_id"], name: "index_notifications_on_post_id"
-    t.index ["task_id"], name: "index_notifications_on_task_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "post_mentioned_users", force: :cascade do |t|
@@ -188,10 +173,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_210756) do
   add_foreign_key "events", "users"
   add_foreign_key "medical_appointments", "doctors"
   add_foreign_key "medical_appointments", "events"
-  add_foreign_key "notifications", "events"
-  add_foreign_key "notifications", "posts"
-  add_foreign_key "notifications", "tasks"
-  add_foreign_key "notifications", "users"
   add_foreign_key "post_mentioned_users", "posts"
   add_foreign_key "post_mentioned_users", "users"
   add_foreign_key "posts", "users"
