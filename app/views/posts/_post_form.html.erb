@@ -1,21 +1,17 @@
 <%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div>
-    <div class="form-inputs">
+  <div id="post-form-container" class="modal-body">
+    <div>
       <%= f.input :title %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :content, label: "Content (Tag people like: #Lowell)" %>
     </div>
-
     <div>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary-post">Create</button>
   </div>
 <% end %>
