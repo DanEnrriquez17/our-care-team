@@ -1,0 +1,47 @@
+<!-- Trigger Button for Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Add Prescription
+</button>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Prescription</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_for @prescription do |f| %>
+        <div class="modal-body">
+          <div>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div>
+            <%= f.label :dosage %>
+            <%= f.text_field :dosage %>
+          </div>
+          <div>
+            <%= f.label :frequency %>
+            <%= f.text_field :frequency %>
+          </div>
+          <div>
+            <%= f.label :"Prescribing Doctor" %>
+            <%= f.collection_select(:doctor_id, Doctor.all, :id, :specialty) %>
+          </div>
+          <div>
+            <%= f.label :purpose %>
+            <%= f.text_field :purpose %>
+          </div>
+          <div>
+            <%= f.label :status %>
+            <%= f.select :status, Prescription::STATUS %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= f.submit "Add Prescription", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
