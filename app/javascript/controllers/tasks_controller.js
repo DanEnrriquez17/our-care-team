@@ -67,7 +67,8 @@ export default class extends Controller {
 
         // Initialize and show the bootstrap modal
         var myModal = new Modal(document.getElementById("staticBackdrop"), {});
-        myModal.show();
+        //console.log("holaaa");
+        //myModal.show();
       });
   }
 }

@@ -1,6 +1,7 @@
 .container {
   margin: 10px 0px;
 }
+
 .main-body {
   display: flex;
   margin: 10px 0px;
@@ -19,44 +20,58 @@
   height: 30vh;
   padding: 20px;
 }
+
 .task-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   .new {
     margin-right: 15px;
   }
+
   h2 {
     margin-left: 15px;
   }
 }
+
+.d-con {
+  background-color: #ffffff;
+}
+
 .cont-dash {
   background-color: #eaeaea;
   border-radius: 10px;
   color: black;
   margin: 5px;
 }
+
 .posts {
   height: 63vh;
   overflow: scroll;
 }
+
 .tasks {
   height: 30vh;
   overflow: scroll;
 }
+
 .main-post {
   background-color: white;
   margin: 5px;
   border-radius: 10px;
+
   ul {
     list-style: none;
     font-size: 12px;
   }
+
   .arrow {
     margin: 15px;
   }
 }
-.calendar{
+
+.calendar {
   height: 55vh;
   overflow: scroll;
   font-size: 12px;

@@ -11,7 +11,7 @@
   </div>
   <div class="col-2 task-column">
     <p class = "task-bar-assigned" style="line-height:1.4">
-      <%= task.assigned_users.map(&:first_name).join(', ') %>
+      <%= task.assigned_users.map(&:first_name).join(', ')%>
     </div>
     <div class="col-2 task-column">
       <p class = "task-bar-assigned" style="line-height:1.4">
@@ -23,8 +23,27 @@
         </p>
       </div>
       <div class="col-1 task-column">
-        <%= link_to task_path(task) do %>
-          <i class="fa-solid fa-arrow-right big-icon"></i>
-        <% end %>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+          Launch static backdrop modal
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdropTwo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTwoLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropTwoLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= render "tasks/show", task: task %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>

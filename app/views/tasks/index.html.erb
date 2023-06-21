@@ -23,10 +23,25 @@
       </div>
     </div>
     <div class="col-md-3 item-three">
-      <h3>Notifications</h3>
+      <div class="row block-labels">
+        <div class="col-8">
+          Notifications
+        </div>
+        <div class="col-1">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+      </div>
+      <div class="row mt-2 font-family-monsterrat">
+        <div class="col-1">
+          <i class="fa-solid fa-circle" style="color: #62ec3c;"></i>
+        </div>
+        <div class="col-11 font-family-monsterrat">
+          <p class="notification-text">You have <%= @task_notifications.count %> new task notifications</p>
+        </div>
+      </div>
       <ul>
         <% @task_notifications.each do |n| %>
-          <li>Fuiste asignado en <%= n.task.title %> hace <%= n.time_ago %> minutos</li>
+          <li class="font-family-monsterrat"><%= n.user.first_name %> assigned you <%= n.task.title %> about <%= n.time_ago %> minutes ago.</li>
         <% end %>
       </ul>
     </div>
@@ -93,8 +108,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3 item-three">
-      <div class="row team-members">
+    <div class="col-md-3 team-box">
+      <div class="row block-labels">
         Team Members
       </div>
       <div class="row avatar-row">
@@ -133,6 +148,6 @@
     <div class="col-md-8 all-tasks" data-tasks-target="tasks">
       <%= render "tasks", tasks: @tasks %>
     </div>
-    <div class="col-md-3 item-three">Recent</div>
+    <div class="col-md-3 recent-box">Recent</div>
   </div>
 </div>

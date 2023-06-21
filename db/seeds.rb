@@ -34,7 +34,7 @@ rose = User.create!(email: "test7@gmail.com", role: "Caretaker", first_name: "Ro
 rose_archivo = URI.open("https://image.pngaaa.com/355/81355-middle.png")
 rose.avatar.attach(io: rose_archivo, filename: "rose.png", content_type: "image/png")
 
-daniel = User.create!(email: "daniel@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
+daniel = User.create!(email: "daniel_one@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
 archivo = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvAczNDCh4fHJZxYyNhZW7brFYSc47N27aIajLYtQjVKhBOMH-W1wHWiyjINsX5DQVu1c&usqp=CAU")
 daniel.avatar.attach(io: archivo, filename: "daniel.jpg", content_type: "image/jpg")
 
@@ -86,7 +86,7 @@ Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "3x per da
 Prescription.create!(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 5, purpose: "heart meds")
 Prescription.create!(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5, purpose: "antibiotic")
 
-#DAN EVENTS SEEDS
+# DAN EVENTS SEEDS
 Event.create!(
   title: "Doctor Appointment",
   event_type: "Doctor Appointment",
@@ -142,7 +142,58 @@ Event.create!(
   notes: "Bring medical records."
 )
 
-#DAN MEDICAL APPOINTMENT SEEDS
+# DAN MEDICAL APPOINTMENT SEEDS
 MedicalAppointment.create!(doctor_id: 3, event_id: 1)
 MedicalAppointment.create!(doctor_id: 4, event_id: 5)
 MedicalAppointment.create!(doctor_id: 5, event_id: 6)
+
+# Isaac Tasks Seeds
+Task.create(
+  status: "Pending",
+  title: "Morning Medicine Administration",
+  due_date: DateTime.now + 1.days,
+  task_type: "Bills",
+  description: "Administer the morning medicine dosage to Richard, includes 2 tablets of medication A/ 1 tablet of medication B.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.fourth.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Afternoon Walk",
+  due_date: DateTime.now + 2.days,
+  task_type: "Other",
+  description: "Assist the patient in a light walk around the garden for 30 minutes.",
+  user_id: User.last.id,
+  assigned_user_ids: [User.third.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Weekly Doctor's Appointment",
+  due_date: DateTime.now + 7.days,
+  task_type: "Medical",
+  description: "Drive the patient to their weekly checkup at the General Hospital, building 3.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.first.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Meal Preparation - Lunch",
+  due_date: DateTime.now + 3.days,
+  task_type: "Errands",
+  description: "Prepare a healthy lunch with low sodium content. The meal should include vegetables, protein, and grains.",
+  user: User.first,
+  assigned_user_ids: [User.fifth.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Evening Bedtime Assistance",
+  due_date: DateTime.now + 1.days,
+  task_type: "Errands",
+  description: "Help the patient with their evening routine and ensure they are comfortable for the night.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.first.id]
+)
