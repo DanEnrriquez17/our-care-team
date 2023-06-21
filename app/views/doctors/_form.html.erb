@@ -1,33 +1,26 @@
 <%= simple_form_for(@doctor) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div>
-    <div class="form-inputs">
+  <div id="post-form-container" class="modal-body">
+    <div>
       <%= f.input :first_name %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :last_name %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :specialty %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :address %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :hospital %>
     </div>
-
-    <div class="form-inputs">
+    <div>
       <%= f.input :phone_number %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary-doctor">Create</button>
   </div>
 <% end %>

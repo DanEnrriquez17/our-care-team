@@ -1,16 +1,90 @@
 .post{
-  background-color: #eaeaea;
-  margin: 20px 10px;
-  border-radius: 20px;
-  li{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 600px;
+  width: 600px;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  ul {
     list-style: none;
-    color: #898989;
-  }
-  .link_see_post{
-    margin-right: 20px;
+    padding-left: 0px;
   }
 }
 .post-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
+  width: 100vw;
   overflow: scroll;
+}
+.name-and-created{
+  display: flex;
+  align-items: baseline;
+  p{
+    margin-left: 15px;
+    color: #8d8d8d;
+  }
+}
+.img-name-created{
+  display: flex;
+  align-items: baseline;
+  padding: 10px;
+}
+.user-image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+.tag-btn{
+  padding: 5px 10px;
+  background-color: #3f75ef;
+  border-radius: 3px;
+  color: white;
+  border: solid 1px #3f75ef;
+  margin-left: 10px;
+}
+.attached-doc{
+  display: flex;
+  flex-direction: column;
+}
+.post-img{
+  height: 300px;
+  width: 400px;
+  border-radius: 20px;
+}
+.btn-primary-post {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 15px;
+  width: 150px;
+  padding: 6px 6px;
+}
+.add-post-button {
+  padding-top: 0px;
+  padding-right: 0;
+  margin-left: 1rem;
+}
+.post-module-header-one {
+  color: #222222;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.post-module-header {
+  color: #b792fc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.post-title{
+  font-size: 35px;
+  color: #cecdcd;
+  font-weight: 400;
+  padding: 0px 5px;
 }

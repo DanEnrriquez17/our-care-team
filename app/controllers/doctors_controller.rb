@@ -1,12 +1,15 @@
 class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all.order(created_at: :desc)
-    @addresses = @doctors.map do |doctor|
-      { address: doctor.address }
+    @addresses = @doctors.geocoded.map do |doctor|
+      {
+        lat: doctor.latitude,
+        lng: doctor.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {doctor: doctor})
+      }
     end
-    @mapbox_token = ENV["MAPBOX_TOKEN"]
     @doctor = Doctor.new
-
+    @mapbox_token = ENV["MAPBOX_TOKEN"]
   end
 
   def show

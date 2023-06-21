@@ -1,4 +1,4 @@
-<button class="text-nowrap bd-highlight text-truncate" style="width: 8rem" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= event.id %>">
+<button class="text-nowrap bd-highlight text-truncate event-block" style="width: 8rem" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%= event.id %>">
   <div><%= event.start.strftime("%l:%M %P") %> <%= event.title %></div>
 </button>
 <div class="modal fade" id="exampleModal<%= event.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModal<%= event.id %>Label" aria-hidden="true">

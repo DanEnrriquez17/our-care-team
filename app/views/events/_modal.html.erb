@@ -1,46 +1,43 @@
 <!-- Trigger Button for Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Create Event
-</button>
+<div class="col-md-2 add-doctor-button">
+  <button type="button" class="btn btn-primary-event" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Create Event
+  </button>
+</div>
 <!-- Modal -->
-
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Event</h1>
+        <h1 class="modal-title fs-5 doctor-module-header-one" id="staticBackdropLabel">Create Event</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%= form_for @event do |f| %>
-        <div class="modal-body">
-          <div>
-          <%= f.label :title %>
-          <%= f.text_field :title %>
+        <div id="event-form-container" class="modal-body">
+          <div class="event-input">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
           </div>
-
-          <div>
-          <%= f.label :event_type %>
-          <%= f.select :event_type, Event::EVENTTYPES %>
+          <div class="event-input">
+            <%= f.label :event_type %>
+            <%= f.select :event_type, Event::EVENTTYPES %>
           </div>
-
-          <div>
-          <%= f.label :start %>
-          <%= f.datetime_field :start %>
+          <div class="event-input">
+            <%= f.label :start %>
+            <%= f.datetime_field :start %>
           </div>
-
-          <div>
-          <%= f.label :end %>
-          <%= f.datetime_field :end %>
+          <div class="event-input">
+            <%= f.label :end %>
+            <%= f.datetime_field :end %>
           </div>
-
-          <div>
-          <%= f.label :location %>
-          <%= f.text_field :location %>
+          <div class="event-input">
+            <%= f.label :location %>
+            <%= f.text_field :location %>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%= f.submit "Create Event", class: "btn btn-primary" %>
+          <button type="submit" class="btn btn-primary-doctor">Create</button>
         </div>
       <% end %>
     </div>
