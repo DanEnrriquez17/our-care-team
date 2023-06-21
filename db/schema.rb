@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_160607) do
     t.string "first_name"
     t.string "last_name"
     t.string "hospital"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 

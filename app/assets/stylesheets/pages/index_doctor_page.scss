@@ -17,8 +17,8 @@
   background-color: white;
 }
 .doctor-card:hover{
-  width: 210px;
-  height: 350px;
+  width: 230px;
+  height: 310px;
 }
 .doc-name-img{
   display: flex;
@@ -39,4 +39,34 @@
 }
 .doctor-label{
   margin-left: 5px;
+}
+.btn-primary-doctor {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 15px;
+}
+.add-doctor-button {
+  padding-top: 0px;
+  padding-right: 0;
+  margin-left: 1rem;
+}
+.doctor-module-header-one {
+  color: #222222;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.doctor-module-header {
+  color: #b792fc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.doctor-title{
+  font-size: 35px;
+  color: #cecdcd;
+  font-weight: 400;
+  padding-top: 0px;
+}
+.doctors-row{
+  overflow: scroll;
 }
