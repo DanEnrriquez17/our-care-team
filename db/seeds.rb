@@ -18,7 +18,7 @@ User.create!(email: "test5@gmail.com", role: "Family", first_name: "Marth", last
 User.create!(email: "test6@gmail.com", role: "Caretaker", first_name: "Ana", last_name: "Lopez", phone_number: "212-555-1244", password: "password", team: team)
 User.create!(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", last_name: "Goodwin", phone_number: "212-555-1244", password: "password", team: team)
 
-daniel = User.create!(email: "daniel@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
+daniel = User.create!(email: "daniel_one@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
 archivo = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvAczNDCh4fHJZxYyNhZW7brFYSc47N27aIajLYtQjVKhBOMH-W1wHWiyjINsX5DQVu1c&usqp=CAU")
 daniel.avatar.attach(io: archivo, filename: "daniel.jpg", content_type: "image/jpg")
 
@@ -32,13 +32,13 @@ Post.create!(title: "Second Post user: 4", content: "This is the second post for
 Post.create!(title: "First Post user: 5", content: "This is the first post for the user no.5", user_id: "5")
 Post.create!(title: "Second Post user: 5", content: "This is the second post for the user no.5", user_id: "5")
 
-#DAN DOCTOR SEEDS
+# DAN DOCTOR SEEDS
 bill = Doctor.create!(specialty: "Cardiologist", address: "800 Meadows Rd, Boca Raton, FL 33486, Estados Unidos", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones", hospital: "Boca Raton Regional Hospital")
 bill_photo = URI.open("https://png.pngtree.com/png-vector/20190703/ourmid/pngtree-doctor-avatar-free-vector-png-image_1535582.jpg")
 bill.avatar.attach(io: bill_photo, filename: "bill.jpg", content_type: "image/jpg")
 
 linda = Doctor.create!(specialty: "Neurologist", address: "5352 Linton Blvd, Delray Beach, FL 33484, Estados Unidos", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith", hospital: "Delray Medical Center")
-linda_photo = URI.open ("https://rocketdoctor.ca/wp-content/uploads/2023/02/step3-1024x1024.png")
+linda_photo = URI.open("https://rocketdoctor.ca/wp-content/uploads/2023/02/step3-1024x1024.png")
 linda.avatar.attach(io: linda_photo, filename: "linda.png", content_type: "image/png")
 
 jhon = Doctor.create!(specialty: "General Practioner", address: "21644 State Rd. 7, Boca Raton, FL 33428, Estados Unidos", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl", hospital: "West Boca Medical Center")
@@ -73,7 +73,7 @@ olivia = Doctor.create!(specialty: "Gynecologist", address: "300 Pasteur Dr, Sta
 olivia_photo = URI.open("https://img.freepik.com/vector-premium/avatar-medico-varon-cabello-negro-barba-doctor-estetoscopio-vector-illustrationxa_276184-32.jpg")
 olivia.avatar.attach(io: olivia_photo, filename: "jhon.jpg", content_type: "image/jpg")
 
-#DAN PRESCRIPTION SEEDS
+# DAN PRESCRIPTION SEEDS
 Prescription.create!(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 1)
 Prescription.create!(name: "ibuprofen", dosage: "200mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 1)
 Prescription.create!(name: "levothyroxine", dosage: "100mcg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor_id: 2)
@@ -85,7 +85,7 @@ Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "3x per da
 Prescription.create!(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 5)
 Prescription.create!(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5)
 
-#DAN EVENTS SEEDS
+# DAN EVENTS SEEDS
 Event.create!(
   title: "Doctor Appointment",
   event_type: "Doctor Appointment",
@@ -141,7 +141,58 @@ Event.create!(
   notes: "Bring medical records."
 )
 
-#DAN MEDICAL APPOINTMENT SEEDS
+# DAN MEDICAL APPOINTMENT SEEDS
 MedicalAppointment.create!(doctor_id: 3, event_id: 1)
 MedicalAppointment.create!(doctor_id: 4, event_id: 5)
 MedicalAppointment.create!(doctor_id: 5, event_id: 6)
+
+# Isaac Tasks Seeds
+Task.create(
+  status: "Pending",
+  title: "Morning Medicine Administration",
+  due_date: DateTime.now + 1.days,
+  task_type: "Bills",
+  description: "Administer the morning medicine dosage to Richard, includes 2 tablets of medication A/ 1 tablet of medication B.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.fourth.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Afternoon Walk",
+  due_date: DateTime.now + 2.days,
+  task_type: "Other",
+  description: "Assist the patient in a light walk around the garden for 30 minutes.",
+  user_id: User.last.id,
+  assigned_user_ids: [User.third.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Weekly Doctor's Appointment",
+  due_date: DateTime.now + 7.days,
+  task_type: "Medical",
+  description: "Drive the patient to their weekly checkup at the General Hospital, building 3.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.first.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Meal Preparation - Lunch",
+  due_date: DateTime.now + 3.days,
+  task_type: "Errands",
+  description: "Prepare a healthy lunch with low sodium content. The meal should include vegetables, protein, and grains.",
+  user: User.first,
+  assigned_user_ids: [User.fifth.id]
+)
+
+Task.create(
+  status: "Pending",
+  title: "Evening Bedtime Assistance",
+  due_date: DateTime.now + 1.days,
+  task_type: "Errands",
+  description: "Help the patient with their evening routine and ensure they are comfortable for the night.",
+  user_id: User.first.id,
+  assigned_user_ids: [User.first.id]
+)

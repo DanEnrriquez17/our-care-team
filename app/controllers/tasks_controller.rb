@@ -46,10 +46,10 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update!(task_params)
-      redirect_to tasks_path(@task)
+    if @task.update(task_params)
+      redirect_to @task, notice: 'Task was successfully updated.'
     else
-      redirect_to edit_task_path(@task), status: :unprocessable_entity
+      render :edit
     end
   end
 
@@ -61,7 +61,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id, assigned_user_ids:, photo: [])
+    params.require(:task).permit(:title, :description, :status, :due_date, :task_type, :user_id, :photo, assigned_user_ids: [])
   end
 
   def set_task

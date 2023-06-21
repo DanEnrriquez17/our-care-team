@@ -15,5 +15,4 @@ class User < ApplicationRecord
   has_many :mentioned_posts, through: :post_mentioned_users, source: :post # this is the user's mentioned posts
 
   has_one_attached :avatar
-  has_many :notifications, dependent: :destroy # this is the user's notifications
 end
