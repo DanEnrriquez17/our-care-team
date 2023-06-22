@@ -13,6 +13,9 @@ application.register("mapbox", MapboxController)
 import MultiMapboxController from "./multi_mapbox_controller"
 application.register("multi-mapbox", MultiMapboxController)
 
+import PrescriptionFormController from "./prescription_form_controller"
+application.register("prescription-form", PrescriptionFormController)
+
 import TabulatorController from "./tabulator_controller"
 application.register("tabulator", TabulatorController)
 
