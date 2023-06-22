@@ -2,10 +2,10 @@
 
 require "open-uri"
 
-# User.destroy_all
-# Team.destroy_all
-# Prescription.destroy_all
-# Doctor.destroy_all
+Team.destroy_all
+User.destroy_all
+Prescription.destroy_all
+Doctor.destroy_all
 
 admin = User.create!(email: "test1@gmail.com", role: "Admin", first_name: "Lobo", last_name: "Alexander", phone_number: "212-555-1212", password: "password")
 team = Team.create!(patient_first: "Richard", patient_last: "Alexander", user: admin)
