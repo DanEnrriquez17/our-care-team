@@ -34,9 +34,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
   end
 
@@ -47,7 +44,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      redirect_to tasks_path, notice: 'Task was successfully updated.'
     else
       render :edit
     end

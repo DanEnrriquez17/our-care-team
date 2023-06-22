@@ -40,8 +40,8 @@
         </div>
       </div>
       <ul>
-        <% @task_notifications.each do |n| %>
-          <li class="font-family-monsterrat"><%= n.user.first_name %> assigned you <%= n.task.title %> about <%= n.time_ago %> minutes ago.</li>
+        <% @task_notifications.first(2).each do |n| %>
+          <li class="notification-text"><%= n.user.first_name %> assigned you <%= n.task.title %> about <%= n.time_ago %> minutes ago.</li>
         <% end %>
       </ul>
     </div>
@@ -110,20 +110,27 @@
     </div>
     <div class="col-md-3 team-box">
       <div class="row block-labels">
-        Team Members
+        <div class="col-8">
+          Notifications
+        </div>
+        <div class="col-1">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
       </div>
-      <div class="row avatar-row">
-        <div class="col-2 avatar-box">
-          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg" alt="avatar icon">
-        </div>
-        <div class="col-2 avatar-box">
-          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg" alt="avatar icon">
-        </div>
-        <div class="col-2 avatar-box">
-          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_seven_qxalmc.svg" alt="avatar icon">
-        </div>
-        <div class="col-2 avatar-box">
-          <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg" alt="avatar icon">
+      <div class="row mt-2 font-family-monsterrat">
+        <div class="row avatar-row">
+          <div class="col-2 avatar-box">
+            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg" alt="avatar icon">
+          </div>
+          <div class="col-2 avatar-box">
+            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg" alt="avatar icon">
+          </div>
+          <div class="col-2 avatar-box">
+            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_seven_qxalmc.svg" alt="avatar icon">
+          </div>
+          <div class="col-2 avatar-box">
+            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg" alt="avatar icon">
+          </div>
         </div>
       </div>
     </div>
@@ -148,6 +155,24 @@
     <div class="col-md-8 all-tasks" data-tasks-target="tasks">
       <%= render "tasks", tasks: @tasks %>
     </div>
-    <div class="col-md-3 recent-box">Recent</div>
+    <div class="col-md-3 recent-box">
+      <div class="row block-labels">
+        <div class="col-8">
+          Recent Activity
+        </div>
+        <div class="col-1">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+      </div>
+      <div class="row mt-2 font-family-monsterrat">
+        <div class="col-1">
+          <i class="fa-solid fa-bell-on"></i>
+        </div>
+        <div class="col-11 font-family-monsterrat">
+          <p class="notification-text">You have <%= @task_notifications.count %> new task notifications</p>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 </div>

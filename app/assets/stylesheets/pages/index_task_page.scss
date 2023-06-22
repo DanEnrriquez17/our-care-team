@@ -6,6 +6,12 @@
   margin-top: 25px;
 }
 
+.notification-text {
+  font-family: "Poppins", sans-serif;
+  color: #a9a9a9;
+  font-size: 15px;
+}
+
 .modal-content {
   border-radius: 15px;
   font-family: "Montserrat", sans-serif;
@@ -62,7 +68,7 @@
 }
 
 .recent-box {
-  margin-top: 50px;
+  margin-top: 70px;
   background-color: rgb(255, 255, 255);
   padding: 1em;
   border-radius: 10px;
@@ -204,6 +210,7 @@ h1 {
 .task-bar-assigned,
 .task-bar-overview {
   font-family: "Poppins", sans-serif;
+  color: #a9a9a9;
 }
 
 .task-details-row {
@@ -251,6 +258,12 @@ h1 {
   border-radius: 15px;
 }
 
+.btn-view {
+  background-color: #f7f7f7;
+  border-color: #e1e1e1;
+  border-radius: 15px;
+}
+
 .task-bar {
   background-color: #ffffff;
   /* This is a light gray color, change it to whatever you want */
@@ -271,6 +284,12 @@ h1 {
   padding-top: 17px;
 }
 
+.task-column-view {
+  height: 60px;
+  padding-top: 17px;
+  padding-left: 3rem;
+}
+
 .status-pending {
   color: rgb(32, 226, 90);
   font-weight: bold;
@@ -289,4 +308,10 @@ h1 {
 .status-default {
   color: black;
   font-weight: bold;
+}
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  color: #a6a5a5;
 }

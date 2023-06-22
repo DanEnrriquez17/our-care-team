@@ -11,27 +11,27 @@ admin = User.create!(email: "test1@gmail.com", role: "Admin", first_name: "Lobo"
 team = Team.create!(patient_first: "Richard", patient_last: "Alexander", user: admin)
 
 jen = User.create!(email: "test2@gmail.com", role: "Family", first_name: "Jen", last_name: "Alexander", phone_number: "212-555-1223", password: "password", team: team)
-jen_archivo = URI.open("https://icon-library.com/images/free-avatar-icon/free-avatar-icon-10.jpg")
+jen_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_One_r2uzda.svg")
 jen.avatar.attach(io: jen_archivo, filename: "jen.jpg", content_type: "image/jpg")
 
 kir = User.create!(email: "test3@gmail.com", role: "Family", first_name: "Kir", last_name: "Alexander", phone_number: "212-555-1234", password: "password", team: team)
-kir_archivo = URI.open("https://image.pngaaa.com/331/81331-middle.png")
+kir_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg")
 kir.avatar.attach(io: kir_archivo, filename: "kir.png", content_type: "image/png")
 
 junior = User.create!(email: "test4@gmail.com", role: "Family", first_name: "Junior", last_name: "Alexander", phone_number: "212-555-1203", password: "password", team: team)
-junior_archivo = URI.open("https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-10-avatar-2754575_120521.png")
+junior_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_five_iwmjme.svg")
 junior.avatar.attach(io: junior_archivo, filename: "junior.png", content_type: "image/png")
 
 marth = User.create!(email: "test5@gmail.com", role: "Family", first_name: "Marth", last_name: "Alexander", phone_number: "212-555-1221", password: "password", team: team)
-marth_archivo = URI.open("https://image.pngaaa.com/355/81355-middle.png")
+marth_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg")
 marth.avatar.attach(io: marth_archivo, filename: "marth.png", content_type: "image/png")
 
 ana = User.create!(email: "test6@gmail.com", role: "Caretaker", first_name: "Ana", last_name: "Lopez", phone_number: "212-555-1244", password: "password", team: team)
-ana_archivo = URI.open("https://image.pngaaa.com/355/81355-middle.png")
+ana_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg")
 ana.avatar.attach(io: ana_archivo, filename: "ana.png", content_type: "image/png")
 
 rose = User.create!(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", last_name: "Goodwin", phone_number: "212-555-1244", password: "password", team: team)
-rose_archivo = URI.open("https://image.pngaaa.com/355/81355-middle.png")
+rose_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg")
 rose.avatar.attach(io: rose_archivo, filename: "rose.png", content_type: "image/png")
 
 daniel = User.create!(email: "daniel_one@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
