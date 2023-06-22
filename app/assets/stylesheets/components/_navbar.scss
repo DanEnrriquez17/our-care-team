@@ -4,6 +4,7 @@
   width: 7 0px;
   background-color: #fdfdfd;
   border-radius: 10px;
+  padding-left: 1rem;
 
   ul {
     display: flex;
@@ -30,7 +31,7 @@
 .sidebar a:hover p {
   opacity: 1;
   transition: 0.5s;
-  color: white;
+  color: #a6a5a5;
 }
 
 .sidebar li a:hover i {
