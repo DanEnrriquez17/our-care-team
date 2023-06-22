@@ -66,9 +66,9 @@ jhon = Doctor.create!(specialty: "General Practioner", address: "3000 Coral Hill
 jhon_photo = URI.open("https://img.freepik.com/vector-premium/avatar-medico-varon-cabello-negro-barba-doctor-estetoscopio-vector-illustrationxa_276184-32.jpg")
 jhon.avatar.attach(io: jhon_photo, filename: "jhon.jpg", content_type: "image/jpg")
 
-# miguel = Doctor.create!(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user: admin, first_name: "Miguel", last_name: "Smith", hospital: "Deerfield Medical Center")
-# miguel_photo = URI.open("https://w7.pngwing.com/pngs/14/65/png-transparent-ico-avatar-scalable-graphics-icon-doctor-with-stethoscope-people-cartoon-female-doctor-thumbnail.png")
-# miguel.avatar.attach(io: miguel_photo, filename: "miguel.png", content_type: "image/png")
+miguel = Doctor.create!(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user: admin, first_name: "Miguel", last_name: "Smith", hospital: "Deerfield Medical Center")
+miguel_photo = URI.open("https://w7.pngwing.com/pngs/14/65/png-transparent-ico-avatar-scalable-graphics-icon-doctor-with-stethoscope-people-cartoon-female-doctor-thumbnail.png")
+miguel.avatar.attach(io: miguel_photo, filename: "miguel.png", content_type: "image/png")
 
 salim = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user: admin, first_name: "Salim", last_name: "Smith", hospital: "Lauderdale Medical Center")
 salim_photo = URI.open("https://cdn-icons-png.flaticon.com/512/3774/3774299.png")
@@ -81,8 +81,8 @@ Prescription.create!(name: "levothyroxine", dosage: "100mcg", frequency: "1x per
 Prescription.create!(name: "metformin", dosage: "500mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 2, purpose: "general health")
 Prescription.create!(name: "lisinopril", dosage: "10mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 3, purpose: "blood pressure drop")
 Prescription.create!(name: "simvastatin", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor_id: 3, purpose: "health health")
-Prescription.create!(name: "omeprazole", dosage: "40mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 3, purpose: "general health")
-Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5, purpose: "antibiotic")
+Prescription.create!(name: "omeprazole", dosage: "40mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 4, purpose: "general health")
+Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 4, purpose: "antibiotic")
 Prescription.create!(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor_id: 5, purpose: "heart meds")
 Prescription.create!(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor_id: 5, purpose: "antibiotic")
 
@@ -144,7 +144,7 @@ Event.create!(
 
 # DAN MEDICAL APPOINTMENT SEEDS
 MedicalAppointment.create!(doctor_id: 3, event_id: 1)
-MedicalAppointment.create!(doctor_id: 5, event_id: 5)
+MedicalAppointment.create!(doctor_id: 4, event_id: 5)
 MedicalAppointment.create!(doctor_id: 5, event_id: 6)
 
 # Isaac Tasks Seeds
