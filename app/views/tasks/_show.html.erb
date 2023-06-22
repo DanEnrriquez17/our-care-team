@@ -1,28 +1,31 @@
 <div id="show-form-container" class="modal-body">
   <h1>Task Details</h1>
-  <p>
-    <strong>Title:</strong>
-    <%= task.title %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= task.status %>
-  </p>
-  <p>
-    <strong>Due Date:</strong>
-    <%= task.due_date %>
-  </p>
-  <p>
-    <strong>Type:</strong>
-    <%= task.task_type %>
-  </p>
+  <div class="form-group">
+    <label><strong>Title:</strong></label>
+    <p><%= task.title %></p>
+  </div>
+  <div class="form-group">
+    <label><strong>Description:</strong></label>
+    <p><%= task.description %></p>
+  </div>
+  <div class="form-group">
+    <label><strong>Status:</strong></label>
+    <p><%= task.status %></p>
+  </div>
+  <div class="form-group">
+    <label><strong>Due Date:</strong></label>
+    <p><%= task.due_date %></p>
+  </div>
+  <div class="form-group">
+    <label><strong>Type:</strong></label>
+    <p><%= task.task_type %></p>
+  </div>
+  <div class="form-group">
+    <label><strong>Assigned Members:</strong></label>
+    <p><%= task.assigned_users.map(&:first_name).join(', ')%> </p>
+  </div>
   <!-- Add more fields as needed -->
   <footer>
-    <%= link_to 'Edit', edit_task_path(task) %>
-    <%= link_to 'Back', tasks_path %>
+    <button type="button" class="btn btn-primary-task" data-action="click->tasks#toggleTaskEdit" data-id="<%= task.id %>">Edit</button>
   </footer>
 </div>

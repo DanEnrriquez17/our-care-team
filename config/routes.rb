@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get '/patients/json', to: 'prescriptions#prescription_json'
   resources :events
   resources :doctors do
-    resources :prescriptions, except: [:index, :new, :create, :edit, :update]
+    resources :prescriptions, except: [:index, :new, :create, :edit, :update, :destroy]
   end
-  resources :prescriptions, only: [:index, :new, :create, :edit, :update]
+  resources :prescriptions, only: [:index, :new, :create, :edit, :update, :destroy]
   #CREATED BY ISAAC
     # Tasks routes/tasks_assigned_users nested routes
   resources :tasks, except: [:new] do
