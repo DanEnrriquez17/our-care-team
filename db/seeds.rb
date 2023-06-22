@@ -143,9 +143,9 @@ Event.create!(
 )
 
 # DAN MEDICAL APPOINTMENT SEEDS
-MedicalAppointment.create!(doctor_id: 3, event_id: 1)
-MedicalAppointment.create!(doctor_id: 4, event_id: 5)
-MedicalAppointment.create!(doctor_id: 5, event_id: 6)
+MedicalAppointment.create!(doctor: Doctor.all.sample, event: Event.all.sample)
+MedicalAppointment.create!(doctor: Doctor.all.sample, event: Event.all.sample)
+MedicalAppointment.create!(doctor: Doctor.all.sample, event: Event.all.sample)
 
 # Isaac Tasks Seeds
 Task.create(
