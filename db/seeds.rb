@@ -39,38 +39,38 @@ archivo = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvAczN
 daniel.avatar.attach(io: archivo, filename: "daniel.jpg", content_type: "image/jpg")
 
 # DAN POSTS SEEDS
-post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user: User.find(1))
+post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user: User.all.sample)
 post1archivo = URI.open("https://cakexpo-images.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/08/07162433/IMG-20220807-WA00182.jpg")
 post1.photos.attach(io: post1archivo, filename: "post1.jpg", content_type: "image/jpg")
 
-Post.create!(title: "Check up", content: "Everything went well with the anual check up, nothing to worry about", user: User.find(2))
+Post.create!(title: "Check up", content: "Everything went well with the anual check up, nothing to worry about", user: User.all.sample)
 
-post3 = Post.create!(title: "Family vacation", content: "Sharing a picture from our memorable family vacation", user: User.find(3))
+post3 = Post.create!(title: "Family vacation", content: "Sharing a picture from our memorable family vacation", user: User.all.sample)
 post3archivo = URI.open("https://as1.ftcdn.net/v2/jpg/05/40/99/66/1000_F_540996679_4E5i8Usu29opCsHj7VGlUqmj75Pb9V69.jpg")
 post3.photos.attach(io: post3archivo, filename: "post3.jpg", content_type: "image/jpg")
 
-post4 = Post.create!(title: "New pet", content: "Introducing our adorable new family member", user: User.find(4))
+post4 = Post.create!(title: "New pet", content: "Introducing our adorable new family member", user: User.all.sample)
 post4archivo = URI.open("https://www.petplace.com/static/5844c0a4ce1d93e726ea04153375b217/98569/AdobeStock_1078613.jpg")
 post4.photos.attach(io: post4archivo, filename: "post4.jpg", content_type: "image/jpg")
 
 #DAN DOCTOR
-bill = Doctor.create!(specialty: "Cardiologist", address: "800 Meadows Rd, Boca Raton, FL 33486, Estados Unidos", phone_number: "888-888-1212", user_id: 1, first_name: "Bill", last_name: "Jones", hospital: "Boca Raton Regional Hospital")
+bill = Doctor.create!(specialty: "Cardiologist", address: "800 Meadows Rd, Boca Raton, FL 33486, Estados Unidos", phone_number: "888-888-1212", user: admin, first_name: "Bill", last_name: "Jones", hospital: "Boca Raton Regional Hospital")
 bill_photo = URI.open("https://png.pngtree.com/png-vector/20190703/ourmid/pngtree-doctor-avatar-free-vector-png-image_1535582.jpg")
 bill.avatar.attach(io: bill_photo, filename: "bill.jpg", content_type: "image/jpg")
 
-linda = Doctor.create!(specialty: "Neurologist", address: "5352 Linton Blvd, Delray Beach, FL 33484, Estados Unidos", phone_number: "888-555-2323", user_id: 1, first_name: "Linda", last_name: "Smith", hospital: "Delray Medical Center")
+linda = Doctor.create!(specialty: "Neurologist", address: "5352 Linton Blvd, Delray Beach, FL 33484, Estados Unidos", phone_number: "888-555-2323", user: admin, first_name: "Linda", last_name: "Smith", hospital: "Delray Medical Center")
 linda_photo = URI.open("https://rocketdoctor.ca/wp-content/uploads/2023/02/step3-1024x1024.png")
 linda.avatar.attach(io: linda_photo, filename: "linda.png", content_type: "image/png")
 
-jhon = Doctor.create!(specialty: "General Practioner", address: "3000 Coral Hills Dr, Coral Springs, FL 33065, Estados Unidos", phone_number: "888-729-5656", user_id: 1, first_name: "John", last_name: "Karl", hospital: "Broward Health Coral Springs")
+jhon = Doctor.create!(specialty: "General Practioner", address: "3000 Coral Hills Dr, Coral Springs, FL 33065, Estados Unidos", phone_number: "888-729-5656", user: admin, first_name: "John", last_name: "Karl", hospital: "Broward Health Coral Springs")
 jhon_photo = URI.open("https://img.freepik.com/vector-premium/avatar-medico-varon-cabello-negro-barba-doctor-estetoscopio-vector-illustrationxa_276184-32.jpg")
 jhon.avatar.attach(io: jhon_photo, filename: "jhon.jpg", content_type: "image/jpg")
 
-miguel = Doctor.create!(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user_id: 1, first_name: "Miguel", last_name: "Smith", hospital: "Deerfield Medical Center")
+miguel = Doctor.create!(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user: admin, first_name: "Miguel", last_name: "Smith", hospital: "Deerfield Medical Center")
 miguel_photo = URI.open("https://w7.pngwing.com/pngs/14/65/png-transparent-ico-avatar-scalable-graphics-icon-doctor-with-stethoscope-people-cartoon-female-doctor-thumbnail.png")
 miguel.avatar.attach(io: miguel_photo, filename: "miguel.png", content_type: "image/png")
 
-salim = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user_id: 1, first_name: "Salim", last_name: "Smith", hospital: "Lauderdale Medical Center")
+salim = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user: admin, first_name: "Salim", last_name: "Smith", hospital: "Lauderdale Medical Center")
 salim_photo = URI.open("https://cdn-icons-png.flaticon.com/512/3774/3774299.png")
 salim.avatar.attach(io: salim_photo, filename: "salim.png", content_type: "image/png")
 
@@ -94,14 +94,14 @@ Event.create!(
   end: "2023-06-16 13:00:00",
   location: "123 Main St",
   notes: "Bring medical records.",
-  user_id: 1
+  user: admin
 )
 Event.create!(
   title: "Physical Therapy Session",
   event_type: "Physical Therapy",
   start: "2023-06-16 15:30:00",
   end: "2023-06-16 16:30:00",
-  user_id: 1,
+  user: admin,
   location: "123 Main St",
   notes: "Wear comfortable clothing."
 )
@@ -110,7 +110,7 @@ Event.create!(
   event_type: "Guest in Town",
   start: "2023-06-17 18:00:00",
   end: "2023-06-17 22:00:00",
-  user_id: 1,
+  user: admin,
   location: "123 Main St",
   notes: "Pick up at airport."
 )
@@ -119,7 +119,7 @@ Event.create!(
   event_type: "Other",
   start: "2023-06-18 10:00:00",
   end: "2023-06-18 12:00:00",
-  user_id: 1,
+  user: admin,
   location: "123 Main St",
   notes: "Bring presentation materials."
 )
@@ -128,7 +128,7 @@ Event.create!(
   event_type: "Doctor Appointment",
   start: "2023-06-19 14:00:00",
   end: "2023-06-19 15:00:00",
-  user_id: 1,
+  user: admin,
   location: "123 Main St",
   notes: "Bring insurance card."
 )
@@ -137,7 +137,7 @@ Event.create!(
   event_type: "Doctor Appointment",
   start: "2023-06-20 09:30:00",
   end: "2023-06-20 10:30:00",
-  user_id: 1,
+  user: admin,
   location: "123 Main St",
   notes: "Bring medical records."
 )
