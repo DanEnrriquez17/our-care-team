@@ -39,11 +39,16 @@ export default class extends Controller {
         this.selectOptionsTarget.innerHTML = "";
         this.selectOptionsTarget.classList.remove("d-none");
         results.forEach((result) => {
-          this.selectOptionsTarget.insertAdjacentHTML("beforeend", `<option value="${result}">${result}</option>`);
+          this.selectOptionsTarget.insertAdjacentHTML("beforeend", `<option value="${result}" class="prescription-option text-nowrap text-truncate" data-action="click->prescription-form#updateInputValue">${result}</option>`);
         });
       });
       // TODOS:
       // STYLE THE SELECT OPTIONS
       // MAKE THEM CLICKABLE AND UPDATE THE INPUT VALUE
+    }
+
+    updateInputValue(event) {
+      this.nameTarget.value = event.currentTarget.value;
+      this.selectOptionsTarget.classList.add("d-none");
     }
 }
