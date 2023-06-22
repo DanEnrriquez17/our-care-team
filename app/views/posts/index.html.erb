@@ -60,11 +60,7 @@
       </div>
       <div class="d-flex justify-content-center align-items-center links">
         <% if post.owner == current_user %>
-<<<<<<< HEAD
-          <%= link_to "Modify the post", edit_post_path(post), class:"link" %>
-=======
           <%= link_to "Modify the post", edit_post_path(post), class:"link"%>
->>>>>>> master
           <%= link_to "Erase the post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"link"%>
         <% end %>
       </div>
