@@ -6,48 +6,35 @@
     width: 8rem;
   }
 
-  .wday-0 {
-  }
-  .wday-1 {
-  }
-  .wday-2 {
-  }
-  .wday-3 {
-  }
-  .wday-4 {
-  }
-  .wday-5 {
-  }
-  .wday-6 {
-  }
+  .wday-1 {}
 
-  .today {
-  }
-  .past {
-  }
-  .future {
-  }
+  .wday-2 {}
 
-  .start-date {
-  }
+  .wday-3 {}
 
-  .prev-month {
-  }
-  .next-month {
-  }
-  .current-month {
-  }
+  .wday-4 {}
 
-  .has-events {
-  }
+  .wday-5 {}
 
-  .event-block {
-    width: 8rem;
-    border-radius: 5px;
-    background-color: #b792fc;
-    font-family: "Montserrat", sans-serif;
-  }
+  .wday-6 {}
+
+  .today {}
+
+  .past {}
+
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+
+  .next-month {}
+
+  .current-month {}
+
+  .has-events {}
 }
+
 .btn-primary-event {
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
@@ -55,10 +42,13 @@
   border-radius: 15px;
   width: 150px;
 }
-.event-input{
+
+.event-input {
   margin-bottom: 10px;
 }
-.event-block{
+
+.event-block {
+  width: 8rem;
   border-radius: 5px;
   background-color: #85A389;
   font-family: "Montserrat", sans-serif;
