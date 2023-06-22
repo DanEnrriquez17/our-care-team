@@ -9,7 +9,7 @@
       </p>
     </div>
   </div>
-  <div class="col-2 task-column">
+  <div class="col-1 task-column">
     <p class = "task-bar-assigned" style="line-height:1.4">
       <%= task.assigned_users.map(&:first_name).join(', ')%>
     </div>
@@ -22,25 +22,27 @@
           <span class="<%= status_display(task)[1] %>"><%= status_display(task)[0] %></span>
         </p>
       </div>
-      <div class="col-1 task-column">
+      <div class="col-1 task-column-view">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
-          Launch static backdrop modal
-        </button>
+        <%= link_to 'View', task, class: "btn btn-view", data: { "bs-toggle": "modal", "bs-target": "#staticBackdropTwo#{task.id}" } %>
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdropTwo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTwoLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdropTwo<%= task.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTwoLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropTwoLabel">Modal title</h5>
+                <h5 class="modal-title" id="staticBackdropTwoLabel"><%= task.title %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <%= render "tasks/show", task: task %>
+                <div class="task-bar-info" id="task-<%= task.id %>-info">
+                  <%= render "tasks/show", task: task %>
+                </div>
+                <div class="task-bar-edit d-none" id="task-<%= task.id %>-edit">
+                  <%= render "tasks/task_edit", task: task %>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
               </div>
             </div>
           </div>

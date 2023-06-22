@@ -5,7 +5,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def prescription_json
-    render json: Prescription.all.map { |p| { name: p.name, status: p.status, dosage: p.dosage, frequency: p.frequency, doctor: "Dr. #{p.doctor.first_name} #{p.doctor.last_name}", purpose: p.purpose } }
+    render json: Prescription.all.map { |p| { name: p.name, status: p.status, dosage: p.dosage, frequency: p.frequency, doctor: "Dr. #{p.doctor.first_name} #{p.doctor.last_name}", purpose: p.purpose, id: p.id } }
   end
 
   def show
@@ -41,6 +41,11 @@ class PrescriptionsController < ApplicationController
   end
 
   def destroy
+    @prescription = Prescription.find(params[:id])
+    @prescription.destroy
+    respond_to do |format|
+      format.json { render json: {message: "deleted properly"}, formats: [:json] }
+    end
   end
 
   private

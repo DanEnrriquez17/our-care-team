@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @event = Event.new
+    @event_notifications = current_user.event_invited_users.order(created_at: :desc).limit(5)
   end
 
   def show

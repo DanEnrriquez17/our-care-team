@@ -71,4 +71,12 @@ export default class extends Controller {
         //myModal.show();
       });
   }
+
+  toggleTaskEdit(event) {
+    const id = event.target.dataset.id;
+    this.element.querySelector(`#task-${id}-info`).classList.toggle("d-none");
+    this.element.querySelector(`#task-${id}-edit`).classList.toggle("d-none");
+
+    console.log(id);
+  }
 }
