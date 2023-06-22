@@ -39,17 +39,17 @@ archivo = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvAczN
 daniel.avatar.attach(io: archivo, filename: "daniel.jpg", content_type: "image/jpg")
 
 # DAN POSTS SEEDS
-post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user_id: "1")
+post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user: User.find(1))
 post1archivo = URI.open("https://cakexpo-images.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/08/07162433/IMG-20220807-WA00182.jpg")
 post1.photos.attach(io: post1archivo, filename: "post1.jpg", content_type: "image/jpg")
 
-Post.create!(title: "Check up", content: "Everything went well with the anual check up, nothing to worry about", user_id: "2")
+Post.create!(title: "Check up", content: "Everything went well with the anual check up, nothing to worry about", user: User.find(2))
 
-post3 = Post.create!(title: "Family vacation", content: "Sharing a picture from our memorable family vacation", user_id: "3")
+post3 = Post.create!(title: "Family vacation", content: "Sharing a picture from our memorable family vacation", user: User.find(3))
 post3archivo = URI.open("https://as1.ftcdn.net/v2/jpg/05/40/99/66/1000_F_540996679_4E5i8Usu29opCsHj7VGlUqmj75Pb9V69.jpg")
 post3.photos.attach(io: post3archivo, filename: "post3.jpg", content_type: "image/jpg")
 
-post4 = Post.create!(title: "New pet", content: "Introducing our adorable new family member", user_id: "4")
+post4 = Post.create!(title: "New pet", content: "Introducing our adorable new family member", user: User.find(4))
 post4archivo = URI.open("https://www.petplace.com/static/5844c0a4ce1d93e726ea04153375b217/98569/AdobeStock_1078613.jpg")
 post4.photos.attach(io: post4archivo, filename: "post4.jpg", content_type: "image/jpg")
 
