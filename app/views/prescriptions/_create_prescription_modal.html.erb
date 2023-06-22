@@ -3,7 +3,7 @@
   Add Prescription
 </button>
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div data-controller="prescription-form" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,7 +14,9 @@
         <div class="modal-body">
           <div>
             <%= f.label :name %>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, data: {"prescription-form-target": "name", "action": "keyup->prescription-form#updateSelectOptions"} %>
+            <div class="shadow p-3 mb-5 bg-body rounded d-none" data-prescription-form-target="selectOptions">
+            </div>
           </div>
           <div>
             <%= f.label :dosage %>
