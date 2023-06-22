@@ -67,8 +67,8 @@ jhon_photo = URI.open("https://img.freepik.com/vector-premium/avatar-medico-varo
 jhon.avatar.attach(io: jhon_photo, filename: "jhon.jpg", content_type: "image/jpg")
 
 miguel = Doctor.create!(specialty: "Dermatologist", address: "201 E Sample Rd, Deerfield Beach, FL 33064, Estados Unidos", phone_number: "888-888-1212", user: admin, first_name: "Miguel", last_name: "Smith", hospital: "Deerfield Medical Center")
-miguel_photo = URI.open("https://w7.pngwing.com/pngs/14/65/png-transparent-ico-avatar-scalable-graphics-icon-doctor-with-stethoscope-people-cartoon-female-doctor-thumbnail.png")
-miguel.avatar.attach(io: miguel_photo, filename: "miguel.png", content_type: "image/png")
+miguel_photo = URI.open("https://thumbs.dreamstime.com/b/personal-m%C3%A9dico-el-doctor-y-enfermera-profesionales-avatar-icono-del-personaje-de-dibujos-animados-120321367.jpg")
+miguel.avatar.attach(io: miguel_photo, filename: "miguel.jpg", content_type: "image/jpg")
 
 salim = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user: admin, first_name: "Salim", last_name: "Smith", hospital: "Lauderdale Medical Center")
 salim_photo = URI.open("https://cdn-icons-png.flaticon.com/512/3774/3774299.png")
