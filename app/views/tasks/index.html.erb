@@ -1,8 +1,9 @@
 <div class="task-container" data-controller="tasks">
   <div class="row top-row">
-    <div class="col-md-8 d-flex item-one">
-      <div class="col-md-10">
+    <div class="col-md-8 d-flex item-one-two">
+      <div class="col-md-10 task-manager">
         <h1 class="mb-2 ml-2">Task Manager</h1>
+        <p id="demo" class="typewriter"></p>
       </div>
       <div class="col-md-2 add-task-button">
         <button type="button" class="btn btn-primary-task" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -41,7 +42,7 @@
       </div>
       <ul>
         <% @task_notifications.first(2).each do |n| %>
-          <li class="notification-text"><%= n.user.first_name %> assigned you <%= n.task.title %> about <%= n.time_ago %> minutes ago.</li>
+          <li class="notification-text"><%= n.user.first_name %> assigned you <strong><%= n.task.title %></strong> about <%= n.time_ago %> minutes ago.</li>
         <% end %>
       </ul>
     </div>
@@ -111,7 +112,7 @@
     <div class="col-md-3 team-box">
       <div class="row block-labels">
         <div class="col-8">
-          Notifications
+          Team Members
         </div>
         <div class="col-1">
           <i class="fa-solid fa-people-group"></i>
