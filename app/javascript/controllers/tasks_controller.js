@@ -4,8 +4,16 @@ import { Modal } from "bootstrap"; // Import bootstrap's Modal component
 export default class extends Controller {
   static targets = ["tasks"];
 
+  // Declare the properties for typewriter
+  i = 0;
+  txt =
+    "Hello, <first_name>. Please remember to check your assigned tasks."; /* The text */
+  speed = 50; /* The speed/duration of the effect in milliseconds */
+
   connect() {
     console.log("hola Isaac");
+    // Call the typeWriter function on connect
+    this.typeWriter();
   }
 
   // Rest of your functions (myTasks, pendingTasks, completedTasks)
@@ -78,5 +86,13 @@ export default class extends Controller {
     this.element.querySelector(`#task-${id}-edit`).classList.toggle("d-none");
 
     console.log(id);
+  }
+
+  typeWriter() {
+    if (this.i < this.txt.length) {
+      document.getElementById("demo").innerHTML += this.txt.charAt(this.i);
+      this.i++;
+      setTimeout(() => this.typeWriter(), this.speed);
+    }
   }
 }
