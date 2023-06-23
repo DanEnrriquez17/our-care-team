@@ -1,4 +1,4 @@
-<div class="doc-container" data-controller="doctors">
+<div class="doc-container">
   <div class="container">
     <div class="d-flex">
       <h2 class="doctor-title">Doctors</h2>
@@ -24,14 +24,13 @@
     </div>
     <div class="row doctors-row">
       <% @doctors.each do |doctor| %>
-        <!-- Button trigger modal -->
-        <div type="button" class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>">
+        <%= link_to doctor_path(doctor), class: "doctor-card" do %>
           <div class="doc-name-img">
             <div>
               <% if doctor.avatar.attached? %>
                 <%= cl_image_tag doctor.avatar.key, class: "doc-img"%>
               <% else %>
-                <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687470734/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_h7d59g.jpg", class:"doc-photo"%>
+                <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"doc-img"%>
               <% end %>
             </div>
             <div class="doctor-label">
@@ -49,29 +48,7 @@
               <% end %>
             </ul>
           </div>
-        </div>
-        <!-- Doctors Modal -->
-        <div class="modal fade" id="doctorModal-<%= doctor.id%>" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><span class="doctor-module-header-one">See a</span> <span class="doctor-module-header">doctor</span></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div id="doctor-<%= doctor.id%>-info">
-                  <%= render "doctors/show", doctor: doctor %>
-                </div>
-                <div class="d-none" id="doctor-<%= doctor.id%>-edit">
-                  <%= render "doctors/doctor_edit", doctor: doctor %>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
     <div class="row">

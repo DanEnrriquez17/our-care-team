@@ -4,28 +4,28 @@ export default class extends Controller {
   static targets = ["map", "address", "key"];
 
   connect() {
-    console.log("*** mapbox stimulus controller is now loaded ***");
+    // console.log("*** mapbox stimulus controller is now loaded ***");
     this.getCoordinates(this.addressTarget.innerHTML);
-    console.log(this.keyTarget.dataset.key);
-    console.log("console test after key");
+    // console.log(this.keyTarget.dataset.key);
+    // console.log("console test after key");
   }
 
   getCoordinates() {
-    console.log("getCoordinates() was called");
+    // console.log("getCoordinates() was called");
 
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.innerHTML}.json?access_token=${this.keyTarget.dataset.key}`
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data.features[0].center[0]);
-        console.log(data.features[0].center[1]);
+        // console.log(data.features[0].center[0]);
+        // console.log(data.features[0].center[1]);
         this.renderMap(data.features[0].center[0], data.features[0].center[1]);
       });
   }
 
   renderMap(long, lat) {
-    console.log("renderMap() called");
+    // console.log("renderMap() called");
     mapboxgl.accessToken = this.keyTarget.dataset.key;
     const map = new mapboxgl.Map({
       container: "map",
