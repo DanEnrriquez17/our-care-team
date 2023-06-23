@@ -1,7 +1,8 @@
-.doc-container{
+.doc-container {
   width: 100vw;
 }
-.doctor-card{
+
+.doctor-card {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -16,58 +17,74 @@
   padding: 15px 0px;
   background-color: white;
 }
-.doctor-card:hover{
+
+.doctor-card:hover {
   width: 230px;
   height: 310px;
 }
-.doc-name-img{
+
+.doc-name-img {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.doc-list-card ul li{
+
+.doc-list-card ul li {
   list-style: none;
   font-size: 12px;
 }
-.doc-list-card ul{
+
+.doc-list-card ul {
   padding-left: 20px;
 }
-.doc-img{
+
+.doc-img {
   width: 80px;
   height: 80px;
   border-radius: 30%;
 }
-.doctor-label{
+
+.doc-photo {
+  object-fit: cover;
+}
+
+.doctor-label {
   margin-left: 5px;
 }
+
 .btn-primary-doctor {
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
   background-color: #b792fc;
   border-radius: 15px;
 }
+
 .add-doctor-button {
   padding-top: 0px;
   padding-right: 0;
   margin-left: 1rem;
 }
+
 .doctor-module-header-one {
   color: #222222;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
+
 .doctor-module-header {
   color: #b792fc;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
-.doctor-title{
+
+.doctor-title {
   font-size: 35px;
   color: #cecdcd;
   font-weight: 400;
   padding-top: 0px;
 }
-.doctors-row{
+
+.doctors-row {
   overflow: scroll;
   height: 330px;
 }
