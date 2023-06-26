@@ -68,7 +68,7 @@
   color: #a9a9a9;
   font-size: 20px;
   padding-top: 13px;
-  padding-left: 17rem;
+  padding-left: 15rem;
 }
 
 .welcome {
@@ -156,6 +156,12 @@
   display: flex;
   justify-content: space-between;
   max-width: 100%;
+}
+
+.team-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
 }
 
 .task-box-one {

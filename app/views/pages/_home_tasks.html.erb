@@ -1,0 +1,50 @@
+ <% tasks.each do |task| %>
+  <div class="row m-3 task-bar-mini">
+    <div class="col-1 task-photo-column">
+      <%= image_tag("https://res.cloudinary.com/dqe5h0j32/image/upload/v1686867457/#{task_icon(task.task_type)}", class: "icon", alt: "Image") %>
+    </div>
+    <div class="col-4 task-column">
+      <div class="row">
+        <p class = "task-bar-text-mini" style="line-height:1.4"><%= task.title %></p>
+      </div>
+    </div>
+    <div class="col-1 task-column">
+      <div class="row">
+        <p class="task-bar-text-mini"><%= task.assigned_users.map(&:first_name).join(', ')%></p>
+      </div>
+    </div>
+    <div class="col-3 task-column">
+      <p class="task-bar-text-mini"><%= task.created_at.strftime("%m/%d/%Y %H:%M") %></p>
+    </div>
+    <div class="col-1 task-column">
+      <p class="task-bar-text-mini"><span class="<%= status_display(task)[1] %>"><%= status_display(task)[0] %></span></p>
+    </p>
+  </div>
+  <div class="col-1 task-column-view-mini">
+    <!-- Button trigger modal -->
+    <%= link_to 'View', task, class: "btn btn-view-mini", data: { "bs-toggle": "modal", "bs-target": "#staticBackdropTwo#{task.id}" } %>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdropTwo<%= task.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTwoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropTwoLabel"><%= task.title %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="task-bar-info" id="task-<%= task.id %>-info">
+              <%= render "tasks/show", task: task %>
+            </div>
+            <div class="task-bar-edit d-none" id="task-<%= task.id %>-edit">
+              <%= render "tasks/task_edit", task: task %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
