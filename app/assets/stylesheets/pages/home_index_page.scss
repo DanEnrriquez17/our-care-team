@@ -1,85 +1,93 @@
-.container {
-  margin: 10px 0px;
-}
-
-.main-body {
-  display: flex;
-  margin: 10px 0px;
-}
-
-.ava-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-.info-user {
-  display: flex;
-  background-color: #5cb1ef;
-  border-radius: 10px;
-  height: 30vh;
-  padding: 20px;
-}
-
-.task-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .new {
-    margin-right: 15px;
+@media (min-width: 768px) {
+  .container {
+    margin: 10px 0px;
   }
 
-  h2 {
+  .main-body {
+    display: flex;
+    margin: 10px 0px;
+  }
+
+  .ava-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .info-user {
+    display: flex;
+    background-color: #5cb1ef;
+    border-radius: 10px;
+    height: 30vh;
+    padding: 20px;
+  }
+
+  .task-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .new {
+      margin-right: 15px;
+    }
+
+    h2 {
+      margin-left: 15px;
+    }
+  }
+
+  .d-con {
+    background-color: #ffffff;
+  }
+
+  .event-cont {
     margin-left: 15px;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    color: black;
   }
-}
 
-.d-con {
-  background-color: #ffffff;
-}
+  .cont-dash {
+    background-color: #eaeaea;
+    border-radius: 10px;
+    color: black;
+    margin: 5px;
+  }
 
-.event-cont {
-  margin-left: 15px;
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-}
+  .posts {
+    height: 63vh;
+    overflow: scroll;
+  }
 
-.cont-dash {
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-  margin: 5px;
-}
+  .tasks {
+    height: 30vh;
+    overflow: scroll;
+  }
 
-.posts {
-  height: 63vh;
-  overflow: scroll;
-}
+  .main-post {
+    background-color: white;
+    margin: 5px;
+    border-radius: 10px;
 
-.tasks {
-  height: 30vh;
-  overflow: scroll;
-}
+    ul {
+      list-style: none;
+      font-size: 12px;
+    }
 
-.main-post {
-  background-color: white;
-  margin: 5px;
-  border-radius: 10px;
+    .arrow {
+      margin: 15px;
+    }
+  }
 
-  ul {
-    list-style: none;
+  .calendar {
+    height: 55vh;
+    overflow: scroll;
     font-size: 12px;
   }
-
-  .arrow {
-    margin: 15px;
-  }
 }
-
-.calendar {
-  height: 55vh;
-  overflow: scroll;
-  font-size: 12px;
+@media (max-width: 767px) {
+  .main-body{
+    display: flex;
+    flex-direction: column;
+  }
 }
