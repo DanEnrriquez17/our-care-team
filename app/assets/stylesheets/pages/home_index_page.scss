@@ -1,11 +1,12 @@
-.container {
-  margin: 10px 0px;
-}
+@media (min-width: 768px) {
+  .container {
+    margin: 10px 0px;
+  }
 
-.main-body {
-  display: flex;
-  margin: 10px 0px;
-}
+  .main-body {
+    display: flex;
+    margin: 10px 0px;
+  }
 
 .user-row {
   height: 65px;
@@ -34,20 +35,31 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.task-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .task-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .new {
-    margin-right: 15px;
+
+    .new {
+      margin-right: 15px;
+    }
+
+    h2 {
+      margin-left: 15px;
+    }
   }
+
 
   h2 {
     font-family: "Poppins", sans-serif;
     margin-left: 15px;
+
+  .d-con {
+    background-color: #ffffff;
+
   }
-}
+
 
 h2 {
   font-family: "Poppins", sans-serif;
@@ -64,49 +76,57 @@ h2 {
   padding: 20px;
 }
 
-.event-cont {
-  margin-left: 15px;
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-}
+  .event-cont {
+    margin-left: 15px;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    color: black;
+  }
 
-.cont-dash {
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-  margin: 5px;
-}
 
-.posts {
-  height: 63vh;
-  overflow: scroll;
-}
+  .cont-dash {
+    background-color: #eaeaea;
+    border-radius: 10px;
+    color: black;
+    margin: 5px;
+  }
 
-.tasks {
-  height: 30vh;
-  overflow: scroll;
-}
+  .posts {
+    height: 63vh;
+    overflow: scroll;
+  }
 
-.main-post {
-  background-color: white;
-  margin: 5px;
-  border-radius: 10px;
+  .tasks {
+    height: 30vh;
+    overflow: scroll;
+  }
 
-  ul {
-    list-style: none;
+  .main-post {
+    background-color: white;
+    margin: 5px;
+    border-radius: 10px;
+
+    ul {
+      list-style: none;
+      font-size: 12px;
+    }
+
+    .arrow {
+      margin: 15px;
+    }
+  }
+
+  .calendar {
+    height: 55vh;
+    overflow: scroll;
     font-size: 12px;
   }
-
-  .arrow {
-    margin: 15px;
-  }
 }
-
-.calendar {
-  height: 55vh;
-  overflow: scroll;
-  font-size: 12px;
+@media (max-width: 767px) {
+  .main-body{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .d-row {
