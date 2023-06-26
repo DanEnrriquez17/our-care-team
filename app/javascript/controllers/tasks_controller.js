@@ -7,7 +7,7 @@ export default class extends Controller {
   // Declare the properties for typewriter
   i = 0;
   txt =
-    "Hello, <first_name>. Please remember to check your assigned tasks."; /* The text */
+    "Hello, Lowell. Please remember to check your assigned tasks."; /* The text */
   speed = 50; /* The speed/duration of the effect in milliseconds */
 
   connect() {
