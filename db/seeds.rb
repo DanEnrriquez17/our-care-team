@@ -7,8 +7,8 @@ User.destroy_all
 Prescription.destroy_all
 Doctor.destroy_all
 
-admin = User.create!(email: "test1@gmail.com", role: "Admin", first_name: "Lobo", last_name: "Alexander", phone_number: "212-555-1212", password: "password")
-team = Team.create!(patient_first: "Richard", patient_last: "Alexander", user: admin)
+admin = User.create!(email: "kim.estrada@gmail.com", role: "Admin", first_name: "Kimberly", last_name: "Estrada", phone_number: "212-555-1212", password: "password")
+team = Team.create!(patient_first: "Susan", patient_last: "Estrada", user: admin)
 
 jen = User.create!(email: "test2@gmail.com", role: "Family", first_name: "Jen", last_name: "Alexander", phone_number: "212-555-1223", password: "password", team: team)
 jen_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_One_r2uzda.svg")

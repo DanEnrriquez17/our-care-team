@@ -1,0 +1,71 @@
+.task-bar-mini {
+  background-color: #ffffff;
+  /* This is a light gray color, change it to whatever you want */
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 57px;
+}
+
+.task-bar-text-mini {
+  font-family: "Poppins", sans-serif;
+  color: #a9a9a9;
+  font-size: 12px
+}
+
+.first-row-mini {
+  height: 270px;
+  padding-top: 1rem;
+}
+
+.second-row-mini {
+  height: 600px;
+  padding-top: 1rem;
+}
+
+.welcome-quadrant {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.welcome-quadrant-team {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 500px;
+}
+
+.task-add {
+  padding-left: 2rem;
+}
+
+.task-name {
+  margin-left: 3rem;
+}
+
+.btn-view-mini {
+  width: 57px;
+  height: 25px;
+  font-size: 10px;
+  background-color: #f7f7f7;
+  border-color: #e1e1e1;
+  border-radius: 15px;
+}
+
+.task-column-view-mini {
+  height: 60px;
+  padding-top: 17px;
+  padding-left: 3rem;
+}
+
+.task-details-row-mini {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.cont-task-mini {
+  border-radius: 10px;
+  color: black;
+}

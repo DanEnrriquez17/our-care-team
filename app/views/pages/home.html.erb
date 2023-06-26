@@ -1,41 +1,56 @@
 <div class="container d-con">
-  <div class="row d-row">
-    <div class="col d-col">
-      <div class="info-user">
-        <h2>Hello! <%= current_user.first_name %> welcome to your Care Team!</h2>
-        <% if current_user.avatar.attached? %>
-          <%= cl_image_tag current_user.avatar.key, class: "ava-img" %>
-        <% else %>
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"ava-img"%>
-        <% end %>
+  <div class= "logo-row">
+    <div class="col-4 user-row">
+      <p id="date" class="date"></p>
+      <script>
+        var today = new Date();
+        document.getElementById("date").innerHTML = today.toDateString();
+      </script>
+    </div>
+    <div class="col-4 welcome">
+    </div>
+    <div class="col-4 logo-box">
+      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+    </div>
+  </div>
+  <div class="row first-row-mini">
+    <div class="col-6 d-flex welcome-box">
+      <div class="welcome-quadrant">
+        <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687799242/patients-profile-pic_qljjiw.png", class:"team-img"%>
+      </div>
+      <div class="welcome-quadrant-team">
+        <h2>Welcome back,<br>
+          <%= current_user.first_name %>.</h2>
       </div>
     </div>
     <div class="col d-col">
-      <div class="tasks cont-dash">
-        <div class="task-title">
-          <h2>Tasks</h2>
-          <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, tasks_path %>
-        </div>
-        <% task = Task.all %>
-        <% task.each do |task| %>
-          <div class="container">
-            <tr>
-              <td><%= task.owner.first_name %></td>
-              <td><%= task.title %></td>
-              <td><%= task.description %></td>
-              <td><%= task.status %></td>
-              <td><%= task.due_date %></td>
-              <td><%= task.task_type %></td>
-              <td><%= link_to 'Show', task %></td>
-              <td><%= link_to 'Edit', edit_task_path(task) %></td>
-              <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
+      <div class="row task-details-row-mini">
+        <div class="col-md-12 d-flex">
+          <div class="col-md-4 task-name">
+            <h1 class="task-details">Task Description</h1>
           </div>
-        <% end %>
+          <div class="col-md-2">
+            <h1 class="task-details">Members</h1>
+          </div>
+          <div class="col-md-2">
+            <h1 class="task-details">Created</h1>
+          </div>
+          <div class="col-md-2">
+            <h1 class="task-details">Status</h1>
+          </div>
+          <div class="col-md-2 task-add">
+            <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, tasks_path %>
+          </div>
+        </div>
+      </div>
+      <div class="tasks cont-task-mini">
+        <div class="task-title">
+        </div>
+        <%= render "pages/home_tasks", tasks: @tasks %>
       </div>
     </div>
   </div>
-  <div class="row d-row">
+  <div class="row second-row-mini">
     <div class="col-lg-6 d-col">
       <div class="posts cont-dash">
         <div class="task-title">
