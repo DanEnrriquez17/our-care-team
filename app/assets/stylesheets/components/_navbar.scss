@@ -20,7 +20,6 @@
     ul li {
       list-style: none;
     }
-
   }
 
   .sidebar a {
@@ -47,7 +46,7 @@
   }
 
   .sidebar li a:hover i {
-    font-size: 20px
+    font-size: 20px;
   }
 }
 @media (min-width: 768px) {
@@ -96,7 +95,7 @@
   }
 
   .sidebar li a:hover i {
-    font-size: 25px
+    font-size: 25px;
   }
 }
 @media (min-width: 1024px) {
@@ -145,7 +144,7 @@
   }
 
   .sidebar li a:hover i {
-    font-size: 30px
+    font-size: 30px;
   }
 }
 @media (min-width: 1440px) {
@@ -165,10 +164,6 @@
       padding-left: 16px;
     }
 
-<<<<<<< HEAD
-.sidebar li a:hover i {
-  font-size: 30px;
-=======
     ul li {
       list-style: none;
     }
@@ -198,7 +193,6 @@
   }
 
   .sidebar li a:hover i {
-    font-size: 35px
+    font-size: 35px;
   }
->>>>>>> 02591f434e917c5dbfba4960229091c3054d4e26
 }
