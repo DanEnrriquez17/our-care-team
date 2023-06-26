@@ -45,9 +45,33 @@
   border-radius: 15px;
 }
 
+.date {
+  font-family: "Montserrat", sans-serif;
+  color: #a9a9a9;
+  font-size: 20px;
+  margin-left: 1rem;
+  padding-top: 13px;
+}
+
+.user-row {
+  border-bottom: 1px solid #e6e6e6;
+}
+
 .item-one {
   height: 65px;
   padding: 1em;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.user {
+  font-family: "Montserrat", sans-serif;
+  color: #a9a9a9;
+  font-size: 20px;
+  padding-top: 13px;
+  padding-left: 17rem;
+}
+
+.welcome {
   border-bottom: 1px solid #e6e6e6;
 }
 
@@ -89,9 +113,25 @@
 }
 
 .add-task-button {
-  padding-top: 0px;
+  padding-top: 10px;
   padding-right: 0;
   margin-left: 1rem;
+}
+
+.logo-box {
+  height: 65px;
+}
+
+.logo {
+  height: 40px;
+  margin-left: 16rem;
+}
+
+.logo-row {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
 }
 
 .top-row {
