@@ -1,4 +1,4 @@
-@media (min-width: 425px) {
+@media (min-width: 400px) {
   .doc-container {
     width: 100vw;
   }
@@ -11,7 +11,7 @@
     border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin: 5px 5px;
-    width: 95px;
+    width: 120px;
     height: 180px;
     overflow: scroll;
     text-decoration: none;
@@ -98,12 +98,12 @@
 
   .doctors-row {
     overflow: scroll;
-    height: 190px;
+    height: 390px;
   }
 
   .map{
-    height: 325px;
-    width: 400px;
+    height: 350px;
+    width: 390px;
     margin: 10px;
     border-radius: 20px;
   }
@@ -269,14 +269,14 @@
     background-color: #b792fc;
     border-radius: 15px;
     font-size: 25px;
-    width: 250px;
+    width: 200px;
     padding: 5px 10px;
   }
 
   .add-doctor-button {
     padding-top: 0px;
-    padding-right: 0;
-    margin-left: 1rem;
+    margin: 0px 10px 0px 0px;
+    width: 200px;
   }
 
   .doctor-module-header-one {
@@ -300,8 +300,9 @@
 
   .doctors-row {
     overflow: scroll;
-    height: 430px;
+    height: 300px;
     margin-top: 10px;
+    border-bottom: 1px solid #e6e6e6;
   }
 
   .doc-name{
@@ -317,6 +318,27 @@
     width: 890px;
     margin: 10px;
     border-radius: 20px;
+  }
+
+  .user {
+    font-family: "Montserrat", sans-serif;
+    color: #a9a9a9;
+    font-size: 20px;
+    padding-top: 13px;
+    padding-left: 11rem;
+  }
+
+  .header-row {
+    border-bottom: 1px solid #e6e6e6;
+    width: 90vw;
+  }
+
+  .date {
+    font-family: "Montserrat", sans-serif;
+    color: #a9a9a9;
+    font-size: 20px;
+    margin-left: 1rem;
+    padding-top: 13px;
   }
 }
 @media (min-width: 1440px) {
