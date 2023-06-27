@@ -32,12 +32,11 @@
           <% end %>
         </div>
         <div class="name-and-created">
-          <h3><strong><%= post.owner[:first_name] %></strong></h3>
+          <h6><strong><%= post.owner[:first_name] %></strong></h6>
           <p>posted at <%= post.created_at.strftime("%r") %></p>
         </div>
       </div>
       <div class="post-content">
-        <h4><%= post.title %></h4>
         <p><%= post.content %></p>
         <!--Review why is not respecting the condition to show this text-->
         <% if post.post_mentioned_users.any? %>
@@ -51,7 +50,7 @@
       <div class="attached-doc">
         <!--Review why is not respecting the condition to show this text-->
         <% if post.photos.any? %>
-          <h5><strong>Documents attached:</strong></h5>
+          <%# <h5><strong>Documents attached:</strong></h5> %>
           <% post.photos.each do |photo| %>
             <!--How can we upload the photos that are already in the seed?-->
             <%= cl_image_tag photo.key, class:"post-img", crop: :fill %>
@@ -64,10 +63,10 @@
           <%= link_to "Erase the post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"link"%>
         <% end %>
       </div>
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="">
         <%= simple_form_for [post, PostMentionedUser.new] do |f| %>
-          <div class="d-flex justify-content-between align-items-center">
-            <%= f.input :user_id, collection: User.all.map { |user| [full_name(user), user.id] }, label: "Tag someone ", class: "d-flex" %>
+          <div class="d-flex-row justify-content-between align-items-center">
+            <%= f.input :user_id, collection: User.all.map { |user| [full_name(user), user.id] }, label: "Tag someone" %>
             <%= f.submit "Tag", class: "tag-btn" %>
           </div>
         <% end %>
