@@ -31,4 +31,18 @@ module ApplicationHelper
   def generate_coor_hash(lat, lon)
     [{lat: lat, lng: lon}]
   end
+
+  def time_ago_in_words_custom(time)
+    time_ago = Time.zone.now - time
+    case
+    when time_ago <= 1.minute
+      "#{time_ago.to_i} seconds ago"
+    when time_ago <= 1.hour
+      "#{(time_ago/1.minute).to_i} minutes ago"
+    when time_ago <= 1.day
+      "#{(time_ago/1.hour).to_i} hours ago"
+    else
+      "#{(time_ago/1.day).to_i} days ago"
+    end
+  end
 end

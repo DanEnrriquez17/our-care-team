@@ -49,13 +49,14 @@
     font-size: 12px; // Put this in the other queries
   }
 
-  .date {
-    font-family: "Montserrat", sans-serif;
-    color: #a9a9a9;
-    font-size: 11px;
-    margin-left: 1rem;
-    padding-top: 13px;
-  }
+.date {
+  font-family: "Montserrat", sans-serif;
+  color: #a9a9a9;
+  font-size: 20px;
+  margin-left: 1rem;
+  padding-top: 13px;
+  align-self: center;
+}
 
   .user-row {
     border-bottom: 0px solid #e6e6e6;
@@ -299,6 +300,10 @@
   .task-bar-text{
     font-size: 11px;
   }
+.task-details {
+  font-size: 15px;
+  color: #a9a9a9;
+}
 
   .task-bar-assigned{
     font-size: 11px;
@@ -343,6 +348,14 @@
     border-bottom: 1px solid #e6e6e6;
     margin-bottom: 5px;
   }
+.task-bar {
+  background-color: #ffffff;
+  /* This is a light gray color, change it to whatever you want */
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 87px;
+  padding: 2rem auto;
+}
 
   .task-description {
     margin-left: 60px;
@@ -365,6 +378,10 @@
     border-radius: 15px;
     font-size: 12px; // modified this
   }
+.status-pending {
+  color: rgb(65, 134, 254);
+  font-weight: bold;
+}
 
   .task-bar {
     background-color: #ffffff;
