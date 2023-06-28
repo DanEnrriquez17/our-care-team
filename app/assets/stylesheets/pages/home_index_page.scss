@@ -1,114 +1,303 @@
-.container {
-  margin: 10px 0px;
-}
+@media (min-width: 768px) {
+  .container {
+    margin: 10px 0px;
+  }
 
-.main-body {
-  display: flex;
-  margin: 10px 0px;
-}
+  .main-body {
+    display: flex;
+    margin: 10px 0px;
+  }
 
-.user-row {
-  height: 65px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 35px;
-  max-width: 100%;
-}
+  .team-img {
+    width: auto;
+    height: 150px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border-style: solid;
+    border-color: #bd8fff;
+    align-self: center;
+    transition: scale 400ms;
 
-.logo-row {
-  border-bottom: 1px solid #e6e6e6;
-}
 
-.ava-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-left: 10rem;
-}
+  }
 
-.info-user {
-  display: flex;
-  border-radius: 10px;
-  height: 30vh;
-  padding: 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
+  .cont-task-mini {
+    border-radius: 10px;
+  }
 
-.task-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .cont-post-mini {
+    margin-top: 1rem;
+    border-radius: 10px;
+  }
 
-  .new {
-    margin-right: 15px;
+  .welcome-box {
+    border-radius: 15px;
+    padding: 11px;
+    margin-left: 19px;
+  }
+
+  .cont-event-mini {
+    border-radius: 10px;
+  }
+
+  .post-name {
+    margin-left: 1rem;
+  }
+
+  .user-row {
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    max-width: 100%;
+  }
+
+  .event-header {
+    justify-content: space-between;
+  }
+
+  .second-row-mini {
+    height: 465px;
+    padding-top: 1rem;
+    margin-top: 5rem;
+  }
+
+  .events-header {
+    color: #a9a9a9;
+  }
+
+  .time-ago {
+    color: #c0c0c0;
+  }
+
+  .welcome {
+    align-self: center;
+  }
+
+  .logo-row {
+    border-bottom: 1px solid #E6E6E6;
+  }
+
+  .welcome-user {
+    font-family: "Montserrat", sans-serif;
+    color: #b4b4b4;
+    font-weight: 600;
+    align-self: center;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    font-size: 1.50;
+  }
+
+  .badge {
+    margin-left: 2rem;
+    background-color: #0cff55;
+    border-color: #00df43;
+    border-style: solid;
+  }
+
+  li p {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .signed-in {
+    align-self: center;
+    color: #636363;
+
+  }
+
+  .post-details {
+    font-size: 30px;
+  }
+
+  .badge {
+    align-self: center;
+  }
+
+  .post-details-mini {
+    margin-top: 4px;
+    margin-left: 1rem;
+  }
+
+  .post-arrow {
+    margin-top: 30px;
+  }
+
+  .care-team {
+    font-family: "Montserrat", sans-serif;
+    color: #636363;
+    font-weight: 300;
+    align-self: center;
+    font-size: 1.50rem;
+    border-bottom: 1px solid #E6E6E6;
+
+  }
+
+  .welcome-back {
+    color: #ffffff;
+  }
+
+  .upcoming-events {
+    margin-top: 10px;
+    margin-left: 1rem;
+  }
+
+  .recent-updates {
+    margin-top: 20px;
+    margin-left: 1rem;
+  }
+
+  .welcome-text-notification {
+    color: #ffffff;
+  }
+
+  .welcome-quadrant-team {
+    display: flex;
+    background: linear-gradient(126deg, rgba(189, 143, 255, 1) 0%, rgba(121, 28, 255, 1) 100%);
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 500px;
+    margin-left: 1rem;
+    padding: 15px;
+    padding-top: 15px;
+  }
+
+  .welcome-back-box {
+    border-bottom: 1px solid #ceadfd;
+    padding-bottom: 11px;
+  }
+
+  .welcome-quadrant {
+    border-style: solid;
+    border-color: #bd8fff;
+    overflow: hidden;
+    margin-left: 10px;
+    width: 225px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .info-user {
+    display: flex;
+    border-radius: 10px;
+    height: 30vh;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .task-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .new {
+      margin-right: 15px;
+    }
+
+    h2 {
+      font-family: "Poppins", sans-serif;
+      margin-left: 15px;
+    }
   }
 
   h2 {
     font-family: "Poppins", sans-serif;
     margin-left: 15px;
   }
-}
 
-h2 {
-  font-family: "Poppins", sans-serif;
-  margin-left: 15px;
-}
+  .d-con {
+    background-color: rgb(255, 255, 255);
+    max-width: 100%;
+    margin-left: 15px;
+    margin-right: 30px;
+    margin-top: 25px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
-.d-con {
-  background-color: rgb(255, 255, 255);
-  max-width: 100%;
-  margin-left: 15px;
-  margin-right: 30px;
-  margin-top: 25px;
-  border-radius: 15px;
-  padding: 20px;
-}
+  }
 
-.event-cont {
-  margin-left: 15px;
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-}
+  .event-cont {
+    margin-left: 15px;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    color: black;
+  }
 
-.cont-dash {
-  background-color: #eaeaea;
-  border-radius: 10px;
-  color: black;
-  margin: 5px;
-}
+  .cont-dash {
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    color: black;
+    margin: 5px;
+  }
 
-.posts {
-  height: 63vh;
-  overflow: scroll;
-}
+  .posts {
+    height: 40vh;
+    overflow: scroll;
+  }
 
-.tasks {
-  height: 30vh;
-  overflow: scroll;
-}
+  .events {
+    height: 40vh;
+    overflow: scroll;
+  }
 
-.main-post {
-  background-color: white;
-  margin: 5px;
-  border-radius: 10px;
+  .tasks {
+    height: 30vh;
+    overflow: scroll;
+  }
 
-  ul {
+  li {
     list-style: none;
+    color: #ffffff;
+  }
+
+  .post-content {
+    list-style: none;
+
+  }
+
+  .avatar-icon {
+    height: 70px;
+    width: auto;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 1rem;
+    margin-top: 10px;
+  }
+
+  .main-row {
+    background-color: white;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 90px;
+
+
+    ul {
+      list-style: none;
+      font-size: 12px;
+    }
+
+    .arrow {
+      margin: 15px;
+    }
+  }
+
+  .calendar {
+    height: 55vh;
+    overflow: scroll;
     font-size: 12px;
   }
 
-  .arrow {
-    margin: 15px;
+  .d-row {
+    padding-top: 3rem;
   }
 }
 
-.calendar {
-  height: 55vh;
-  overflow: scroll;
-  font-size: 12px;
-}
-
-.d-row {
-  padding-top: 3rem;
+@media (max-width: 767px) {
+  .main-body {
+    display: flex;
+    flex-direction: column;
+  }
 }
