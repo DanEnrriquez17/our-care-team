@@ -27,4 +27,8 @@ module ApplicationHelper
       [task.status, 'status-default']
     end
   end
+
+  def generate_coor_hash(lat, lon)
+    [{lat: lat, lng: lon}]
+  end
 end

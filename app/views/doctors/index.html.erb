@@ -37,10 +37,10 @@
         </div>
       </div>
     </div>
-    <div class="row doctors-row">
+    <div class="row doctors-row" data-controller="mapbox"  data-mapbox-api-key-value="<%= ENV['MAPBOX_TOKEN'] %>">
       <% @doctors.each do |doctor| %>
         <!-- Button trigger modal -->
-        <div type="button" class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>">
+        <div type="button" class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>" data-action="click->mapbox#setDoctorMap" coordinates="<%= generate_coor_hash(doctor.latitude, doctor.longitude).to_json %>" doctor="<%= doctor.id %>">
           <div class="doc-name-img">
             <div>
               <% if doctor.avatar.attached? %>
