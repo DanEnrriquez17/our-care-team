@@ -22,10 +22,12 @@
   </head>
   <body>
     <div class="main-body">
-      <div>
+      <div class="d-flex flex-row sticky-top">
         <%= render "shared/navbar" %>
       </div>
-      <%= yield %>
+      <div>
+        <%= yield %>
+      </div>
     </div>
     <%= render "shared/flashes" %>
   </body>
