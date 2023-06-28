@@ -1,11 +1,11 @@
-.post{
+.post {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 600px;
-  width: 600px;
+  height: 53%;
+  width: 58%;
   border-radius: 10px;
   background-color: white;
   margin-bottom: 10px;
@@ -15,49 +15,71 @@
     padding-left: 0px;
   }
 }
-.post-container{
+.main-cont {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+}
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  //height: 600px;
   width: 100vw;
   overflow: scroll;
+  p {
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 14px;
+    margin-right: 2px;
+  }
 }
-.name-and-created{
+.name-and-created {
   display: flex;
   align-items: baseline;
-  p{
+  p {
     margin-left: 15px;
     color: #8d8d8d;
   }
 }
-.img-name-created{
+.img-name-created {
   display: flex;
   align-items: baseline;
-  padding: 10px;
+  padding: 5px;
+  p {
+    font-size: 11;
+    color: #cecdcd;
+  }
 }
-.user-image{
+.user-image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 30px;
 }
-.tag-btn{
+.tag-btn {
   padding: 5px 10px;
   background-color: #3f75ef;
   border-radius: 3px;
   color: white;
   border: solid 1px #3f75ef;
   margin-left: 10px;
+  font-size: 11px;
 }
-.attached-doc{
+.attached-doc {
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
-.post-img{
-  height: 300px;
-  width: 400px;
+.post-img {
+  // height: 60%;
+  // width: 60%;
   border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
 }
 .btn-primary-post {
   font-family: "Montserrat", sans-serif;
@@ -82,9 +104,26 @@
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
-.post-title{
+.post-title {
   font-size: 35px;
   color: #cecdcd;
   font-weight: 400;
   padding: 0px 5px;
+}
+
+.post-content {
+  display: flex;
+  padding-right: 0%;
+}
+
+.post-footer {
+  display: flex;
+  padding: 5px;
+  vertical-align: center;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+
+.tag-select {
+  font-size: 8px;
 }
