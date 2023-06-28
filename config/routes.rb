@@ -23,5 +23,4 @@ Rails.application.routes.draw do
     end
     resources :tasks_assigned_users, shallow: true
   end
-
 end

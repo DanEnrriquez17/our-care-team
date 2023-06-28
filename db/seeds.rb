@@ -8,35 +8,38 @@ Prescription.destroy_all
 Doctor.destroy_all
 
 admin = User.create!(email: "kim.estrada@gmail.com", role: "Admin", first_name: "Kimberly", last_name: "Estrada", phone_number: "212-555-1212", password: "password")
+admin_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687886533/User-Avatar-Kimberly_tg356x.png")
+admin.avatar.attach(io: admin_archivo, filename: "admin.png", content_type: "image/png")
+
 team = Team.create!(patient_first: "Susan", patient_last: "Estrada", user: admin)
 
 jen = User.create!(email: "test2@gmail.com", role: "Family", first_name: "Jen", last_name: "Alexander", phone_number: "212-555-1223", password: "password", team: team)
-jen_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_One_r2uzda.svg")
-jen.avatar.attach(io: jen_archivo, filename: "jen.jpg", content_type: "image/jpg")
+jen_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687886533/User-Avatar-jennifer_lggcic.png")
+jen.avatar.attach(io: jen_archivo, filename: "jen.png", content_type: "image/png")
 
 kir = User.create!(email: "test3@gmail.com", role: "Family", first_name: "Kir", last_name: "Alexander", phone_number: "212-555-1234", password: "password", team: team)
-kir_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg")
+kir_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687886533/User-Avatar-kir_dhnow5.png")
 kir.avatar.attach(io: kir_archivo, filename: "kir.png", content_type: "image/png")
 
 junior = User.create!(email: "test4@gmail.com", role: "Family", first_name: "Junior", last_name: "Alexander", phone_number: "212-555-1203", password: "password", team: team)
-junior_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_five_iwmjme.svg")
+junior_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687886533/User-Avatar-junior_ng0kej.png")
 junior.avatar.attach(io: junior_archivo, filename: "junior.png", content_type: "image/png")
 
 marth = User.create!(email: "test5@gmail.com", role: "Family", first_name: "Marth", last_name: "Alexander", phone_number: "212-555-1221", password: "password", team: team)
-marth_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg")
+marth_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687889866/User-Avatar-martha_qsj2rz.png")
 marth.avatar.attach(io: marth_archivo, filename: "marth.png", content_type: "image/png")
 
 ana = User.create!(email: "test6@gmail.com", role: "Caretaker", first_name: "Ana", last_name: "Lopez", phone_number: "212-555-1244", password: "password", team: team)
-ana_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg")
+ana_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687889317/User-Avatar-Ana_dfu8mh.png")
 ana.avatar.attach(io: ana_archivo, filename: "ana.png", content_type: "image/png")
 
 rose = User.create!(email: "test7@gmail.com", role: "Caretaker", first_name: "Rose", last_name: "Goodwin", phone_number: "212-555-1244", password: "password", team: team)
-rose_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg")
+rose_archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687889866/User-Avatar-rose_dnel98.png")
 rose.avatar.attach(io: rose_archivo, filename: "rose.png", content_type: "image/png")
 
 daniel = User.create!(email: "daniel_one@gmail.com", role: "Family", first_name: "Daniel", last_name: "Enrriquez", phone_number: "55-3236-3480", password: "password", team: team)
-archivo = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvAczNDCh4fHJZxYyNhZW7brFYSc47N27aIajLYtQjVKhBOMH-W1wHWiyjINsX5DQVu1c&usqp=CAU")
-daniel.avatar.attach(io: archivo, filename: "daniel.jpg", content_type: "image/jpg")
+archivo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687889140/User-Avatar-Alex_lxcgp0.png")
+daniel.avatar.attach(io: archivo, filename: "daniel.png", content_type: "image/png")
 
 # DAN POSTS SEEDS
 post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user: User.all.sample)

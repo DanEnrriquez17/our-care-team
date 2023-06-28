@@ -17,30 +17,15 @@
   padding-top: 1rem;
 }
 
-.second-row-mini {
-  height: 600px;
-  padding-top: 1rem;
-}
-
-.welcome-quadrant {
-  display: flex;
-  border-radius: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.welcome-quadrant-team {
-  display: flex;
-  border-radius: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  width: 500px;
-}
-
-.task-add {
-  padding-left: 2rem;
-}
-
 .task-name {
   margin-left: 3rem;
+}
+
+.calendar-title {
+  background-color: #bd8fff;
+  border-radius: 10px;
+  padding: 5px;
+  color: #ffffff;
 }
 
 .btn-view-mini {
@@ -63,9 +48,4 @@
   display: flex;
   justify-content: space-between;
   max-width: 100%;
-}
-
-.cont-task-mini {
-  border-radius: 10px;
-  color: black;
 }

@@ -51,6 +51,7 @@
   font-size: 20px;
   margin-left: 1rem;
   padding-top: 13px;
+  align-self: center;
 }
 
 .user-row {
@@ -69,10 +70,6 @@
   font-size: 20px;
   padding-top: 13px;
   padding-left: 15rem;
-}
-
-.welcome {
-  border-bottom: 1px solid #e6e6e6;
 }
 
 .item-one-two {
@@ -156,12 +153,6 @@
   display: flex;
   justify-content: space-between;
   max-width: 100%;
-}
-
-.team-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
 }
 
 .task-box-one {
@@ -287,6 +278,7 @@ h1 {
 
 .task-details {
   font-size: 15px;
+  color: #a9a9a9;
 }
 
 .task-count {
@@ -334,8 +326,7 @@ h1 {
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   height: 87px;
-  margin: 2px;
-  padding: 3rem auto;
+  padding: 2rem auto;
 }
 
 .task-photo-column {
@@ -355,7 +346,7 @@ h1 {
 }
 
 .status-pending {
-  color: rgb(32, 226, 90);
+  color: rgb(65, 134, 254);
   font-weight: bold;
 }
 

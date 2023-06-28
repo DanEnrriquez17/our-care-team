@@ -3,7 +3,7 @@
     margin: 10px 15px;
     width: 90vw;
     height: 35px;
-    background-color: #fdfdfd;
+    background-color: #ffffff;
     border-radius: 10px;
 
     .sidebar {
@@ -25,6 +25,7 @@
 
   .sidebar a {
     text-decoration-line: none;
+
     p {
       font-size: 12px;
       color: #fdfdfd;
@@ -50,6 +51,7 @@
     font-size: 20px;
   }
 }
+
 @media (min-width: 768px) {
   .d-navbar {
     margin: 10px 8px;
@@ -74,6 +76,7 @@
 
   .sidebar a {
     text-decoration-line: none;
+
     p {
       font-size: 18px;
       color: #fdfdfd;
@@ -99,6 +102,7 @@
     font-size: 25px;
   }
 }
+
 @media (min-width: 1024px) {
   .d-navbar {
     margin: 10px 8px;
@@ -123,6 +127,7 @@
 
   .sidebar a {
     text-decoration-line: none;
+
     p {
       font-size: 20px;
       color: #fdfdfd;
@@ -148,6 +153,7 @@
     font-size: 30px;
   }
 }
+
 @media (min-width: 1440px) {
   .d-navbar {
     margin: 10px 15px;
@@ -172,6 +178,7 @@
 
   .sidebar a {
     text-decoration-line: none;
+
     p {
       font-size: 20px;
       color: #fdfdfd;
