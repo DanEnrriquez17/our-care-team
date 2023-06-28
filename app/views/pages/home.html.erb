@@ -1,96 +1,144 @@
 <div class="container d-con">
   <div class= "logo-row">
-    <div class="col-4 user-row">
-      <p id="date" class="date"></p>
-      <script>
-        var today = new Date();
-        document.getElementById("date").innerHTML = today.toDateString();
-      </script>
-    </div>
-    <div class="col-4 welcome">
-    </div>
-    <div class="col-4 logo-box">
-      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
-    </div>
+    <div class="col-7 user-row">
+      <p id="date" class="date" style="font-size: 17px;">
+        <script>
+          var today = new Date();
+          document.getElementById("date").innerHTML = today.toDateString();
+        </script>
+        |  signed in as
+        <strong><%= current_user.first_name %></strong></span>
+      <span class="badge rounded-pill bg-success"><%= current_user.role %></span>
+    </p>
   </div>
-  <div class="row first-row-mini">
-    <div class="col-6 d-flex welcome-box">
-      <div class="welcome-quadrant">
-        <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687799242/patients-profile-pic_qljjiw.png", class:"team-img"%>
-      </div>
-      <div class="welcome-quadrant-team">
-        <h2>Welcome back,<br>
+  <div class="col-1 welcome">
+  </div>
+  <div class="col-4 logo-box">
+    <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+  </div>
+</div>
+<div class="row first-row-mini">
+  <div class="col-6 d-flex welcome-box">
+    <div class="welcome-quadrant">
+      <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687799242/patients-profile-pic_qljjiw.png", class:"team-img"%>
+      <h3 class="welcome-user" style="font-size: 25px;">Mom's</h3>
+      <h3 class="care-team" style="font-size: 20px;">CareTeam</h3>
+    </div>
+    <div class="welcome-quadrant-team">
+      <div class="welcome-back">
+        <h2 class="welcome-back-box" style="font-size: 25px;">Welcome back,
           <%= current_user.first_name %>.</h2>
-      </div>
-    </div>
-    <div class="col d-col">
-      <div class="row task-details-row-mini">
-        <div class="col-md-12 d-flex">
-          <div class="col-md-4 task-name">
-            <h1 class="task-details">Task Description</h1>
-          </div>
-          <div class="col-md-2">
-            <h1 class="task-details">Members</h1>
-          </div>
-          <div class="col-md-2">
-            <h1 class="task-details">Created</h1>
-          </div>
-          <div class="col-md-2">
-            <h1 class="task-details">Status</h1>
-          </div>
-          <div class="col-md-2 task-add">
-            <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, tasks_path %>
-          </div>
+        <div class="recent-updates">
+          <li><strong>Recent Updates:</strong></li>
+          <% @task_notifications.first(2).each do |n| %>
+            <li class="welcome-text-notification"><%= n.user.first_name %> assigned you <strong><%= n.task.title %></strong><br>
+              <em style="font-size: 12px;"> about <%= time_ago_in_words_custom(n.created_at)%></em></li>
+          <% end %>
         </div>
-      </div>
-      <div class="tasks cont-task-mini">
-        <div class="task-title">
-        </div>
-        <%= render "pages/home_tasks", tasks: @tasks %>
-      </div>
-    </div>
-  </div>
-  <div class="row second-row-mini">
-    <div class="col-lg-6 d-col">
-      <div class="posts cont-dash">
-        <div class="task-title">
-          <h2>Posts</h2>
-          <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, posts_path %>
-        </div>
-        <% @post_feed.each do |post| %>
-          <div class="main-post d-flex justify-content-between align-items-center">
-            <ul>
-              <li><%= post.owner[:first_name] %> posted:</li>
-              <li><%= post.title %></li>
-              <li><%= post.content %></li>
-              <li>Tagged users:
-                <% post.post_mentioned_users.each do |post_mentioned_user| %>
-                  <%= full_name(post_mentioned_user.user) %>,
-                <% end %>
-              </li>
-            </ul>
-            <%= link_to "<i class='arrow fa-solid fa-circle-arrow-right fa-2xl link_see_post' style='color: #3f75ef;'></i>".html_safe, post_path(post)%>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-lg-6 d-col">
-      <div class="events event-cont">
-        <div class="task-title">
-          <h2>Events</h2>
-          <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #3f75ef;'></i>".html_safe, new_event_path %>
-        </div>
-        <div id="calendar" class="simple-calendar calendar">
-          <%= month_calendar(events: @events) do |date, events| %>
-            <%= date %>
-            <% events.each do |event| %>
-              <div>
-                <%= render "events/edit_event_modal", event: event %>
-              </div>
-            <% end %>
+        <div class="upcoming-events">
+          <li><strong>Upcoming Event:</strong></li>
+          <% @events.first(1).each do |event| %>
+            <li class="welcome-text-notification"><%= event.title %> on <%= event.start.strftime("%A, %B %d, %Y") %></li>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+  <div class="col d-col">
+    <div class="row task-details-row-mini">
+      <div class="col-md-12 d-flex">
+        <div class="col-md-4 task-name">
+          <h1 class="task-details">Task Description</h1>
+        </div>
+        <div class="col-md-2">
+          <h1 class="task-details">Members</h1>
+        </div>
+        <div class="col-md-2">
+          <h1 class="task-details">Created</h1>
+        </div>
+        <div class="col-md-2">
+          <h1 class="task-details">Status</h1>
+        </div>
+        <div class="col-md-2 task-add">
+          <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #b792fc;'></i>".html_safe, tasks_path %>
+        </div>
+      </div>
+    </div>
+    <div class="tasks cont-task-mini">
+      <div class="task-title">
+      </div>
+      <%= render "pages/home_tasks", tasks: @tasks %>
+    </div>
+  </div>
+</div>
+<div class="row second-row-mini">
+  <div class="col-lg-5 d-col">
+    <div class="row task-details-row-mini">
+      <div class="col-md-12 d-flex">
+        <div class="col-md-8 post-name">
+          <h1 class="post-details">Team Messages</h1>
+        </div>
+        <div class="col-md-1">
+          <h1 class="post-details"></h1>
+        </div>
+        <div class="col-md-1">
+          <h1 class="post-details"></h1>
+        </div>
+        <div class="col-md-1">
+          <h1 class="post-details"></h1>
+        </div>
+        <div class="col-md-1 task-add">
+          <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #b792fc;'></i>".html_safe, posts_path %>
+        </div>
+      </div>
+    </div>
+    <div class="posts cont-post-mini">
+      <% @post_feed.each do |post| %>
+        <div class="row main-row d-flex">
+          <div class="col-1 avatar-box">
+            <%= image_tag(post.owner.avatar, class: "avatar-icon") if post.owner.avatar.attached? %>
+          </div>
+          <div class ="col-9 post-details-mini">
+            <ul>
+            </li>
+            <strong>
+              <li class="task-details"><%= post.owner[:first_name] %></strong> posted:</li>
+            <span class="post-content"><%= post.content %></span>
+            <br>
+            <br>
+            <li class="time-ago"><em><%= time_ago_in_words_custom(post.created_at) %></em></li>
+          </ul>
+        </div>
+        <div class="col-1 post-arrow">
+          <%= link_to post_path(post) do %>
+            <i class="fa fa-arrow-right" style="color: #b792fc;"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="col-lg-7 d-col">
+  <div class="row d-flex event-header">
+    <div class="col-3">
+      <h1 class="post-details">Events</h1>
+    </div>
+    <div class="col-md-1 task-add">
+      <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #b792fc;'></i>".html_safe, posts_path %>
+    </div>
+  </div>
+  <div class="events cont-event-mini">
+    <div id="calendar" class="simple-calendar calendar">
+      <%= month_calendar(events: @events) do |date, events| %>
+        <%= date.day %>
+        <% events.each do |event| %>
+          <div>
+            <%= render "events/edit_event_modal", event: event %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
 </div>
