@@ -1,4 +1,4 @@
-<div class="post-container">
+<div class="main-cont">
   <div class="d-flex justify-content-start">
     <h2 class="post-title">Posts</h2>
     <!--Button triger Modal-->
@@ -21,65 +21,67 @@
       </div>
     </div>
   </div>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <div class="img-name-created">
-        <div>
-          <% if post.user.avatar.attached? %>
-            <%= cl_image_tag post.user.avatar.key, class: "user-image"%>
-          <% else %>
-            <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"user-image"%>
-          <% end %>
-        </div>
-        <div class="name-and-created">
-          <h6><strong><%= post.owner[:first_name] %></strong></h6>
-          <p>posted at <%= post.created_at.strftime("%r") %></p>
-        </div>
-      </div>
-      <div class="post-content">
-        <p><%= post.content %></p>
-        <!--Review why is not respecting the condition to show this text-->
-        <% if post.post_mentioned_users.any? %>
-          <p>Mentioned users:
-            <% post.post_mentioned_users.each do |post_mentioned_user| %>
-              <%= full_name(post_mentioned_user.user) %>,
+  <div class="post-container">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="img-name-created">
+          <div>
+            <% if post.user.avatar.attached? %>
+              <%= cl_image_tag post.user.avatar.key, class: "user-image"%>
+            <% else %>
+              <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"user-image"%>
             <% end %>
-          </p>
-        <% end %>
-      </div>
-      <div class="attached-doc">
-        <!--Review why is not respecting the condition to show this text-->
-        <% if post.photos.any? %>
-          <%# <h5><strong>Documents attached:</strong></h5> %>
-          <% post.photos.each do |photo| %>
-            <!--How can we upload the photos that are already in the seed?-->
-            <%= cl_image_tag photo.key, class:"post-img", crop: :fill %>
+          </div>
+          <div class="name-and-created">
+            <h6><strong><%= post.owner[:first_name] %></strong></h6>
+            <p>posted at <%= post.created_at.strftime("%r") %></p>
+          </div>
+        </div>
+        <div class="post-content">
+          <p><%= post.content %></p>
+          <!--Review why is not respecting the condition to show this text-->
+          <% if post.post_mentioned_users.any? %>
+            <p>Mentioned users:
+              <% post.post_mentioned_users.each do |post_mentioned_user| %>
+                <%= full_name(post_mentioned_user.user) %>,
+              <% end %>
+            </p>
           <% end %>
-        <% end %>
-      </div>
-      <div class="">
-        <% if post.owner == current_user %>
-          <div class="d-flex justify-content-between">
-            <div><%= link_to "Modify the post", edit_post_path(post), class:"link"%></div>
-            <div class="ml-auto p-3"><%= link_to "Erase the post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"link"%></div>
-          </div>
-        <% end %>
-      </div>
-      <div class="d-flex p-2">
-        <%= simple_form_for [post, PostMentionedUser.new], html: { class: 'post-footer' } do |f| %>
-          <div class="d-flex justify-content-end">
-            <div class="p-2">
-              <p>Tag a Team Member</p>
+        </div>
+        <div class="attached-doc">
+          <!--Review why is not respecting the condition to show this text-->
+          <% if post.photos.any? %>
+            <%# <h5><strong>Documents attached:</strong></h5> %>
+            <% post.photos.each do |photo| %>
+              <!--How can we upload the photos that are already in the seed?-->
+              <%= cl_image_tag photo.key, class:"post-img", crop: :fill %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="">
+          <% if post.owner == current_user %>
+            <div class="d-flex justify-content-between">
+              <div><%= link_to "Modify the post", edit_post_path(post), class:"link"%></div>
+              <div class="ml-auto p-3"><%= link_to "Erase the post", post_path(post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"link"%></div>
             </div>
-            <div class="p-2">
-              <%= f.input :user_id, as: :select, collection: User.all.map { |user| [full_name(user), user.id] }, label: false, input_html: { class: 'tag-select' } %>
+          <% end %>
+        </div>
+        <div class="d-flex p-2">
+          <%= simple_form_for [post, PostMentionedUser.new], html: { class: 'post-footer' } do |f| %>
+            <div class="d-flex justify-content-end">
+              <div class="p-2">
+                <p>Tag a Team Member</p>
+              </div>
+              <div class="p-2">
+                <%= f.input :user_id, as: :select, collection: User.all.map { |user| [full_name(user), user.id] }, label: false, input_html: { class: 'tag-select' } %>
+              </div>
+              <div class="ml-auto p-2">
+                <%= f.submit "Tag", class: "tag-btn" %>
+              </div>
             </div>
-            <div class="ml-auto p-2">
-              <%= f.submit "Tag", class: "tag-btn" %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
