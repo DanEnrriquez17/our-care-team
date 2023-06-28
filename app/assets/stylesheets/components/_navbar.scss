@@ -1,4 +1,4 @@
-@media (min-width: 425px) {
+@media (min-width: 400px) {
   .d-navbar {
     margin: 10px 15px;
     width: 90vw;
@@ -71,6 +71,7 @@
 
     ul li {
       list-style: none;
+      width: fit-content;
     }
   }
 
@@ -122,6 +123,7 @@
 
     ul li {
       list-style: none;
+      width: fit-content;
     }
   }
 
@@ -173,6 +175,7 @@
 
     ul li {
       list-style: none;
+      width: fit-content;
     }
   }
 
