@@ -1,9 +1,24 @@
 <div class="doc-container" data-controller="doctors">
+  <div class= "header-row d-flex justify-content-around align-items-center">
+    <div class="date-row">
+      <p id="date" class="date"></p>
+      <script>
+        var today = new Date();
+        document.getElementById("date").innerHTML = today.toDateString();
+      </script>
+    </div>
+    <div>
+      <p class="user">Welcome back, <%= current_user.first_name %>.</p>
+    </div>
+    <div>
+      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+    </div>
+  </div>
   <div class="container">
-    <div class="d-flex">
+    <div class="d-flex align-items-center justify-content-between">
       <h2 class="doctor-title">Doctors</h2>
       <!--Button triger Modal-->
-      <div class="col-md-2 add-doctor-button">
+      <div class="add-doctor-button">
         <button type="button" class="btn btn-primary-doctor" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           Create Doctor
         </button>
@@ -22,10 +37,10 @@
         </div>
       </div>
     </div>
-    <div class="row doctors-row">
+    <div class="row doctors-row" data-controller="mapbox"  data-mapbox-api-key-value="<%= ENV['MAPBOX_TOKEN'] %>">
       <% @doctors.each do |doctor| %>
         <!-- Button trigger modal -->
-        <div type="button" class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>">
+        <div class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>" data-action="click->mapbox#setDoctorMap" coordinates="<%= generate_coor_hash(doctor.latitude, doctor.longitude).to_json %>" doctor="<%= doctor.id %>">
           <div class="doc-name-img">
             <div>
               <% if doctor.avatar.attached? %>

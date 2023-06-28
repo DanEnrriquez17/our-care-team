@@ -1,47 +1,51 @@
-import { Controller } from "@hotwired/stimulus";
-import mapboxgl from "mapbox-gl";
+import { Controller } from "@hotwired/stimulus"
+
+
+
+// Connects to data-controller="multi-mapbox"
 export default class extends Controller {
-  static targets = ["map", "address", "key"];
+  static values = {
+    apiKey: String
+  };
 
   connect() {
-    // console.log("*** mapbox stimulus controller is now loaded ***");
-    this.getCoordinates(this.addressTarget.innerHTML);
-    // console.log(this.keyTarget.dataset.key);
-    // console.log("console test after key");
+    mapboxgl.accessToken = this.apiKeyValue
   }
 
-  getCoordinates() {
-    // console.log("getCoordinates() was called");
+  setDoctorMap(element) {
+    this.coordinates = element.target.getAttribute('coordinates')
+    this.markersValue = this.trasnformCoordinatesStringToArray(this.coordinates)
+    this.doctorId = element.target.getAttribute('doctor')
 
-    fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.addressTarget.innerHTML}.json?access_token=${this.keyTarget.dataset.key}`
-    )
-      .then(response => response.json())
-      .then(data => {
-        // console.log(data.features[0].center[0]);
-        // console.log(data.features[0].center[1]);
-        this.renderMap(data.features[0].center[0], data.features[0].center[1]);
-      });
-  }
-
-  renderMap(long, lat) {
-    // console.log("renderMap() called");
-    mapboxgl.accessToken = this.keyTarget.dataset.key;
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/streets-v12",
-      center: [long, lat],
-      zoom: 12,
+    this.map = new mapboxgl.Map({
+      container: document.getElementById(`map-${this.doctorId}`),
+      style: "mapbox://styles/mapbox/streets-v10"
     });
-    new mapboxgl.Marker().setLngLat([long, lat]).addTo(map);
-    // this.mapTarget.innerHTML = map;
+    this.#addMarkersToMap()
+    this.#fitMapToMarkers()
   }
 
-  // load(event) {
-  //   event.preventDefault();
-  //   console.log("load method called");
-  //   console.log(this.addressTarget.value);
-  //   // this.coordinatesTarget.innerText = "";
-  //   this.getCoordinates(this.addressTarget.value);
-  // }
+  trasnformCoordinatesStringToArray(coordinatesString) {
+    const coordinatesArray = []
+    const coordinates = JSON.parse(coordinatesString)
+    coordinates.forEach((coordinate) => {
+      coordinatesArray.push({lat: coordinate.lat, lng: coordinate.lng})
+    })
+    return coordinatesArray
+  }
+
+
+  #addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(this.map)
+    })
+  }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
 }
