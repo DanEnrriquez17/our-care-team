@@ -24,7 +24,7 @@ export default class extends Controller {
       columns: [
         //
         // Define Table Columns
-        { title: "Name", field: "name", width: 150 },
+        { title: "Name", field: "name", width: 100 },
         { title: "Status", field: "status", hozAlign: "center" },
         { title: "Dosage", field: "dosage", hozAlign: "left" },
         { title: "Frequency", field: "frequency" },
