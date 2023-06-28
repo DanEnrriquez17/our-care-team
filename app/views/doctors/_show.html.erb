@@ -1,33 +1,34 @@
-<div class="doc-info">
-  <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
-  <h3>Specialty:</h3>
-  <p><%= doctor.specialty %></p>
-  <h3>Address:</h3>
-  <p><%= doctor.address %></p>
-  <h3>Phone Number:</h3>
-  <p><%= doctor.phone_number %></p>
-  <div
-id="map-<%= doctor.id%>"
-style="height: 250px; width: 100%;"
-></div>
-  <div class="doc-pres">
-    <h3>Prescriptions:</h3>
-    <% doctor.prescriptions.each do |prescription| %>
-      <li><%= prescription.name %></li>
-    <% end %>
+<div class="card border-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">
+    <div id="map-<%= doctor.id%>" style="height: 250px; width: 100%;"></div>
   </div>
-  <div class="doc-app">
-    <h3>Appointments History:</h3>
-    <div class="appointment">
-      <% doctor.medical_appointments.all.each do |appointment| %>
-        <li><%= appointment.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
-        <li><%= appointment.event.title %></li>
-        <li><%= appointment.event.location %></li>
-        <li><%= appointment.event.notes %></li>
+  <div class="card-body">
+    <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
+    <h3>Specialty:</h3>
+    <p><%= doctor.specialty %></p>
+    <h3>Address:</h3>
+    <p><%= doctor.address %></p>
+    <h3>Phone Number:</h3>
+    <p><%= doctor.phone_number %></p>
+    <div class="doc-pres">
+      <h3>Prescriptions:</h3>
+      <% doctor.prescriptions.each do |prescription| %>
+        <li><%= prescription.name %></li>
       <% end %>
     </div>
+    <div class="doc-app">
+      <h3>Appointments History:</h3>
+      <div class="appointment">
+        <% doctor.medical_appointments.all.each do |appointment| %>
+          <li><%= appointment.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
+          <li><%= appointment.event.title %></li>
+          <li><%= appointment.event.location %></li>
+          <li><%= appointment.event.notes %></li>
+        <% end %>
+      </div>
+    </div>
+    <footer>
+      <button type="button" class="btn btn-primary-task" data-action="click->doctors#toggleDoctorEdit" data-id="<%= doctor.id %>">Edit</button>
+    </footer>
   </div>
-  <footer>
-    <button type="button" class="btn btn-primary-task" data-action="click->doctors#toggleDoctorEdit" data-id="<%= doctor.id %>">Edit</button>
-  </footer>
 </div>

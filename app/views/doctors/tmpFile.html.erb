@@ -14,7 +14,7 @@
       <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
     </div>
   </div>
-  <div>
+  <div class="container">
     <div class="d-flex align-items-center justify-content-between">
       <h2 class="doctor-title">Doctors</h2>
       <!--Button triger Modal-->
@@ -39,35 +39,35 @@
     </div>
     <div class="row doctors-row" data-controller="mapbox"  data-mapbox-api-key-value="<%= ENV['MAPBOX_TOKEN'] %>">
       <% @doctors.each do |doctor| %>
-        <!-- Card trigger modal -->
+        <!-- Button trigger modal -->
         <div class="doctor-card" data-bs-toggle="modal" data-bs-target="#doctorModal-<%= doctor.id%>" data-action="click->mapbox#setDoctorMap" coordinates="<%= generate_coor_hash(doctor.latitude, doctor.longitude).to_json %>" doctor="<%= doctor.id %>">
-          <div class="head">
-            <% if doctor.medical_appointments.last.nil?  %>
-              <div class="doc-appointment">
-                <strong>No appointments</strong>
-              </div>
-            <% else %>
-              <div class="doc-appointment">
-                <strong>Next appointment:</strong> <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %>
-              </div>
-            <% end %>
+          <div class="doc-name-img">
+            <div>
+              <% if doctor.avatar.attached? %>
+                <%= cl_image_tag doctor.avatar.key, class: "doc-img"%>
+              <% else %>
+                <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687470734/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_h7d59g.jpg", class:"doc-photo"%>
+              <% end %>
+            </div>
+            <div class="doctor-label">
+              <h4 class="doc-name"><%= doctor.first_name %></h4>
+              <h3 class="doc-name"><%= doctor.last_name %></h3>
+            </div>
           </div>
-          <div>
-            <% if doctor.avatar.attached? %>
-              <%= cl_image_tag doctor.avatar.key, class: "doc-img"%>
-            <% else %>
-              <%= image_tag "https://res.cloudinary.com/dqe5h0j32/image/upload/v1687470734/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_h7d59g.jpg", class:"doc-img"%>
-            <% end %>
-          </div>
-          <div class="doctor-label">
-            <div class="doc-name">Dr. <%= doctor.first_name %> <%= doctor.last_name %></div>
-            <div class="doc-specialty"><strong>Specialty:</strong> <%= doctor.specialty %></div>
-            <div class="doc-hospital"><strong>Hospital:</strong> <%= doctor.hospital %></div>
+          <h5 class="doc-specialty"><%= doctor.specialty %></h5>
+          <div class="doc-list-card">
+            <ul>
+              <li><strong>Hospital:</strong> <%= doctor.hospital %></li>
+              <li><strong>Phone Number:</strong> <%= doctor.phone_number %></li>
+              <% unless doctor.medical_appointments.last.nil?  %>
+                <li><strong>Appointment:</strong> <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
         <!-- Doctors Modal -->
         <div class="modal fade" id="doctorModal-<%= doctor.id%>" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel"><span class="doctor-module-header-one">See a</span> <span class="doctor-module-header">doctor</span></h5>
