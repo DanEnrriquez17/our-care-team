@@ -20,8 +20,15 @@
   flex-direction: column;
   align-items: center;
   // height: 100vh;
-  // width: 100vw;
+  width: 100vw;
   overflow: scroll;
+  p {
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 14px;
+    margin-right: 2px;
+  }
 }
 .name-and-created {
   display: flex;
@@ -53,6 +60,7 @@
   color: white;
   border: solid 1px #3f75ef;
   margin-left: 10px;
+  font-size: 11px;
 }
 .attached-doc {
   display: flex;
@@ -100,11 +108,16 @@
 .post-content {
   display: flex;
   padding-right: 0%;
-  p {
-    font-size: 12px;
-  }
-  h4 {
-    font-size: 14px;
-    margin-right: 2px;
-  }
+}
+
+.post-footer {
+  display: flex;
+  padding: 5px;
+  vertical-align: center;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+
+.tag-select {
+  font-size: 8px;
 }
