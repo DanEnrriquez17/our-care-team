@@ -111,7 +111,7 @@
 .all-tasks {
   height: 400px;
   overflow: scroll;
-  width: 850px;
+  width: 940px;
 }
 
 .add-task-button {
@@ -324,7 +324,7 @@ h1 {
 
 .task-description {
   margin-left: 100px;
-  width: 185px;
+  width: 255px;
 }
 
 .task-members{
@@ -348,7 +348,7 @@ h1 {
   /* This is a light gray color, change it to whatever you want */
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 125px;
+  height: 100px;
   margin: 2px;
   padding: 3rem auto;
 }
@@ -363,10 +363,14 @@ h1 {
   padding-top: 17px;
 }
 
+.task-column-user{
+  width: 100px;
+}
+
 .task-column-view {
   height: 60px;
   padding-top: 17px;
-  padding-left: 3rem;
+  padding-left: 0rem;
 }
 
 .status-pending {

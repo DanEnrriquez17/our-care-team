@@ -5,11 +5,11 @@
   <div class="col-4 task-column">
     <div class="row">
       <p class = "task-bar-text" style="line-height:1.4"><strong><%= task.title %></strong><br>
-        <%= task.description.split(" ")[0...7].join(" ") + '...' %>
+        <%= task.description.split(" ")[0...3].join(" ") + '...' %>
       </p>
     </div>
   </div>
-  <div class="col-1 task-column">
+  <div class="col-1 task-column task-column-user">
     <p class = "task-bar-assigned" style="line-height:1.4">
       <%= task.assigned_users.map(&:first_name).join(', ')%>
     </div>
