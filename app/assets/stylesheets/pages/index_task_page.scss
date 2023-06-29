@@ -1,7 +1,7 @@
 .task-container {
   background-color: rgb(255, 255, 255);
-  width: 100%;
-  margin-left: 15px;
+  width: 88vw;
+  margin-left: 10px;
   margin-right: 30px;
   margin-top: 10px;
   border-radius: 15px;
@@ -85,7 +85,7 @@
 }
 
 .team-box {
-  margin-top: 135px;
+  margin-top: 115px;
   background-color: rgb(255, 255, 255);
   padding: 1em;
   border-radius: 10px;
@@ -111,7 +111,7 @@
 .all-tasks {
   height: 400px;
   overflow: scroll;
-  width: 850px;
+  width: 940px;
 }
 
 .add-task-button {
@@ -279,12 +279,12 @@ h1 {
   color: #a9a9a9;
 }
 
-.task-bar-text{
-  font-size: 17px;
+.task-bar-text {
+  font-size: 15px;
 }
 
-.task-bar-assigned{
-  font-size: 18px;
+.task-bar-assigned {
+  font-size: 15px;
 }
 
 .task-details-row {
@@ -324,10 +324,10 @@ h1 {
 
 .task-description {
   margin-left: 100px;
-  width: 185px;
+  width: 255px;
 }
 
-.task-members{
+.task-members {
   padding-left: 20px;
 }
 
@@ -343,12 +343,19 @@ h1 {
   border-radius: 15px;
 }
 
+.avatar-task-icon {
+  height: 45px;
+  width: auto;
+  border-radius: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 .task-bar {
   background-color: #ffffff;
   /* This is a light gray color, change it to whatever you want */
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 125px;
+  height: 68px;
   margin: 2px;
   padding: 3rem auto;
 }
@@ -363,10 +370,14 @@ h1 {
   padding-top: 17px;
 }
 
+.task-column-user {
+  width: 100px;
+}
+
 .task-column-view {
   height: 60px;
   padding-top: 17px;
-  padding-left: 3rem;
+  padding-left: 0rem;
 }
 
 .status-pending {
