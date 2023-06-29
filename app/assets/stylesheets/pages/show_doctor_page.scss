@@ -1,9 +1,42 @@
+.show-map{
+  height: 280px;
+  width: 700px;
+  margin: 10px;
+  border-radius: 20px;
+}
 .appointment{
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   li{
     list-style: none;
+    color: #a9a9a9;
   }
 }
-.header{
-  height: 300px;
+.show-img{
+  width: auto;
+  height: 200px;
+  border-radius: 20px;
+}
+.doc-pres, .doc-app{
+  color: #a9a9a9;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 10px;
+}
+.doc-pres{
+  li {
+    list-style: none;
+    color: #a9a9a9;
+  }
+}
+.doc-app{
+  margin-left: 20px;
+}
+.doctor-card-info{
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: #a9a9a9;
+  margin-left: 20px;
+  padding: 20px;
 }
