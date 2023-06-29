@@ -1,3 +1,73 @@
+.calendar-large {
+  width: 70%;
+}
+
+.event-row {
+  background-color: white;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 70px;
+
+
+  ul {
+    list-style: none;
+    font-size: 12px;
+  }
+
+  .arrow {
+    margin: 15px;
+  }
+}
+
+.avatar-event-icon {
+  height: 50px;
+  width: auto;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 1rem;
+  margin-top: 10px;
+}
+
+.avatar-event-box {
+  height: 40px;
+  width: 40px;
+  padding-left: 2px;
+}
+
+.calendar-side {
+  width: 30%;
+}
+
+.first-card {
+  height: 50%;
+  background: linear-gradient(126deg, rgba(189, 143, 255, 1) 0%, rgba(134, 49, 255, 1) 100%);
+  color: #ffffff;
+  height: 255px;
+
+}
+
+.calendar-manager {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.second-card {
+  border-style: solid;
+  border-color: #bd8fff;
+  overflow: scroll;
+  height: 400px;
+  padding: 0px;
+}
+
+.card-body-two {
+  border-top: 1px solid #e4d1ff;
+}
+
+.card {
+  border-radius: 15px;
+}
+
 .simple-calendar {
   max-width: 100%;
   font-family: "Poppins", sans-serif;
@@ -12,6 +82,7 @@
     text-align: center;
     font-family: "Monsterrat", sans-serif;
     width: 8rem;
+    height: 100px;
   }
 
   .wday-1 {
@@ -60,8 +131,8 @@
 .event-block {
   width: 8rem;
   border-radius: 5px;
-  background-color: #b792fc;
-  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(126deg, rgba(189, 143, 255, 1) 0%, rgba(134, 49, 255, 1) 100%);
+  font-family: "Poppins", sans-serif;
   border: solid 1px #85A389;
   margin-bottom: 2px;
   color: white;

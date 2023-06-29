@@ -11,7 +11,7 @@
       <span class="badge rounded-pill bg-success"><%= current_user.role %></span>
     </p>
   </div>
-  <div class="col-1 welcome">
+  <div class="col-1">
   </div>
   <div class="col-4 logo-box">
     <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
@@ -103,9 +103,9 @@
             </li>
             <strong>
               <li class="task-details"><%= post.owner[:first_name] %></strong> posted:</li>
-            <span class="post-content"><%= post.content %></span>
-            <br>
-            <br>
+            <span class="post-content">
+              <%= post.content.split(" ").length > 9 ? post.content.split(" ")[0...9].join(" ") + '...' : post.content %>
+            </span>            <br>
             <li class="time-ago"><em><%= time_ago_in_words_custom(post.created_at) %></em></li>
           </ul>
         </div>
