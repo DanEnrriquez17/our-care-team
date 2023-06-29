@@ -1,16 +1,19 @@
 class PrescriptionsController < ApplicationController
   def index
-  @prescriptions = Prescription.all
-  @prescription = Prescription.new
-  @users = User.all
+    @prescriptions = Prescription.all
+    @prescription = Prescription.new
 
-  # Get upcoming refills
-  @upcoming_refills = @prescriptions.select do |p|
-    # Assuming frequency is in tablets per day
-    days_remaining = (p.tablets / p.frequency.to_f).ceil
-    p.end_time - days_remaining.days <= Date.today
+    @upcoming_refills = @prescriptions.select do |p|
+      # Check if tablets and frequency are not nil
+      if p.tablets.present? && p.frequency.present?
+        # Assuming frequency is in tablets per day
+        days_remaining = (p.tablets / p.frequency.to_f).ceil
+        p.end_time - days_remaining.days <= Date.today
+      else
+        false
+      end
+    end
   end
-end
 
 
   def prescription_json
