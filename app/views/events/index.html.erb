@@ -1,18 +1,81 @@
-<div>
-  <div class="d-flex justify-content-between">
-    <h1>Calendar</h1>
-    <div><%= render "modal", event: @event %></div>
+<div class="container d-con">
+  <div class= "logo-row">
+    <div class="col-4 user-row">
+      <p id="date" class="date"></p>
+      <script>
+        var today = new Date();
+        document.getElementById("date").innerHTML = today.toDateString();
+      </script>
+    </div>
+    <div class="col-4">
+      <p class="user">Welcome back, <%= current_user.first_name %>.</p>
+    </div>
+    <div class="col-4 logo-box">
+      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+    </div>
   </div>
-  <div id="calendar" class="simple-calendar">
-    <%= turbo_frame_tag 'calendar' do %>
-      <%= month_calendar(events: @events) do |date, events| %>
-        <%= date.day %>
-        <% events.each do |event| %>
-          <div>
-            <%= render "edit_event_modal", event: event %>
-          </div>
+  <div class="row calendar-manager">
+    <div class="d-flex justify-content-between">
+      <h1>Calendar</h1>
+      <div><%= render "modal", event: @event %></div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div id="calendar" class="calendar-large">
+      <%= turbo_frame_tag 'calendar' do %>
+        <%= month_calendar(events: @events) do |date, events| %>
+          <%= date.day %>
+          <% events.each do |event| %>
+            <div>
+              <%= render "edit_event_modal", event: event %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="calendar-side">
+      <!-- Insert first calendar-side card here -->
+      <div class="card text-bg mb-3 first-card" style="max-width: 100%;">
+        <div class="card-header"><strong>Events Notifications</strong></div>
+        <div class="card-body">
+          <h5 class="card-title">Upcoming Events:</h5>
+          <% @events.first(2).each do |event| %>
+            <li class="welcome-text-notification"><%= event.title %> on <%= event.start.strftime("%A, %B %d, %Y") %></li>
+          <% end %>
+          <br>
+          <br>
+          <br>
+          <p style="font-size: 14px;">Events created in the last 48 hours: <%= @recent_events_count %></p>
+        </div>
+      </div>
+      <!-- First calendar-side card ends here -->
+      <!-- Second calendar-side card ends here -->
+      <div class="card border second-card mb-3" style="max-width: 100%;">
+        <div class="card-header"><strong>All Events</strong></div>
+        <div class="card-body-two text-secondary">
+          <% @events.each do |event| %>
+            <div class="row event-row d-flex">
+              <div class="col-1 avatar-event-box">
+                <%= image_tag(event.owner.avatar, class: "avatar-event-icon") if event.owner.avatar.attached? %>
+              </div>
+              <div class ="col-9 post-details-mini">
+                <ul>
+                  <li class="task-details" style="font-size: 14px;"><strong><%= event.title %></strong></li>
+                  <span class="post-content">
+                    <%= event.notes.split(" ").length > 9 ? event.notes.split(" ")[0...9].join(" ") + '...' : event.notes %>
+                  </span>
+                  <li class="time-ago"><em><%= time_ago_in_words_custom(event.created_at) %></em></li>
+                </ul>
+              </div>
+              <div class="col-1 post-arrow">
+                <%= link_to event_path(event) do %>
+                  <i class="fa fa-arrow-right" style="color: #b792fc;"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>        </div>
+      </div>
+    </div>
   </div>
+</div>
 </div>

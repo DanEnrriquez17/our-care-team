@@ -97,14 +97,14 @@ Event.create!(
   end: "2023-06-16 13:00:00",
   location: "123 Main St",
   notes: "Bring medical records.",
-  user: admin
+  user: User.all.sample
 )
 Event.create!(
   title: "Physical Therapy Session",
   event_type: "Physical Therapy",
   start: "2023-06-16 15:30:00",
   end: "2023-06-16 16:30:00",
-  user: admin,
+  user: User.all.sample,
   location: "123 Main St",
   notes: "Wear comfortable clothing."
 )
@@ -113,7 +113,7 @@ Event.create!(
   event_type: "Guest in Town",
   start: "2023-06-17 18:00:00",
   end: "2023-06-17 22:00:00",
-  user: admin,
+  user: User.all.sample,
   location: "123 Main St",
   notes: "Pick up at airport."
 )
@@ -122,7 +122,7 @@ Event.create!(
   event_type: "Other",
   start: "2023-06-18 10:00:00",
   end: "2023-06-18 12:00:00",
-  user: admin,
+  user: User.all.sample,
   location: "123 Main St",
   notes: "Bring presentation materials."
 )
@@ -131,7 +131,7 @@ Event.create!(
   event_type: "Doctor Appointment",
   start: "2023-06-19 14:00:00",
   end: "2023-06-19 15:00:00",
-  user: admin,
+  user: User.all.sample,
   location: "123 Main St",
   notes: "Bring insurance card."
 )
@@ -140,7 +140,7 @@ Event.create!(
   event_type: "Doctor Appointment",
   start: "2023-06-20 09:30:00",
   end: "2023-06-20 10:30:00",
-  user: admin,
+  user: User.all.sample,
   location: "123 Main St",
   notes: "Bring medical records."
 )
