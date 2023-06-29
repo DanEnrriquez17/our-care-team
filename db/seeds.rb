@@ -88,6 +88,17 @@ Prescription.create!(name: "omeprazole", dosage: "40mg", frequency: "1x per day"
 Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor: Doctor.all.sample, purpose: "antibiotic")
 Prescription.create!(name: "fluoxetine", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor: Doctor.all.sample, purpose: "heart meds")
 Prescription.create!(name: "prednisone", dosage: "10mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor: Doctor.all.sample, purpose: "antibiotic")
+Prescription.create!(name: "amoxicillin", dosage: "500mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 30, doctor: Doctor.all.sample, purpose: "antibiotic")
+Prescription.create!(name: "gabapentin", dosage: "300mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor: Doctor.all.sample, purpose: "nerve pain")
+Prescription.create!(name: "metoprolol", dosage: "25mg", frequency: "2x per day", status: "active", end_time: "active", tablets: 60, doctor: Doctor.all.sample, purpose: "high blood pressure")
+Prescription.create!(name: "sertraline", dosage: "50mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor: Doctor.all.sample, purpose: "antidepressant")
+Prescription.create!(name: "amlodipine", dosage: "10mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 90, doctor: Doctor.all.sample, purpose: "high blood pressure")
+Prescription.create!(name: "atorvastatin", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor: Doctor.all.sample, purpose: "cholesterol management")
+Prescription.create!(name: "citalopram", dosage: "20mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 60, doctor: Doctor.all.sample, purpose: "depression")
+Prescription.create!(name: "diazepam", dosage: "5mg", frequency: "as needed", status: "active", end_time: "active", tablets: 20, doctor: Doctor.all.sample, purpose: "anxiety relief")
+Prescription.create!(name: "furosemide", dosage: "40mg", frequency: "1x per day", status: "active", end_time: "active", tablets: 30, doctor: Doctor.all.sample, purpose: "diuretic")
+Prescription.create!(name: "metronidazole", dosage: "250mg", frequency: "3x per day", status: "active", end_time: "active", tablets: 60, doctor: Doctor.all.sample, purpose: "antibacterial")
+
 
 # DAN EVENTS SEEDS
 Event.create!(
