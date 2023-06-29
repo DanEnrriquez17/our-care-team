@@ -23,4 +23,9 @@ Rails.application.routes.draw do
     end
     resources :tasks_assigned_users, shallow: true
   end
+
+  # Route to generate prescriptions csv download for client
+  resources :prescriptions do
+    collection { get :download }
+  end
 end

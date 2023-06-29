@@ -135,18 +135,11 @@
       </div>
       <div class="row font-family-monsterrat">
         <div class="row avatar-row">
-          <div class="col-2 avatar-box">
-            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196660/Avatar_three_bmtfj9.svg" alt="avatar icon">
-          </div>
-          <div class="col-2 avatar-box">
-            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_six_sbufqa.svg" alt="avatar icon">
-          </div>
-          <div class="col-2 avatar-box">
-            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_seven_qxalmc.svg" alt="avatar icon">
-          </div>
-          <div class="col-2 avatar-box">
-            <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687196658/Avatar_four_ljkac8.svg" alt="avatar icon">
-          </div>
+          <% @users.each do |user| %>
+            <div class="col-2 avatar-box">
+              <%= image_tag(user.avatar, alt: "avatar icon", class: "avatar-task-icon") if user.avatar.present? %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
