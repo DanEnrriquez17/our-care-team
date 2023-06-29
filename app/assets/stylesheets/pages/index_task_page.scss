@@ -1,7 +1,7 @@
 .task-container {
   background-color: rgb(255, 255, 255);
-  width: 100%;
-  margin-left: 15px;
+  width: 88vw;
+  margin-left: 10px;
   margin-right: 30px;
   margin-top: 10px;
   border-radius: 15px;
@@ -85,7 +85,7 @@
 }
 
 .team-box {
-  margin-top: 135px;
+  margin-top: 80px;
   background-color: rgb(255, 255, 255);
   padding: 1em;
   border-radius: 10px;
@@ -101,7 +101,7 @@
 }
 
 .recent-box {
-  margin-top: 70px;
+  margin-top: 20px;
   background-color: rgb(255, 255, 255);
   padding: 1em;
   border-radius: 10px;
@@ -280,11 +280,11 @@ h1 {
 }
 
 .task-bar-text{
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .task-bar-assigned{
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .task-details-row {
@@ -348,7 +348,7 @@ h1 {
   /* This is a light gray color, change it to whatever you want */
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 100px;
+  height: 80px;
   margin: 2px;
   padding: 3rem auto;
 }
