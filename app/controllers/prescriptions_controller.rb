@@ -2,6 +2,7 @@ class PrescriptionsController < ApplicationController
   def index
   @prescriptions = Prescription.all
   @prescription = Prescription.new
+  @users = User.all
 
   # Get upcoming refills
   @upcoming_refills = @prescriptions.select do |p|

@@ -21,6 +21,7 @@ class TasksController < ApplicationController
       format.html
       format.text { render partial: 'tasks/tasks', locals: { tasks: @tasks }, formats: [:html] }
     end
+    @users = User.all
   end
 
   def create
