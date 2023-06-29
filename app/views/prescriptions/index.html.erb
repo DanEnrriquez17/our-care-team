@@ -1,9 +1,48 @@
-<div data-controller="tabulator" class="tabulator-container">
-  <div class="d-flex justify-content-between">
-    <h1>Current Prescriptions</h1>
-    <div><%= render "create_prescription_modal", prescription: @prescription %></div>
+<div class="container d-con">
+  <!-- Top Logo Row Starts here -->
+  <div class= "logo-row">
+    <div class="col-4 user-row">
+      <p id="date" class="date"></p>
+      <script>
+        var today = new Date();
+        document.getElementById("date").innerHTML = today.toDateString();
+      </script>
+    </div>
+    <div class="col-4">
+      <p class="user">Welcome back, <%= current_user.first_name %>.</p>
+      <%= link_to 'Download CSV', download_prescriptions_path(format: :csv) %>
+    </div>
+    <div class="col-4 logo-box">
+      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+    </div>
   </div>
-  <div class="tabulator">
-    <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
+  <!-- Top Logo Row Ends here -->
+  <!-- Top Logo Row Ends here -->
+  <div class="row prescriptions-row">
+    <div data-controller="tabulator" class="tabulator-container">
+      <div class="d-flex justify-content-between">
+        <h1>Current Prescriptions</h1>
+        <div><%= render "create_prescription_modal", prescription: @prescription %></div>
+      </div>
+      <div class="tabulator">
+        <div id="table" data-tabulator-target="tabledata" data-tabulator-tabledata-value="<%= @prescriptions_json_array %>"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="upcoming-refills">
+      <h2>Upcoming Prescription Refills</h2>
+      <% if @upcoming_refills.empty? %>
+        <p>No upcoming refills</p>
+      <% else %>
+        <ul>
+          <% @upcoming_refills.each do |p| %>
+            <li>
+              <%= p.name %> will need a refill by <%= p.end_time %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
 </div>

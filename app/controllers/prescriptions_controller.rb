@@ -1,8 +1,16 @@
 class PrescriptionsController < ApplicationController
   def index
-    @prescriptions = Prescription.all
-    @prescription = Prescription.new
+  @prescriptions = Prescription.all
+  @prescription = Prescription.new
+
+  # Get upcoming refills
+  @upcoming_refills = @prescriptions.select do |p|
+    # Assuming frequency is in tablets per day
+    days_remaining = (p.tablets / p.frequency.to_f).ceil
+    p.end_time - days_remaining.days <= Date.today
   end
+end
+
 
   def prescription_json
     render json: Prescription.all.map { |p| { name: p.name, status: p.status, dosage: p.dosage, frequency: p.frequency, doctor: "Dr. #{p.doctor.first_name} #{p.doctor.last_name}", purpose: p.purpose, id: p.id } }
@@ -45,6 +53,14 @@ class PrescriptionsController < ApplicationController
     @prescription.destroy
     respond_to do |format|
       format.json { render json: {message: "deleted properly"}, formats: [:json] }
+    end
+  end
+
+  def download
+    @prescriptions = Prescription.all
+
+    respond_to do |format|
+      format.csv { send_data @prescriptions.to_csv, filename: "prescriptions-#{Date.today}.csv" }
     end
   end
 
