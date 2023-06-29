@@ -1,33 +1,19 @@
-.post {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 53%;
-  width: 58%;
-  border-radius: 10px;
-  background-color: white;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  ul {
-    list-style: none;
-    padding-left: 0px;
-  }
-}
 .main-cont {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: top;
+  vertical-align: top;
 }
+
 .post-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  //height: 600px;
-  width: 100vw;
-  overflow: scroll;
+  padding: 0%;
+  height: auto;
+  width: 55vw;
+  overflow-y: scroll;
   p {
     font-size: 12px;
   }
@@ -36,6 +22,32 @@
     margin-right: 2px;
   }
 }
+
+.container-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-center;
+  justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 3%;
+  padding: 3%;
+  padding-bottom: 0%;
+  ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+}
+
 .name-and-created {
   display: flex;
   align-items: baseline;
@@ -70,8 +82,9 @@
 }
 .attached-doc {
   display: flex;
-  flex-direction: column;
-  width: 90%;
+  width: 100%;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .post-img {
   // height: 60%;
@@ -111,19 +124,35 @@
   padding: 0px 5px;
 }
 
+.post-edit-block {
+  display: flex;
+  vertical-align: middle;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-content {
   display: flex;
+  flex-direction: column;
   padding-right: 0%;
 }
 
 .post-footer {
   display: flex;
-  padding: 5px;
+  padding: 0%;
+  margin: 0%;
   vertical-align: center;
-  justify-content: flex-end;
+  align-content: end;
   font-size: 11px;
 }
 
 .tag-select {
   font-size: 8px;
 }
+
+// p.mentioned {
+//   font
+// }
