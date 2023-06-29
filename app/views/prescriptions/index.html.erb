@@ -29,20 +29,32 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="upcoming-refills">
-      <h2>Upcoming Prescription Refills</h2>
-      <% if @upcoming_refills.empty? %>
-        <p>No upcoming refills</p>
-      <% else %>
-        <ul>
+  <div class="row prescriptions-row">
+    <div class="card prescription-card" style="width: 30%">
+      <div class="card-body">
+        <h5 class="card-title">Upcoming Prescription Refills</h5>
+        <% if @upcoming_refills.empty? %>
+          <div class="row event-row d-flex">
+            <div class="col-12 post-details-mini">
+              <p class="card-text">No upcoming refills</p>
+            </div>
+          </div>
+        <% else %>
           <% @upcoming_refills.each do |p| %>
-            <li>
-              <%= p.name %> will need a refill by <%= p.end_time %>
-            </li>
+            <div class="row event-row d-flex">
+              <div class="col-1 avatar-event-box">
+                <%= image_tag(p.doctor.avatar, class: "avatar-event-icon") if p.doctor.avatar.attached? %>
+              </div>
+              <div class="col-9 post-details-mini">
+                <ul>
+                  <li class="task-details" style="font-size: 14px;"><strong><%= p.name %></strong></li>
+                  <span class="post-content">
+                    Will need a refill by <%= p.end_time %>
+                  </span>
+                  <li class="time-ago"><em><%= time_ago_in_words_custom(p.end_time) %></em></li>
+                </ul>
+              </div>
+            </div>
           <% end %>
-        </ul>
-      <% end %>
+        <% end %>    </div>
     </div>
-  </div>
-</div>
