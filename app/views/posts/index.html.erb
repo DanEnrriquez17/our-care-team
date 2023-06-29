@@ -83,7 +83,7 @@
         </div>
       </div>
     </div> %>
-    <div class="d-flex flex-column sticky-top align-items-center">
+    <div class="d-flex flex-column align-items-center">
       <h2 class="post-title">Posts</h2>
       <!--Button triger Modal-->
       <div class="add-post-button">
@@ -100,7 +100,9 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- This is the div where the form will be loaded -->
-            <%= render "posts/post_form", post: @post %>
+            <div class="modal-body">
+              <%= render "posts/post_form", post: @post %>
+            </div>
           </div>
         </div>
       </div>
