@@ -1,461 +1,144 @@
-@media (min-width: 400px) {
-  .doc-container {
-    width: 100vw;
-  }
-
-  .doctor-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin: 5px 5px;
-    width: 120px;
-    height: 180px;
-    text-decoration: none;
-    color: #8d8d8d;
-    padding: 10px 0px;
-    background-color: white;
-  }
-
-  .doctor-card:hover {
-    width: 110px;
-    height: 190px;
-  }
-
-  .doc-name-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .doc-list-card ul li {
-    list-style: none;
-    font-size: 8px;
-  }
-
-  .doc-name{
-    font-size: 11px;
-  }
-
-  .doc-specialty{
-    font-size: 11px;
-  }
-
-  .doc-list-card ul {
-    padding-left: 10px;
-  }
-
-  .doc-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 30%;
-  }
-
-  .doc-photo {
-    object-fit: cover;
-  }
-
-  .doctor-label {
-    margin-left: 5px;
-  }
-
-  .btn-primary-doctor {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 12px;
-    font-size: 12px;
-  }
-
-  .add-doctor-button {
-
-    padding-top: 0px;
-    padding-right: 0;
-    margin-left: 1rem;
-    width: 120px;
-  }
-
-  .doctor-module-header-one {
-    color: #222222;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-module-header {
-    color: #b792fc;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-title {
-    font-size: 25px;
-    color: #cecdcd;
-    font-weight: 400;
-    padding-top: 0px;
-  }
-
-  .doctors-row {
-    overflow: scroll;
-    height: 390px;
-  }
-
-  .map{
-    height: 350px;
-    width: 390px;
-    margin: 10px;
-    border-radius: 20px;
-  }
+.doc-container {
+  width: 100vw;
+  height: 95vh;
+  background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
-@media (min-width: 768px) {
-  .doc-container {
-    width: 80vw;
-  }
 
-  .doctor-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin: 5px 10px;
-    width: 180px;
-    height: 260px;
-    text-decoration: none;
-    color: #8d8d8d;
-    padding: 10px 0px;
-    background-color: white;
-  }
-
-  .doctor-card:hover {
-    width: 190px;
-    height: 270px;
-  }
-
-  .doc-name-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .doc-list-card ul li {
-    list-style: none;
-    font-size: 10px;
-  }
-
-  .doc-list-card ul {
-    padding-left: 20px;
-  }
-
-  .doc-img {
-    width: 70px;
-    height: 70px;
-    border-radius: 30%;
-  }
-
-  .doc-photo {
-    object-fit: cover;
-  }
-
-  .doctor-label {
-    margin-left: 5px;
-  }
-
-  .btn-primary-doctor {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 15px;
-  }
-
-  .add-doctor-button {
-    padding-top: 0px;
-    padding-right: 0;
-    margin-left: 1rem;
-    width: 150px;
-  }
-
-  .doctor-module-header-one {
-    color: #222222;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-module-header {
-    color: #b792fc;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-title {
-    font-size: 35px;
-    color: #cecdcd;
-    font-weight: 400;
-    padding-top: 0px;
-  }
-
-  .doctors-row {
-    overflow: scroll;
-    height: 270px;
-  }
-
-  .map{
-    height: 260px;
-    width: 100vw;
-    margin: 10px;
-    border-radius: 20px;
-  }
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid #bd8fff;
+  margin: 5px 10px;
+  width: 230px;
+  height: 340px;
+  text-decoration: none;
+  background-color: white;
 }
-@media (min-width: 1024px) {
-  .doc-container {
-    width: 100vw;
-    height: 100vh;
-  }
 
-  .doctor-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin: 5px 5px;
-    width: 210px;
-    height: 280px;
-    text-decoration: none;
-    color: #8d8d8d;
-    padding: 15px 10px;
-    background-color: white;
-  }
-
-  .doctor-card:hover {
-    width: 220px;
-    height: 290px;
-  }
-
-  .doc-name-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .doc-list-card ul li {
-    font-family: "Montserrat", sans-serif;
-    list-style: none;
-    font-size: 13px;
-  }
-
-  .doc-list-card ul {
-    padding-left: 20px;
-  }
-
-  .doc-img {
-    width: 65px;
-    height: 75px;
-    border-radius: 20%;
-    background-image: cover;
-  }
-
-  .doc-photo {
-    object-fit: cover;
-  }
-
-  .doctor-label {
-    margin-left: 30px;
-  }
-
-  .btn-primary-doctor {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 15px;
-    font-size: 25px;
-    width: 200px;
-    padding: 5px 10px;
-  }
-
-  .add-doctor-button {
-    padding-top: 0px;
-    margin: 0px 10px 0px 0px;
-    width: 200px;
-  }
-
-  .doctor-module-header-one {
-    color: #222222;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-module-header {
-    color: #b792fc;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doctor-title {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 35px;
-    color: #cecdcd;
-    font-weight: 400;
-    padding-top: 0px;
-  }
-
-  .doctors-row {
-    overflow: scroll;
-    height: 320px;
-    width: 90vw;
-    margin-top: 10px;
-    border-bottom: 1px solid #e6e6e6;
-  }
-
-  .doc-name{
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
-
-  .doc-specialty{
-    font-size: 20px;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .map{
-    height: 280px;
-    width: 890px;
-    margin: 10px;
-    border-radius: 20px;
-  }
-
-  .user {
-    font-family: "Montserrat", sans-serif;
-    color: #a9a9a9;
-    font-size: 20px;
-    padding-top: 13px;
-    padding-left: 11rem;
-  }
-
-  .header-row {
-    border-bottom: 1px solid #e6e6e6;
-    width: 90vw;
-  }
-
-  .date {
-    font-family: "Montserrat", sans-serif;
-    color: #a9a9a9;
-    font-size: 20px;
-    margin-left: 1rem;
-    padding-top: 13px;
-  }
+.doctor-card:hover {
+  width: 220px;
+  height: 340px;
 }
-@media (min-width: 1440px) {
-  .doc-container {
-    width: 100vw;
-  }
 
-  .doctor-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin: 5px 10px;
-    width: 290px;
-    height: 360px;
-    text-decoration: none;
-    color: #8d8d8d;
-    padding: 15px 0px;
-    background-color: white;
-  }
+.doc-img {
+  width: auto;
+  height: 160px;
+  border-radius: 10%;
+  margin-top: 10px;
+}
 
-  .doctor-card:hover {
-    width: 300px;
-    height: 370px;
-  }
+.doctor-label {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
 
-  .doc-name-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.btn-primary-doctor {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 15px;
+  font-size: 20px;
+  width: 170px;
+  padding: 5px 1px;
+  margin-right: 0px;
+  margin-top: 10px;
+}
 
-  .doc-list-card ul li {
-    list-style: none;
-    font-size: 18px;
-  }
+.add-doctor-button {
+  padding-top: 0px;
+  margin: 0px 0px 0px 0px;
+  width: 300px;
+}
 
-  .doc-list-card ul {
-    padding-left: 15px;
-  }
+.doctor-module-header-one {
+  color: #222222;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
 
-  .doc-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 30%;
-  }
+.doctor-module-header {
+  color: #b792fc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
 
-  .doc-photo {
-    object-fit: cover;
-  }
+.doctor-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+  color: #cecdcd;
+  padding-top: 0px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
 
-  .doctor-label {
-    margin-left: 5px;
-  }
+.doctors-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 370px;
+  width: 90vw;
+  margin-top: 10px;
+}
 
-  .btn-primary-doctor {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 15px;
-    width: 250px;
-    font-size: 25px;
-  }
+.doc-name{
+  color: #a9a9a9;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
 
-  .add-doctor-button {
-    padding-top: 0px;
-    padding-right: 0;
-    margin-left: 1rem;
-  }
+.doc-specialty, .doc-hospital, .doc-appointment{
+  color: #a9a9a9;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
 
-  .doctor-module-header-one {
-    color: #222222;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
+.doc-appointment{
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  padding: 5px;
+}
 
-  .doctor-module-header {
-    color: #b792fc;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-  }
+.head{
+  height: 59px;
+}
 
-  .doctor-title {
-    font-size: 45px;
-    color: #cecdcd;
-    font-weight: 400;
-    padding-top: 0px;
-  }
+.map{
+  height: 280px;
+  width: 1090px;
+  margin: 10px;
+  border-radius: 20px;
+}
 
-  .doc-name{
-    font-size: 30px;
-  }
+.user {
+  font-family: "Montserrat", sans-serif;
+  color: #a9a9a9;
+  font-size: 20px;
+  padding-top: 13px;
+  padding-left: 11rem;
+}
 
-  .doc-specialty{
-    font-size: 25px;
-  }
+.header-row {
+  border-bottom: 1px solid #e6e6e6;
+  width: 90vw;
+}
 
-  .doctors-row {
-    overflow: scroll;
-    height: 490px;
-  }
-
-  .map{
-    height: 430px;
-    width: 1200px;
-    margin: 10px;
-    border-radius: 20px;
-  }
+.date {
+  font-family: "Montserrat", sans-serif;
+  color: #a9a9a9;
+  font-size: 20px;
+  margin-left: 1rem;
+  padding-top: 13px;
 }

@@ -7,6 +7,7 @@ class EventsController < ApplicationController
     @events = Event.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @event = Event.new
     @event_notifications = current_user.event_invited_users.order(created_at: :desc).limit(5)
+    @recent_events_count = Event.where('created_at > ?', 48.hours.ago).count
   end
 
   def show
