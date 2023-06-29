@@ -1,164 +1,54 @@
-@media (min-width:400px) {
-  .prescriptions {
-    background-color: #eaeaea;
-    border-radius: 10px;
-    height: 87vh;
-    overflow: scroll;
-    ul li {
-      list-style: none;
-    }
-  }
-  .btn-primary-prescription {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 12px;
-    font-size: 12px;
-    width: 120px;
-    padding: 4px 7px;
-  }
-
-  .tabulator {
-    height: 50vh;
-    font-size: 10px;
-  }
-
-  .tabulator-container {
-    width: 95vw;
-    margin: 0px 8px;
-    h1{
-      font-size: 20px;
-    }
-  }
-  .prescription-option{
-    background-color: #8EA7E9;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    cursor: pointer;
+.prescriptions {
+  background-color: #eaeaea;
+  border-radius: 10px;
+  height: 87vh;
+  overflow: scroll;
+  ul li {
+    list-style: none;
   }
 }
-@media (min-width:768px) {
-  .prescriptions {
-    background-color: #eaeaea;
-    border-radius: 10px;
-    height: 87vh;
-    overflow: scroll;
-    ul li {
-      list-style: none;
-    }
-  }
-  .btn-primary-prescription {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 12px;
-    font-size: 16px;
-    width: 150px;
-    padding: 4px 7px;
-  }
+.btn-primary-prescription {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 12px;
+  font-size: 18px;
+  width: 200px;
+  padding: 4px 4px;
+}
 
-  .tabulator {
-    height: 50vh;
-    font-size: 15px;
-  }
+.form-title-label{
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
 
-  .tabulator-container {
-    width: 86vw;
-    margin: 0px 8px;
-    h1{
-      font-size: 25px;
-    }
-  }
-  .prescription-option{
-    background-color: #8EA7E9;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    cursor: pointer;
+.btn-primary-prescription-close {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  background-color: #b792fc;
+  border-radius: 12px;
+  font-size: 18px;
+  width: 100px;
+  padding: 4px 4px;
+}
+
+.tabulator {
+  height: 50vh;
+  font-size: 15px;
+}
+
+.tabulator-container {
+  width: 86vw;
+  margin: 0px 8px;
+  h1{
+    font-size: 40px;
   }
 }
-@media (min-width:1024px) {
-  .prescriptions {
-    background-color: #eaeaea;
-    border-radius: 10px;
-    height: 87vh;
-    overflow: scroll;
-    ul li {
-      list-style: none;
-    }
-  }
-  .btn-primary-prescription {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 12px;
-    font-size: 20px;
-    width: 200px;
-    padding: 4px 7px;
-  }
-
-  .tabulator {
-    height: 50vh;
-    font-size: 18px;
-  }
-
-  .tabulator-container {
-    width: 86vw;
-    margin: 0px 8px;
-    h1{
-      font-size: 35px;
-    }
-  }
-  .prescription-option{
-    background-color: #8EA7E9;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    cursor: pointer;
-  }
-}
-@media (min-width:1440px) {
-  .prescriptions {
-    background-color: #eaeaea;
-    border-radius: 10px;
-    height: 87vh;
-    overflow: scroll;
-    ul li {
-      list-style: none;
-    }
-  }
-  .btn-primary-prescription {
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
-    background-color: #b792fc;
-    border-radius: 12px;
-    font-size: 25px;
-    width: 250px;
-    padding: 4px 7px;
-  }
-
-  .tabulator {
-    height: 50vh;
-    font-size: 15px;
-  }
-
-  .tabulator-container {
-    width: 86vw;
-    margin: 0px 8px;
-    h1{
-      font-size: 40px;
-    }
-  }
-  .prescription-option{
-    background-color: #8EA7E9;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    color: white;
-    cursor: pointer;
-  }
+.prescription-option{
+  background-color: #8EA7E9;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
 }

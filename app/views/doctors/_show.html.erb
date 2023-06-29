@@ -1,33 +1,39 @@
-<div class="doc-info">
-  <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
-  <h3>Specialty:</h3>
-  <p><%= doctor.specialty %></p>
-  <h3>Address:</h3>
-  <p><%= doctor.address %></p>
-  <h3>Phone Number:</h3>
-  <p><%= doctor.phone_number %></p>
-  <div
-id="map-<%= doctor.id%>"
-style="height: 250px; width: 100%;"
-></div>
-  <div class="doc-pres">
-    <h3>Prescriptions:</h3>
-    <% doctor.prescriptions.each do |prescription| %>
-      <li><%= prescription.name %></li>
-    <% end %>
-  </div>
-  <div class="doc-app">
-    <h3>Appointments History:</h3>
-    <div class="appointment">
-      <% doctor.medical_appointments.all.each do |appointment| %>
-        <li><%= appointment.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
-        <li><%= appointment.event.title %></li>
-        <li><%= appointment.event.location %></li>
-        <li><%= appointment.event.notes %></li>
-      <% end %>
+<div class="card border-light mb-3">
+  <div id="map-<%= doctor.id%>" class="show-map"></div>
+  <div class="card-body">
+    <div class="d-flex align-items">
+      <%= cl_image_tag doctor.avatar.key, class: "show-img"%>
+      <div class="doctor-card-info">
+        <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
+        <h5><strong>Specialty:</strong> <%= doctor.specialty %></h5>
+        <h5><strong>Address:</strong> <%= doctor.address %></h5>
+        <h5><strong>Phone Number:</strong> <%= doctor.phone_number %></h5>
+      </div>
+    </div>
+    <div class="d-flex align-items">
+      <div class="doc-pres">
+        <h3>Prescriptions:</h3>
+        <% doctor.prescriptions.each do |prescription| %>
+          <li><%= prescription.name.capitalize %></li>
+        <% end %>
+      </div>
+      <div class="doc-app">
+        <% if doctor.medical_appointments.last.nil?  %>
+          <div>
+            <h3>No appointments yet</h3>
+          </div>
+        <% else %>
+          <h3>Appointments History:</h3>
+          <div class="appointment">
+            <% doctor.medical_appointments.all.each do |appointment| %>
+              <li><strong>Date:</strong> <%= appointment.event.start.strftime("%B %d, %Y at %I:%M %p") %></li>
+              <li><strong>Event:</strong> <%= appointment.event.title %></li>
+              <li><strong>Location:</strong> <%= appointment.event.location %></li>
+              <li><strong>Notes:</strong> <%= appointment.event.notes %></li>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  <footer>
-    <button type="button" class="btn btn-primary-task" data-action="click->doctors#toggleDoctorEdit" data-id="<%= doctor.id %>">Edit</button>
-  </footer>
 </div>
