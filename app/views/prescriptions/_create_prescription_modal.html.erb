@@ -12,35 +12,34 @@
       </div>
       <%= form_for @prescription do |f| %>
         <div class="modal-body">
-          <div>
-            <%= f.label :name %>
-            <%= f.text_field :name, data: {"prescription-form-target": "name", "action": "keyup->prescription-form#updateSelectOptions"} %>
-            <div class="shadow p-3 mb-5 bg-body rounded d-none" data-prescription-form-target="selectOptions">
-            </div>
+          <div class="mb-3">
+            <%= f.label :name, class:"form-title-label" %>
+            <%= f.text_field :name, data: {"prescription-form-target": "name", "action": "keyup->prescription-form#updateSelectOptions"}, class: "form-control" %>
+            <div class="shadow p-3 mb-5 bg-body rounded d-none" data-prescription-form-target="selectOptions"></div>
           </div>
-          <div>
-            <%= f.label :dosage %>
-            <%= f.text_field :dosage %>
+          <div class="mb-3">
+            <%= f.label :dosage, class:"form-title-label" %>
+            <%= f.text_field :dosage, class: "form-control" %>
           </div>
-          <div>
-            <%= f.label :frequency %>
-            <%= f.text_field :frequency %>
+          <div class="mb-3">
+            <%= f.label :frequency, class:"form-title-label" %>
+            <%= f.text_field :frequency, class: "form-control" %>
           </div>
-          <div>
-            <%= f.label :"Prescribing Doctor" %>
-            <%= f.collection_select(:doctor_id, Doctor.all, :id, :specialty) %>
+          <div class="mb-3">
+            <%= f.label :"Prescribing Doctor", class:"form-title-label" %>
+            <%= f.collection_select(:doctor_id, Doctor.all, :id, :full_name, class: "form-select") %>
           </div>
-          <div>
-            <%= f.label :purpose %>
-            <%= f.text_field :purpose %>
+          <div class="mb-3">
+            <%= f.label :purpose, class:"form-title-label" %>
+            <%= f.text_field :purpose, class: "form-control" %>
           </div>
-          <div>
-            <%= f.label :status %>
-            <%= f.select :status, Prescription::STATUS %>
+          <div class="mb-3">
+            <%= f.label :status, class:"form-title-label" %>
+            <%= f.select :status, Prescription::STATUS, class: "form-select" %>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary-prescription-close" data-bs-dismiss="modal">Close</button>
           <%= f.submit "Add Prescription", class: "btn btn-primary-prescription" %>
         </div>
       <% end %>
