@@ -33,6 +33,7 @@ module ApplicationHelper
   end
 
   def time_ago_in_words_custom(time)
+    time = time.to_time if time.is_a?(Date) # Add this line to convert Date to Time
     time_ago = Time.zone.now - time
     case
     when time_ago <= 1.minute
