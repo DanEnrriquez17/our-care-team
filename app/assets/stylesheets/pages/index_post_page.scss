@@ -153,6 +153,37 @@
   font-size: 8px;
 }
 
-// p.mentioned {
-//   font
-// }
+// chatgpt
+
+.user-boxes-sticky {
+  position: sticky;
+  top: 20px; /* Adjust the value as needed */
+  z-index: 999;
+  background-color: #fff; /* Optional: Add a background color to the sticky container */
+  padding: 10px; /* Optional: Add padding for spacing */
+  border-radius: 10px;
+}
+
+.user-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-box {
+  width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}

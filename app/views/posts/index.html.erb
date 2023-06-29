@@ -73,6 +73,20 @@
     <% end %>
   </div>
   <div class="container-side">
+    <div class="user-boxes-sticky">
+      <div class="user-boxes">
+        <% @users.each do |user| %>
+          <div class="user-box">
+            <div class="avatar">
+              <%= cl_image_tag user.avatar.key, class: "user-image"%>
+            </div>
+            <div class="name">
+              <%= user.first_name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <%# <div class="col-md-3 team-box">
       <div class="row block-labels">
         <div class="col-8 team-members-title">
