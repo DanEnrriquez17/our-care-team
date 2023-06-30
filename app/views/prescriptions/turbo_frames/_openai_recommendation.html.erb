@@ -1,0 +1,19 @@
+<% if !current_user.team&.recommendation.present? %>
+  <h3>Your AI Recommendation:</h3>
+  <p><%= link_to "Get Recommendation", prescriptions_path(recommendation: true), class: "btn btn-primary", data: { action: "click->spinner#showSpinner", "spinner-target": "button" } %></p>
+<% end %>
+<button class="btn btn-primary d-none" type="button" disabled data-spinner-target="spinner">
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+
+<% if current_user.team&.recommendation.present? %>
+  <div id="scroll_task_recommendation">
+    <h5>Your AI Recommendation:</h5>
+    <ul>
+      <% current_user.team&.recommendation.split('R:').drop(1).each do |recommendation| %>
+        <li class="text-black"><%= recommendation %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
