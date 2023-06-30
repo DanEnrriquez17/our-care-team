@@ -110,7 +110,7 @@
           </ul>
         </div>
         <div class="col-1 post-arrow">
-          <%= link_to post_path(post) do %>
+          <%= link_to posts_path do %>
             <i class="fa fa-arrow-right" style="color: #b792fc;"></i>
           <% end %>
         </div>
@@ -124,7 +124,7 @@
       <h1 class="post-details">Events</h1>
     </div>
     <div class="col-md-1 task-add">
-      <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #b792fc;'></i>".html_safe, posts_path %>
+      <%= link_to "<i class='new fa-solid fa-square-plus fa-xl' style='color: #b792fc;'></i>".html_safe, events_path %>
     </div>
   </div>
   <div class="events cont-event-mini">

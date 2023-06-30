@@ -10,31 +10,31 @@
       </div>
       <%= form_for event do |f| %>
         <div class="modal-body">
-          <div>
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+          <div class="event-input">
+            <%= f.label :title, class:"form-title-label" %>
+            <%= f.text_field :title, class: "form-control" %>
           </div>
-          <div>
-            <%= f.label :event_type %>
-            <%= f.select :event_type, Event::EVENTTYPES %>
+          <div class="event-input">
+            <%= f.label :event_type, class:"form-title-label" %>
+            <%= f.select :event_type, Event::EVENTTYPES, class: "form-select" %>
           </div>
-          <div>
-            <%= f.label :start %>
+          <div class="event-input">
+            <%= f.label :start, class:"form-title-label" %>
             <%= f.datetime_field :start %>
           </div>
-          <div>
-            <%= f.label :end %>
+          <div class="event-input">
+            <%= f.label :end, class:"form-title-label" %>
             <%= f.datetime_field :end %>
           </div>
-          <div>
-            <%= f.label :location %>
-            <%= f.text_field :location %>
+          <div class="event-input">
+            <%= f.label :location, class:"form-title-label" %>
+            <%= f.text_field :location, class: "form-control" %>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%= link_to "Delete Event", event_path(event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" } %>
-          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-primary-doctor" data-bs-dismiss="modal">Close</button>
+          <%= link_to "Delete Event", event_path(event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" }, class: "btn btn-primary-doctor" %>
+          <%= f.submit "Save changes", class: "btn btn-primary-doctor" %>
         </div>
       <% end %>
     </div>

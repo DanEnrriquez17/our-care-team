@@ -64,7 +64,7 @@
               <%# <h5><strong>Documents attached:</strong></h5> %>
               <% post.photos.each do |photo| %>
                 <!--How can we upload the photos that are already in the seed?-->
-                <div post-attached-image><%= cl_image_tag photo.key, class:"post-img", crop: :fill %></div>
+                <div class="post-attached-image"><%= cl_image_tag photo.key, class:"post-img", crop: :fill %></div>
               <% end %>
             <% end %>
           </div>
