@@ -16,4 +16,9 @@ class User < ApplicationRecord
   has_many :mentioned_posts, through: :post_mentioned_users, source: :post # this is the user's mentioned posts
 
   has_one_attached :avatar
+
+
+  def team
+    Team.find_by(user: self)
+  end
 end
