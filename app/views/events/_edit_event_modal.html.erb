@@ -8,7 +8,7 @@
         <h1 class="modal-title fs-5" id="exampleModal<%= event.id %>Label">Edit Event</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <%= form_for event do |f| %>
+      <%= form_for event, data: { turbo: false } do |f| %>
         <div class="modal-body">
           <div class="event-input">
             <%= f.label :title, class:"form-title-label" %>
@@ -31,7 +31,7 @@
             <%= f.text_field :location, class: "form-control" %>
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer d-flex flex-row">
           <button type="button" class="btn btn-primary-doctor" data-bs-dismiss="modal">Close</button>
           <%= link_to "Delete Event", event_path(event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this event?" }, class: "btn btn-primary-doctor" %>
           <%= f.submit "Save changes", class: "btn btn-primary-doctor" %>

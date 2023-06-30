@@ -77,6 +77,10 @@ salim = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fo
 salim_photo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1687989604/doctor-image-male-four_adc17q.png")
 salim.avatar.attach(io: salim_photo, filename: "salim.png", content_type: "image/png")
 
+dany = Doctor.create!(specialty: "Oncologist", address: "6401 N Federal Hwy, Fort Lauderdale, FL 33308, Estados Unidos", phone_number: "888-555-2323", user: admin, first_name: "Daniel", last_name: "Avila", hospital: "Lauderdale Medical Center")
+dany_photo = URI.open("https://res.cloudinary.com/dqe5h0j32/image/upload/v1688157289/doctor-avatar-five_gerzbg.png")
+dany.avatar.attach(io: dany_photo, filename: "dany.png", content_type: "image/png")
+
 #DAN PRESCRIPTION SEEDS
 Prescription.create!(name: "warfarin", dosage: "5mg", frequency: "3x per day", status: "active", end_time: (60 / 3).days.from_now, tablets: 60, doctor: Doctor.all.first, purpose: "blood thinner")
 Prescription.create!(name: "ibuprofen", dosage: "200mg", frequency: "2x per day", status: "active", end_time: (30 / 2).days.from_now, tablets: 30, doctor: Doctor.all.first, purpose: "pain relief")
