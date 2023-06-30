@@ -68,7 +68,7 @@
                 </ul>
               </div>
               <div class="col-1 post-arrow">
-                <%= link_to event_path(event) do %>
+                <% render "edit_event_modal", event: event do %>
                   <i class="fa fa-arrow-right" style="color: #b792fc;"></i>
                 <% end %>
               </div>
