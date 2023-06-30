@@ -1,94 +1,110 @@
-<div class="main-cont">
-  <div class="post-container">
-    <% @posts.each do |post| %>
-      <div class="post">
-        <div class="post-header">
-          <div class="img-name-created">
-            <div>
-              <% if post.user.avatar.attached? %>
-                <%= cl_image_tag post.user.avatar.key, class: "user-image"%>
-              <% else %>
-                <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"user-image"%>
-              <% end %>
-            </div>
-            <div class="name-and-created">
-              <h6><strong><%= post.owner[:first_name] %></strong></h6>
-              <p>posted at <%= post.created_at.strftime("%r") %></p>
-            </div>
-          </div>
-          <div class="post-edit-block">
-            <% if post.owner == current_user %>
-              <div class="d-flex justify-content-end">
-                <div class="p-1">
-                  <%= link_to edit_post_path(post), class: "link" do %>
-                    <i class="fa-solid fa-pencil"></i>
-                  <% end %>
-                </div>
-                <div class="p-1">
-                  <%= link_to "<i class='fa-regular fa-trash-can'></i>".html_safe, post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "link" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="post-content">
-          <p><%= post.content %></p>
-          <!--Review why is not respecting the condition to show this text-->
-          <% if post.post_mentioned_users.any? %>
-            <p>@mentioned:
-              <% post.post_mentioned_users.each do |post_mentioned_user| %>
-                <%= full_name(post_mentioned_user.user) %>,
-              <% end %>
-            </p>
-          <% end %>
-        </div>
-        <div class="attached-doc">
-          <!--Review why is not respecting the condition to show this text-->
-          <% if post.photos.any? %>
-            <%# <h5><strong>Documents attached:</strong></h5> %>
-            <% post.photos.each do |photo| %>
-              <!--How can we upload the photos that are already in the seed?-->
-              <div><%= cl_image_tag photo.key, class:"post-img", crop: :fill %></div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="d-flex justify-content-end">
-          <%= simple_form_for [post, PostMentionedUser.new], html: { class: 'post-footer' } do |f| %>
-            <div class="d-flex justify-content-end">
-              <div class="p-2">
-                <p>Tag a Team Member</p>
-              </div>
-              <div class="p-2">
-                <%= f.input :user_id, as: :select, collection: User.all.map { |user| [full_name(user), user.id] }, label: false, input_html: { class: 'tag-select' } %>
-              </div>
-              <div class="ml-auto p-2">
-                <%= f.submit "Tag", class: "tag-btn" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="container-side">
-    <div class="user-boxes-sticky">
-      <div class="col-8 nofitication-text">
-        Team Members
-      </div>
-      <div class="user-boxes">
-        <% @users.each do |user| %>
-          <div class="user-box">
-            <div class="avatar">
-              <%= cl_image_tag user.avatar.key, class: "user-image"%>
-            </div>
-            <div class="name">
-              <%= user.first_name %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+<div class="container d-con">
+  <div class= "logo-row">
+    <div class="col-4 user-row">
+      <p id="date" class="date"></p>
+      <script>
+        var today = new Date();
+        document.getElementById("date").innerHTML = today.toDateString();
+      </script>
     </div>
-    <%# <div class="col-md-3 team-box">
+    <div class="col-4">
+      <p class="user">Welcome back, <%= current_user.first_name %>.</p>
+    </div>
+    <div class="col-4 logo-box">
+      <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
+    </div>
+  </div>
+  <div class="main-cont">
+    <div class="post-container">
+      <% @posts.each do |post| %>
+        <div class="post">
+          <div class="post-header">
+            <div class="img-name-created">
+              <div>
+                <% if post.user.avatar.attached? %>
+                  <%= cl_image_tag post.user.avatar.key, class: "user-image"%>
+                <% else %>
+                  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class:"user-image"%>
+                <% end %>
+              </div>
+              <div class="name-and-created">
+                <h6><strong><%= post.owner[:first_name] %></strong></h6>
+                <p>posted at <%= post.created_at.strftime("%r") %></p>
+              </div>
+            </div>
+            <div class="post-edit-block">
+              <% if post.owner == current_user %>
+                <div class="d-flex justify-content-end">
+                  <div class="p-1">
+                    <%= link_to edit_post_path(post), class: "link" do %>
+                      <i class="fa-solid fa-pencil"></i>
+                    <% end %>
+                  </div>
+                  <div class="p-1">
+                    <%= link_to "<i class='fa-regular fa-trash-can'></i>".html_safe, post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "link" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="post-content">
+            <p><%= post.content %></p>
+            <!--Review why is not respecting the condition to show this text-->
+            <% if post.post_mentioned_users.any? %>
+              <p>@mentioned:
+                <% post.post_mentioned_users.each do |post_mentioned_user| %>
+                  <%= full_name(post_mentioned_user.user) %>,
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+          <div class="attached-doc">
+            <!--Review why is not respecting the condition to show this text-->
+            <% if post.photos.any? %>
+              <%# <h5><strong>Documents attached:</strong></h5> %>
+              <% post.photos.each do |photo| %>
+                <!--How can we upload the photos that are already in the seed?-->
+                <div post-attached-image><%= cl_image_tag photo.key, class:"post-img", crop: :fill %></div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="d-flex justify-content-end">
+            <%= simple_form_for [post, PostMentionedUser.new], html: { class: 'post-footer' } do |f| %>
+              <div class="d-flex justify-content-end">
+                <div class="p-2">
+                  <p>Tag a Team Member</p>
+                </div>
+                <div class="p-2">
+                  <%= f.input :user_id, as: :select, collection: User.all.map { |user| [full_name(user), user.id] }, label: false, input_html: { class: 'tag-select' } %>
+                </div>
+                <div class="ml-auto p-2">
+                  <%= f.submit "Tag", class: "tag-btn" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="container-side">
+      <div class="user-boxes-sticky">
+        <div class="col-8 nofitication-text">
+          Team Members
+        </div>
+        <div class="user-boxes">
+          <% @users.each do |user| %>
+            <div class="user-box">
+              <div class="avatar">
+                <%= cl_image_tag user.avatar.key, class: "user-image"%>
+              </div>
+              <div class="name">
+                <%= user.first_name %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%# <div class="col-md-3 team-box">
       <div class="row block-labels">
         <div class="col-8 team-members-title">
           Team Members
@@ -98,26 +114,27 @@
         </div>
       </div>
     </div> %>
-    <div class="block-post-create">
-      <div class="d-flex flex-column align-items-center">
-        <h2 class="post-title">Posts</h2>
-        <!--Button triger Modal-->
-        <div class="add-post-button">
-          <button type="button" class="btn btn-primary-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Create Post
-          </button>
-        </div>
-        <!--Modal-->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><span class="post-module-header-one">Create a</span> <span class="post-module-header">post</span></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <!-- This is the div where the form will be loaded -->
-              <div class="modal-body">
-                <%= render "posts/post_form", post: @post %>
+      <div class="block-post-create">
+        <div class="d-flex flex-column align-items-center">
+          <h2 class="post-title">Posts</h2>
+          <!--Button triger Modal-->
+          <div class="add-post-button">
+            <button type="button" class="btn btn-primary-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Create Post
+            </button>
+          </div>
+          <!--Modal-->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel"><span class="post-module-header-one">Create a</span> <span class="post-module-header">post</span></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- This is the div where the form will be loaded -->
+                <div class="modal-body">
+                  <%= render "posts/post_form", post: @post %>
+                </div>
               </div>
             </div>
           </div>

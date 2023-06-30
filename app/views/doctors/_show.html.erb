@@ -2,7 +2,9 @@
   <div id="map-<%= doctor.id%>" class="show-map"></div>
   <div class="card-body">
     <div class="d-flex align-items">
-      <%= cl_image_tag doctor.avatar.key, class: "show-img"%>
+      <%if doctor.avatar.attached?%>
+        <%= cl_image_tag doctor.avatar.key, class: "show-img"%>
+      <%end%>
       <div class="doctor-card-info">
         <h1>Dr. <%= doctor.first_name %> <%= doctor.last_name %></h1>
         <h5><strong>Specialty:</strong> <%= doctor.specialty %></h5>

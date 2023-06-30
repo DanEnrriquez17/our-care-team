@@ -102,7 +102,7 @@
             <ul>
             </li>
             <strong>
-              <li class="task-details"><%= post.owner[:first_name] %></strong> posted:</li>
+              <li class="task-details" style='color: #b792fc;'><%= post.owner[:first_name] %></strong> posted:</li>
             <span class="post-content">
               <%= post.content.split(" ").length > 9 ? post.content.split(" ")[0...9].join(" ") + '...' : post.content %>
             </span>            <br>
