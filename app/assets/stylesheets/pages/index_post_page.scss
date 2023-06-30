@@ -15,10 +15,10 @@
   width: 55vw;
   overflow-y: scroll;
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
   h4 {
-    font-size: 14px;
+    font-size: 15px;
     margin-right: 2px;
   }
 }
@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 45%;
 }
 
 .post {
@@ -146,13 +147,56 @@
   margin: 0%;
   vertical-align: center;
   align-content: end;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .tag-select {
-  font-size: 8px;
+  font-size: 12px;
 }
 
-// p.mentioned {
-//   font
-// }
+// chatgpt
+
+.user-boxes-sticky {
+  position: sticky;
+  top: 20px; /* Adjust the value as needed */
+  z-index: 999;
+  background-color: #fff; /* Optional: Add a background color to the sticky container */
+  padding: 10px; /* Optional: Add padding for spacing */
+  border-radius: 15px;
+  width: 60%;
+  margin-left: 3%;
+}
+
+.user-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 95%;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0%;
+  // width: 100%;
+  margin: 1%;
+  text-align: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.block-post-create {
+}
