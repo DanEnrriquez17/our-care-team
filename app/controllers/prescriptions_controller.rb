@@ -13,6 +13,7 @@ class PrescriptionsController < ApplicationController
         false
       end
     end
+    add_recommendation_to_team(@prescriptions) if params[:recommendation].present?
   end
 
 
@@ -62,7 +63,6 @@ class PrescriptionsController < ApplicationController
 
   def download
     @prescriptions = Prescription.all
-
     respond_to do |format|
       format.csv { send_data @prescriptions.to_csv, filename: "prescriptions-#{Date.today}.csv" }
     end
@@ -72,5 +72,17 @@ class PrescriptionsController < ApplicationController
 
   def prescription_params
     params.require(:prescription).permit(:id, :name, :dosage, :frequency, :status, :end_time, :tablets, :doctor_id, :purpose)
+  end
+
+  def add_recommendation_to_team(prescriptions)
+    recommendation = gpt4_service.content_recommendation(prescriptions)
+    team = current_user.team
+    team.update(recommendation: recommendation)
+    render turbo_stream: turbo_stream.update("openai_recommendation", partial: "prescriptions/turbo_frames/openai_recommendation")
+  end
+
+  def gpt4_service
+    client = OpenAI::Client.new
+    @gpt4_service ||= Gpt4Service.new(client)
   end
 end
