@@ -34,24 +34,24 @@
       <div class="card-body">
         <h5 class="card-title">Upcoming Prescription Refills</h5>
         <% if @upcoming_refills.empty? %>
-          <div class="row event-row d-flex">
+          <div class="row prescription-mini-row d-flex">
             <div class="col-12 post-details-mini">
               <p class="card-text">No upcoming refills</p>
             </div>
           </div>
         <% else %>
           <% @upcoming_refills.each do |p| %>
-            <div class="row event-row d-flex">
+            <div class="row prescription-mini-row d-flex">
               <div class="col-1 avatar-event-box">
                 <%= image_tag(p.doctor.avatar, class: "avatar-event-icon") if p.doctor.avatar.attached? %>
               </div>
               <div class="col-9 post-details-mini">
                 <ul>
-                  <li class="task-details" style="font-size: 14px;"><strong><%= p.name %></strong></li>
-                  <span class="post-content">
+                  <li class="task-details" style='font-size: 14px; color: #b792fc;'><strong><%= p.name %></strong></li>
+                  <span class="post-content" style='font-size: 13px;'>
                     Will need a refill by <%= p.end_time %>
                   </span>
-                  <li class="time-ago"><em><%= time_ago_in_words_custom(p.end_time) %></em></li>
+                  <li class="time-ago" style='font-size: 13px; color: #cecdcd;'><em><%= time_ago_in_words_custom(p.end_time) %></em></li>
                 </ul>
               </div>
             </div>

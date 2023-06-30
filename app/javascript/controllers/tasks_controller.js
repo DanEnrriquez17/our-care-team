@@ -5,15 +5,14 @@ export default class extends Controller {
   static targets = ["tasks"];
 
   // Declare the properties for typewriter
-  i = 0;
-  txt =
-    "Hello, Lowell. Please remember to check your assigned tasks."; /* The text */
-  speed = 50; /* The speed/duration of the effect in milliseconds */
+  // i = 0;
+  // txt = `Hello, Lowell. Please remember to check your assigned tasks.`; /* The text */
+  // speed = 50; /* The speed/duration of the effect in milliseconds */
 
   connect() {
     console.log("hola Isaac");
     // Call the typeWriter function on connect
-    this.typeWriter();
+    // this.typeWriter();
   }
 
   // Rest of your functions (myTasks, pendingTasks, completedTasks)
@@ -26,8 +25,8 @@ export default class extends Controller {
           .content,
       },
     })
-      .then((response) => response.text())
-      .then((html) => {
+      .then(response => response.text())
+      .then(html => {
         this.tasksTarget.innerHTML = html;
       });
   }
@@ -40,8 +39,8 @@ export default class extends Controller {
           .content,
       },
     })
-      .then((response) => response.text())
-      .then((html) => {
+      .then(response => response.text())
+      .then(html => {
         this.tasksTarget.innerHTML = html;
       });
   }
@@ -54,8 +53,8 @@ export default class extends Controller {
           .content,
       },
     })
-      .then((response) => response.text())
-      .then((html) => {
+      .then(response => response.text())
+      .then(html => {
         this.tasksTarget.innerHTML = html;
       });
   }
@@ -69,8 +68,8 @@ export default class extends Controller {
           .content,
       },
     })
-      .then((response) => response.text())
-      .then((html) => {
+      .then(response => response.text())
+      .then(html => {
         document.querySelector("#task-form-container").innerHTML = html;
 
         // Initialize and show the bootstrap modal

@@ -13,13 +13,15 @@
   margin-top: 10px;
   padding: 0%;
   height: auto;
-  width: 55vw;
+  width: 45vw;
   overflow-y: scroll;
+
   p {
-    font-size: 12px;
-  }
-  h4 {
     font-size: 14px;
+  }
+
+  h4 {
+    font-size: 15px;
     margin-right: 2px;
   }
 }
@@ -28,7 +30,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  position: sticky;
+  width: 45%;
+}
+
+.post {
+  border-style: solid;
+  border-color: #b792fc;
+
 }
 
 .post {
@@ -44,6 +52,7 @@
   margin-bottom: 3%;
   padding: 3%;
   padding-bottom: 0%;
+
   ul {
     list-style: none;
     padding-left: 0px;
@@ -53,26 +62,37 @@
 .name-and-created {
   display: flex;
   align-items: baseline;
+
   p {
     margin-left: 15px;
     color: #8d8d8d;
   }
 }
+
 .img-name-created {
   display: flex;
   align-items: baseline;
   padding: 5px;
+
   p {
     font-size: 11;
     color: #cecdcd;
   }
 }
+
 .user-image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 30px;
 }
+
+
+.post-attached-image {
+  width: 90%;
+  height: 50%;
+}
+
 .tag-btn {
   padding: 5px 10px;
   background-color: #3f75ef;
@@ -82,12 +102,14 @@
   margin-left: 10px;
   font-size: 11px;
 }
+
 .attached-doc {
   display: flex;
   width: 100%;
   align-content: center;
   flex-wrap: wrap;
 }
+
 .post-img {
   // height: 60%;
   // width: 60%;
@@ -95,7 +117,16 @@
   width: 100%;
   max-width: 100%;
   height: 100%;
+  object-fit: contain;
+
 }
+
+.user-boxes-sticky {
+  border-style: solid;
+  border-color: #b792fc;
+
+}
+
 .btn-primary-post {
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
@@ -104,21 +135,25 @@
   width: 150px;
   padding: 6px 6px;
 }
+
 .add-post-button {
   padding-top: 0px;
   padding-right: 0;
   margin-left: 1rem;
 }
+
 .post-module-header-one {
   color: #222222;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
+
 .post-module-header {
   color: #b792fc;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
+
 .post-title {
   font-size: 35px;
   color: #cecdcd;
@@ -148,13 +183,56 @@
   margin: 0%;
   vertical-align: center;
   align-content: end;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .tag-select {
-  font-size: 8px;
+  font-size: 12px;
 }
 
-// p.mentioned {
-//   font
-// }
+// chatgpt
+
+.user-boxes-sticky {
+  position: sticky;
+  top: 20px;
+  /* Adjust the value as needed */
+  z-index: 999;
+  background-color: #fff;
+  /* Optional: Add a background color to the sticky container */
+  padding: 10px;
+  /* Optional: Add padding for spacing */
+  border-radius: 15px;
+  width: 60%;
+  margin-left: 3%;
+}
+
+.user-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 95%;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0%;
+  // width: 100%;
+  margin: 1%;
+  text-align: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+}

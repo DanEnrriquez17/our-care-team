@@ -15,7 +15,7 @@
     </div>
   </div>
   <div>
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between doctors-header">
       <h2 class="doctor-title">Doctors</h2>
       <!--Button triger Modal-->
       <div class="add-doctor-button">
@@ -44,11 +44,13 @@
           <div class="head">
             <% if doctor.medical_appointments.last.nil?  %>
               <div class="doc-appointment">
-                <strong>No appointments</strong>
+                <strong>No upcoming <br>
+                  appointments</strong>
               </div>
             <% else %>
               <div class="doc-appointment">
-                <strong>Next appointment:</strong> <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %>
+                <strong>Next appointment:</strong><br>
+                <%= doctor.medical_appointments.last.event.start.strftime("%B %d, %Y at %I:%M %p") %>
               </div>
             <% end %>
           </div>

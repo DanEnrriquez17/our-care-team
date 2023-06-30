@@ -7,6 +7,10 @@
   margin-top: 10px;
 }
 
+.doctors-header {
+  width: 87vw;
+}
+
 .doctor-card {
   display: flex;
   flex-direction: column;
@@ -31,7 +35,7 @@
   width: auto;
   height: 160px;
   border-radius: 10%;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .doctor-label {
@@ -44,10 +48,10 @@
   color: #ffffff;
   background-color: #b792fc;
   border-radius: 15px;
-  font-size: 20px;
-  width: 170px;
+  font-size: 17px;
+  width: 160px;
   padding: 5px 1px;
-  margin-right: 0px;
+  margin-left: 5rem;
   margin-top: 10px;
 }
 
@@ -85,41 +89,51 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 370px;
-  width: 90vw;
+  height: 355px;
+  width: 87vw;
   margin-top: 10px;
+  overflow: scroll;
+  margin-left: 2rem;
 }
 
-.doc-name{
+.doc-name {
+  text-align: center;
+
   color: #a9a9a9;
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 
-.doc-specialty, .doc-hospital, .doc-appointment{
+.doc-specialty,
+.doc-hospital,
+.doc-appointment {
   color: #a9a9a9;
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
 }
 
-.doc-appointment{
+.doc-appointment {
   margin-top: 10px;
   margin-left: 10px;
   background-color: #f3f3f3;
   border-radius: 5px;
   padding: 5px;
+  text-align: center;
+  width: 176px;
 }
 
-.head{
+.head {
   height: 59px;
 }
 
-.map{
-  height: 280px;
-  width: 90%;
-  margin: 10px;
+.map {
+  height: 290px;
+  width: 87vw;
+  margin-top: 30px;
   border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
 .user {
