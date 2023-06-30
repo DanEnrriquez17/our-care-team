@@ -24,9 +24,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
     @doctor.user = current_user
     if @doctor.save!
-      redirect_to doctor_path(@doctor)
-    else
-      redirect_to new_doctor_path(@doctor)
+      redirect_to doctors_path
     end
 
   end
