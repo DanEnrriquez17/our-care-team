@@ -36,7 +36,6 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
-    # No need for app/views/doctors/update.html.erb
     redirect_to events_path
   end
 

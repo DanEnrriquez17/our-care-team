@@ -37,7 +37,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     @doctor.update(doctor_params)
     # No need for app/views/doctors/update.html.erb
-    redirect_to doctor_path(@doctor)
+    redirect_to doctors_path
   end
 
   def destroy

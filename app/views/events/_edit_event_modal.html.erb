@@ -8,7 +8,7 @@
         <h1 class="modal-title fs-5" id="exampleModal<%= event.id %>Label">Edit Event</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <%= form_for event do |f| %>
+      <%= form_for event, data: { turbo: false } do |f| %>
         <div class="modal-body">
           <div class="event-input">
             <%= f.label :title, class:"form-title-label" %>
