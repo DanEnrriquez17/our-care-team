@@ -9,30 +9,30 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 doctor-module-header-one" id="staticBackdropLabel">Create Event</h1>
+        <h5 class="modal-title" id="staticBackdropLabel"><span class="post-module-header-one">Create </span> <span class="post-module-header">event</span></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%= form_for @event do |f| %>
         <div id="event-form-container" class="modal-body">
           <div class="event-input">
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+            <%= f.label :title, class:"form-title-label" %>
+            <%= f.text_field :title, class: "form-control" %>
           </div>
           <div class="event-input">
-            <%= f.label :event_type %>
-            <%= f.select :event_type, Event::EVENTTYPES %>
+            <%= f.label :event_type, class:"form-title-label" %>
+            <%= f.select :event_type, Event::EVENTTYPES, class: "form-select" %>
           </div>
           <div class="event-input">
-            <%= f.label :start %>
+            <%= f.label :start, class:"form-title-label" %>
             <%= f.datetime_field :start %>
           </div>
           <div class="event-input">
-            <%= f.label :end %>
+            <%= f.label :end, class:"form-title-label" %>
             <%= f.datetime_field :end %>
           </div>
           <div class="event-input">
-            <%= f.label :location %>
-            <%= f.text_field :location %>
+            <%= f.label :location, class:"form-title-label" %>
+            <%= f.text_field :location, class: "form-control" %>
           </div>
         </div>
         <div class="modal-footer">

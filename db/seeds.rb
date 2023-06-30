@@ -43,7 +43,7 @@ daniel.avatar.attach(io: archivo, filename: "daniel.png", content_type: "image/p
 
 # DAN POSTS SEEDS
 post1 = Post.create!(title: "Dad's birthday", content: "Look at this photo of Dad's cake", user: User.all.sample)
-post1archivo = URI.open("https://cakexpo-images.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/08/07162433/IMG-20220807-WA00182.jpg")
+post1archivo = URI.open("https://unsplash.com/es/fotos/Z30Jpgmx2UY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink")
 post1.photos.attach(io: post1archivo, filename: "post1.jpg", content_type: "image/jpg")
 
 Post.create!(title: "Check up", content: "Everything went well with the anual check up, nothing to worry about", user: User.all.sample)

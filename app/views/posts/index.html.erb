@@ -25,7 +25,7 @@
                   <% end %>
                 </div>
                 <div class="p-1">
-                  <%= link_to post_path(post), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "link" do %>
+                  <%= link_to posts_path, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "link" do %>
                     <i class="fa-regular fa-trash-can"></i>
                   <% end %>
                 </div>
@@ -108,3 +108,4 @@
       </div>
     </div>
   </div>
+</div>
