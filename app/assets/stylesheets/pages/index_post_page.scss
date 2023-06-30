@@ -6,6 +6,12 @@
   height: 700px;
 }
 
+.item-post-top {
+  height: 65px;
+  padding: 1em;
+  width: 100%;
+}
+
 .post-container {
   display: flex;
   flex-direction: column;
@@ -13,7 +19,7 @@
   margin-top: 10px;
   padding: 0%;
   height: auto;
-  width: 45vw;
+  width: 50vw;
   overflow-y: scroll;
 
   p {
@@ -45,7 +51,7 @@
   align-items: flex-center;
   justify-content: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: 100%;
+  height: 85%;
   width: 100%;
   border-radius: 10px;
   background-color: white;
@@ -84,13 +90,12 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 30px;
 }
 
 
 .post-attached-image {
-  width: 90%;
-  height: 50%;
+  width: 600px;
+  height: 450px;
 }
 
 .tag-btn {
@@ -105,19 +110,20 @@
 
 .attached-doc {
   display: flex;
-  width: 100%;
+  width: 93%;
   align-content: center;
   flex-wrap: wrap;
+  align-self: center;
 }
 
 .post-img {
   // height: 60%;
   // width: 60%;
   border-radius: 20px;
-  width: 100%;
-  max-width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: contain;
+  margin-right: 2rem;
 
 }
 
@@ -202,7 +208,7 @@
   padding: 10px;
   /* Optional: Add padding for spacing */
   border-radius: 15px;
-  width: 60%;
+  width: 85%;
   margin-left: 3%;
 }
 
@@ -233,6 +239,6 @@
   margin-bottom: 10px;
 }
 
-.name {
-  font-weight: bold;
+.nofitication-text {
+  padding-bottom: 1rem;
 }

@@ -62,7 +62,9 @@
                 <ul>
                   <li class="task-details" style="font-size: 14px; color: #a9a9a9;"><strong><%= event.title %></strong></li>
                   <span class="post-content">
-                    <%= event.notes.split(" ").length > 9 ? event.notes.split(" ")[0...9].join(" ") + '...' : event.notes %>
+                    <% unless event.notes.nil? %>
+                      <%= event.notes.split(" ").length > 9 ? event.notes.split(" ")[0...9].join(" ") + '...' : event.notes %>
+                    <% end %>
                   </span>
                   <li class="time-ago"><em><%= time_ago_in_words_custom(event.created_at) %></em></li>
                 </ul>

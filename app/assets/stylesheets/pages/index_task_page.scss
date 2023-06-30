@@ -90,6 +90,8 @@
   padding: 1em;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-right: 3rem;
+
 }
 
 .item-three {
@@ -98,6 +100,7 @@
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-top: 10px;
+  margin-right: 3rem;
 }
 
 .recent-box {
@@ -106,12 +109,14 @@
   padding: 1em;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-right: 3rem;
+
 }
 
 .all-tasks {
   height: 400px;
   overflow: scroll;
-  width: 940px;
+  width: 980px;
 }
 
 .add-task-button {

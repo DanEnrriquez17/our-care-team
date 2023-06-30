@@ -20,6 +20,11 @@
   }
 }
 
+.table {
+  object-fit: contain;
+
+}
+
 .avatar-event-icon {
   height: 50px;
   width: auto;
@@ -127,7 +132,7 @@
 }
 
 .event-block {
-  width: 8rem;
+  width: 5rem;
   border-radius: 5px;
   background: linear-gradient(126deg, rgba(189, 143, 255, 1) 0%, rgba(134, 49, 255, 1) 100%);
   font-family: "Poppins", sans-serif;

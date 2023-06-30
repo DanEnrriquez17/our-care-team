@@ -10,7 +10,7 @@
     </div>
     <div class="col-4">
       <p class="user">Welcome back, <%= current_user.first_name %>.</p>
-      <%= link_to 'Download CSV', download_prescriptions_path(format: :csv) %>
+      <%= link_to 'Download CSV', download_prescriptions_path(format: :csv), class: 'btn btn-primary csv-btn' %>
     </div>
     <div class="col-4 logo-box">
       <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">

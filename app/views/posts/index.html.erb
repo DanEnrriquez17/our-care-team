@@ -14,6 +14,37 @@
       <img src="https://res.cloudinary.com/dqe5h0j32/image/upload/v1687795741/Care_Team_Logo_Updated_azhxg4.svg" class="logo" alt="">
     </div>
   </div>
+  <div class="row top-row d-flex">
+    <div class="col-md-8 d-flex item-post-top">
+      <div class="col-md-10 task-manager">
+        <h1 class="mb-2 ml-2">Post Feed</h1>
+        <%# <p id="demo" class="typewriter"></p> %>
+        <span id="element"></span>
+      </div>
+      <div class="col-md-2 add-task-button">
+        <div class="add-post-button">
+          <button type="button" class="btn btn-primary-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Create Post
+          </button>
+        </div>
+        <!--Modal-->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"><span class="post-module-header-one">Create a</span> <span class="post-module-header">post</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- This is the div where the form will be loaded -->
+              <div class="modal-body">
+                <%= render "posts/post_form", post: @post %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="main-cont">
     <div class="post-container">
       <% @posts.each do |post| %>
@@ -89,7 +120,7 @@
     <div class="container-side">
       <div class="user-boxes-sticky">
         <div class="col-8 nofitication-text">
-          Team Members
+          <strong>Team Members</strong>
         </div>
         <div class="user-boxes">
           <% @users.each do |user| %>
@@ -114,32 +145,7 @@
         </div>
       </div>
     </div> %>
-      <div class="block-post-create">
-        <div class="d-flex flex-column align-items-center">
-          <h2 class="post-title">Posts</h2>
-          <!--Button triger Modal-->
-          <div class="add-post-button">
-            <button type="button" class="btn btn-primary-post" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Create Post
-            </button>
-          </div>
-          <!--Modal-->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel"><span class="post-module-header-one">Create a</span> <span class="post-module-header">post</span></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <!-- This is the div where the form will be loaded -->
-                <div class="modal-body">
-                  <%= render "posts/post_form", post: @post %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+</div>
 </div>
