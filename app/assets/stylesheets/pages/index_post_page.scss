@@ -15,10 +15,10 @@
   width: 55vw;
   overflow-y: scroll;
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
   h4 {
-    font-size: 14px;
+    font-size: 15px;
     margin-right: 2px;
   }
 }
@@ -147,11 +147,11 @@
   margin: 0%;
   vertical-align: center;
   align-content: end;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .tag-select {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 // chatgpt
@@ -196,4 +196,7 @@
 
 .name {
   font-weight: bold;
+}
+
+.block-post-create {
 }
